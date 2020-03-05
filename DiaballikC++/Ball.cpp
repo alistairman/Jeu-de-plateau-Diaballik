@@ -1,9 +1,11 @@
+#include "Ball.h"
+#include "Color.h"
+
 #include <iostream>
 #include <ostream>
 #include <functional>
 
-#include "Ball.h"
-#include "Color.h"
+
 
 namespace BallSpace {
 
