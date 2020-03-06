@@ -5,14 +5,18 @@
 #include <ostream>
 #include <functional>
 
-
+using namespace std;
 
 namespace BallSpace {
 
-using namespace std;
+
 
 Ball::Ball(Color color){
     color_ = color;
+}
+
+Ball::Ball(){
+    color_ = Color::NO;
 }
 
 Color Ball::getColor(){

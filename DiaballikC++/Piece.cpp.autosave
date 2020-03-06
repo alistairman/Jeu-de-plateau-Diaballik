@@ -25,6 +25,7 @@ bool Piece::isInside(){
 void Piece::passe(Piece & piece){
     if(!piece.isInside()){
         piece.ball_ = ball_;
+        ball_ = false;
 
     }
     else{

@@ -1,10 +1,14 @@
 #ifndef PIECE_H
 #define PIECE_H
+#include <iostream>
+#include <ostream>
 
 #include "Color.h"
 #include "Ball.h"
 
-namespace Piece {
+//using namespace BallSpace;
+
+namespace PieceSpace {
 
 using namespace BallSpace;
 
@@ -12,7 +16,9 @@ class Piece{
 
 private:
     Color color_;
-    Ball ball_;
+    bool ball_;
+    //Ball ball_;
+    //Ball * ball_ = nullptr;
 public:
     Piece (Color color);
     bool isInside();

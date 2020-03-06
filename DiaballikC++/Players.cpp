@@ -2,9 +2,10 @@
 #include <iostream>
 #include <ostream>
 
+using namespace std;
+
 namespace Players {
 
-using namespace std;
 
 Players::Players(std::string name){
     name_ = name;
