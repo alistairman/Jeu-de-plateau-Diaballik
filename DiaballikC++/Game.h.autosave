@@ -1,0 +1,40 @@
+#ifndef GAME_H
+#define GAME_H
+#include "Board.h"
+#include "Players.h"
+
+#include <iostream>
+#include <ostream>
+#include <vector>
+
+using namespace BoardSpace;
+using namespace PlayersSpace;
+
+
+namespace GameSpace {
+
+
+class Game{
+
+private:
+    Board board_;
+    Players currentPlayer;
+    vector <Players> players;
+
+public:
+    Game(unsigned x, unsigned y);
+    void welcome();
+    void start();
+    Players getCurrentPlayer();
+    void swapPlayer();
+    bool isOver();
+    Players getWinner();
+    void restart();
+
+};
+
+
+}
+
+
+#endif // GAME_H

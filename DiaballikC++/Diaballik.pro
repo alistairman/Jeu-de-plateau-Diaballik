@@ -15,5 +15,6 @@ HEADERS += \
     Ball.h \
     Board.h \
     Color.h \
+    Game.h \
     Piece.h \
     Players.h

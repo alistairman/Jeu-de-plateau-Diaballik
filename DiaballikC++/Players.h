@@ -3,7 +3,7 @@
 
 #include "Ball.h"
 
-namespace Players {
+namespace PlayersSpace {
 
     class Players{
     private:
@@ -12,6 +12,7 @@ namespace Players {
     public:
             Players(std::string color);
             std::string getName();
+            void play(unsigned x, unsigned y); // a definir encore
     };
 
 }
