@@ -25,11 +25,16 @@ bool Piece::isInside(){
 void Piece::passe(Piece & piece){
     if(!piece.isInside()){
         piece.ball_ = ball_;
+        ball_ = false;
 
     }
     else{
         cout << "error ball is already get " << endl;
     }
+}
+
+Color Piece::getColor(){
+    return color_;
 }
 
 }

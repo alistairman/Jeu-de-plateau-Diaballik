@@ -10,7 +10,7 @@
 
 namespace PieceSpace {
 
-using namespace BallSpace;
+//using namespace BallSpace;
 
 class Piece{
 
@@ -23,6 +23,7 @@ public:
     Piece (Color color);
     bool isInside();
     void passe(Piece & piece);
+    Color getColor();
 
 };
 

@@ -12,15 +12,7 @@ Color getWhite();
 Color getNo();
 
 
-Color getBlack(){
-    return Color::BLACK;
-}
-Color getWhite(){
-    return Color::WHITE;
-}
-Color getNo(){
-    return Color::NO;
-}
+
 
 
 

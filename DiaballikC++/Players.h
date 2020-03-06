@@ -8,7 +8,7 @@ namespace Players {
     class Players{
     private:
         std::string name_;
-            Color color_;
+        Color color_;
     public:
             Players(std::string color);
             std::string getName();
