@@ -1,19 +1,31 @@
-#include "Players.h"
+
 #include <iostream>
-#include <ostream>
+
+#include "Players.h"
 
 using namespace std;
 
-namespace Players {
+namespace PlayersSpace {
 
 
-Players::Players(std::string name){
-    name_ = name;
+Players::Players(string name,Color color):
+    name_(name),
+    color_(color)
+{}
+
+string Players::getName(){
+    return name_;
 }
 
-std::string Players::getName(){
-    cout << name_ << endl;
-    return name_;
+ostream &  Players::afficheName(ostream & c ){
+    c <<  name_ << endl;
+    return c;
+}
+
+int Players::play(){
+    int x = 0;
+    cin >> x;
+    return x;
 }
 
 }

@@ -2,18 +2,9 @@
 #define COLOR_H
 
 enum class Color{
-    BLACK,
-    WHITE,
-    NO
+    BLACK = 1,
+    WHITE = 2,
+    NO = 0
 };
-
-Color getBlack();
-Color getWhite();
-Color getNo();
-
-
-
-
-
 
 #endif // COLOR_H

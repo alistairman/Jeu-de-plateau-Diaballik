@@ -1,18 +1,24 @@
 #ifndef PLAYERS_H
 #define PLAYERS_H
 
-#include "Ball.h"
+#include<string>
+
+#include "Color.h"
+
+using namespace std;
 
 namespace PlayersSpace {
 
     class Players{
     private:
-        std::string name_;
+        string name_;
         Color color_;
     public:
-            Players(std::string color);
-            std::string getName();
-            void play(unsigned x, unsigned y); // a definir encore
+
+        Players(string name, Color color);
+        string getName();
+        ostream & afficheName(ostream & c);
+        int play();
     };
 
 }
