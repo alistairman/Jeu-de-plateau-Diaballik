@@ -18,10 +18,38 @@ int main()
 {
 
     //vector <vector <int>> vect (7,vector<int>(7,0));
-    Game game = Game(7,7,"ali","red");
+
+    cout << endl;
+    cout << "veuillez entrez le nom du player 1 : ";
+    string player1;
+    cin >> player1;
+    cout << "veuillez entrez le nom du player 2 : ";
+    string player2;
+    cin >> player2;
+    cout << endl;
+    Game game = Game(7,7,player1,player2);
     game.welcome();
-    game.showBoard();
     game.start();
+
+    while(!game.isOver()){
+        cout << endl;
+        cout << "c'est à " << game.getCurrentPlayer().getName() << " de jouer " << endl;
+        cout << endl;
+        cout << " ==== entrez les coordonnées d'origine ==== "<< endl;
+        cout << endl;
+
+        unsigned ox = game.getCurrentPlayer().play();
+        unsigned oy = game.getCurrentPlayer().play();
+        cout << " ==== entrez les coordonnées de destination ==== :" << endl;
+        unsigned dx = game.getCurrentPlayer().play();
+        unsigned dy = game.getCurrentPlayer().play();
+        game.play(ox,oy,dx,dy);
+        game.swapPlayer();
+    }
+
+    if(game.isOver()){
+        game.getWinner();
+    }
 
 
     cout << "---------------------------" << endl;

@@ -27,14 +27,16 @@ public:
     void welcome();
     void getPlayer1();
     void getPlayer2();
-    void start(); // a definir
+    void start(); // a finir en dernier avec la logique de jeu
     void showBoard();
     Players getCurrentPlayer();
     void swapPlayer();
-    bool isOver(); // a definir
-    Players getWinner();// a definir
-    void restart(); // a definir
-    void move(unsigned x, unsigned y); // a definir
+    bool isOver();
+    Players getWinner();
+    void restart();
+    bool antiGame(Players currentPlayer);
+    Color getOppoColor(Players currentPlayer);
+    void play(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
     bool checkPasse(unsigned x,unsigned y, unsigned a, unsigned b); // a definir
 
 };

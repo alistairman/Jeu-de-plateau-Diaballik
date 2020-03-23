@@ -19,6 +19,8 @@ namespace PlayersSpace {
         string getName();
         ostream & afficheName(ostream & c);
         int play();
+        void tapeName();
+        Color getColor();
     };
 
 }

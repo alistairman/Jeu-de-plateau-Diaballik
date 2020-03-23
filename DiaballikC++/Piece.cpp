@@ -47,6 +47,11 @@ void Piece::setBool(bool b){
     ball_ = b;
 }
 
+void Piece::setColor(Color color){
+    color_ = color;
+}
+
+
 }
 
 

@@ -21,6 +21,7 @@ public:
     bool isInside();
     void passe(Piece piece);
     Color getColor();
+    void setColor(Color color);
     void toString();
     bool getBool();
     void setBool(bool b);

@@ -25,6 +25,9 @@ public:
     bool isInside(unsigned x, unsigned y);
     void initBoard();
     ostream & showBoard (ostream & c);
+    unsigned getWidth();
+    unsigned getHeight();
+    void move(unsigned ox, unsigned oy, unsigned dx, unsigned dy);
 };
 
 }

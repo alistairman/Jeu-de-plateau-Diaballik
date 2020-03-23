@@ -16,7 +16,9 @@ Board::Board(unsigned width,unsigned height):
 {}
 
 Piece Board::getPiece(unsigned x, unsigned y){
-    return board_[x][y];
+    if(isInside(x,y)){
+        return board_[x][y];
+    }
 }
 
 
@@ -36,9 +38,16 @@ bool Board::isInside(unsigned x, unsigned y){
 
 void Board::initBoard(){
     for(unsigned i=0; i<height_; i++ ){
+        for(unsigned j=0; j<width_; j++){
+            board_[i][j] = Piece(Color::NO);
+        }
+    }
+
+    for(unsigned i=0;i<height_;i++){
         board_[0][i] = Piece(Color::BLACK);
         board_[6][i] = Piece(Color::WHITE);
     }
+
     board_[0][3].setBool(true);
     board_[6][3].setBool(true);
 }
@@ -61,6 +70,21 @@ ostream& Board::showBoard (ostream & c ){
     return c;
 }
 
+unsigned Board::getWidth(){
+    return width_;
+}
+
+unsigned Board::getHeight(){
+    return height_;
+}
+
+void Board::move(unsigned ox, unsigned oy, unsigned dx, unsigned dy){
+
+    if(board_[dx][dy].getColor() == Color::NO){
+        board_[dx][dy] = board_[ox][oy];
+        board_[ox][oy] = Piece(Color::NO);
+    }
+}
 
 
 }
