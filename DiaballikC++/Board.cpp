@@ -16,24 +16,16 @@ Board::Board(unsigned width,unsigned height):
 {}
 
 Piece Board::getPiece(unsigned x, unsigned y){
-    if(isInside(x,y)){
-        return board_[x][y];
-    }
+    Piece b = Piece(Color::NO);
+    if(board_[x][y].getColor()!=Color::NO){
+            b = board_[x][y];
+        }
+    return b;
 }
 
 
-
-
 bool Board::isInside(unsigned x, unsigned y){
-    bool ok = false;
-    int w = static_cast<int>(width_);
-    int h = static_cast<int>(height_);
-    if(x>=0 && x<w && y>=0 && y<h){
-        if( board_[x][y].getColor() != Color::NO){
-            ok = true;
-        }
-    }
-    return ok;
+    return board_[x][y].getBool()!=false;
 }
 
 void Board::initBoard(){
@@ -48,8 +40,8 @@ void Board::initBoard(){
         board_[6][i] = Piece(Color::WHITE);
     }
 
-    board_[0][3].setBool(true);
-    board_[6][3].setBool(true);
+    board_[0][3].setBool();
+    board_[6][3].setBool();
 }
 
 ostream& Board::showBoard (ostream & c ){
@@ -78,11 +70,25 @@ unsigned Board::getHeight(){
     return height_;
 }
 
-void Board::move(unsigned ox, unsigned oy, unsigned dx, unsigned dy){
+void Board::move(unsigned ox, unsigned oy, unsigned dx, unsigned dy, Color currentColor){
 
-    if(board_[dx][dy].getColor() == Color::NO){
+    if(board_[dx][dy].getColor() == Color::NO & board_[ox][oy].getColor()== currentColor && board_[ox][oy].getBool()!=true){
         board_[dx][dy] = board_[ox][oy];
         board_[ox][oy] = Piece(Color::NO);
+    }
+}
+
+void Board::passe(unsigned int dx, unsigned int dy, Color color){
+    if(!isInside(dx,dy) && board_[dx][dy].getColor()==color){
+    for(unsigned i=0; i<width_; i++){
+        for(unsigned j=0; j<height_; j++){
+            if(board_[i][j].getColor()==color & isInside(i,j)){
+
+                    board_[dx][dy].setBool();
+                    board_[i][j].setBool();
+                }
+            }
+        }
     }
 }
 

@@ -24,7 +24,7 @@ public:
     void setColor(Color color);
     void toString();
     bool getBool();
-    void setBool(bool b);
+    void setBool();
 
 };
 

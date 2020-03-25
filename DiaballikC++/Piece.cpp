@@ -43,8 +43,12 @@ bool Piece::getBool(){
     return ball_;
 }
 
-void Piece::setBool(bool b){
-    ball_ = b;
+void Piece::setBool(){
+    if(ball_==true){
+        ball_=false;
+    }else {
+        ball_=true;
+}
 }
 
 void Piece::setColor(Color color){

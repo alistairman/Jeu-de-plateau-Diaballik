@@ -31,19 +31,47 @@ int main()
     game.welcome();
     game.start();
 
+    unsigned countPasse = 0;
+    unsigned countMove = 0;
+
     while(!game.isOver()){
-        cout << endl;
+
+
         cout << "c'est à " << game.getCurrentPlayer().getName() << " de jouer " << endl;
         cout << endl;
-        cout << " ==== entrez les coordonnées d'origine ==== "<< endl;
-        cout << endl;
 
-        unsigned ox = game.getCurrentPlayer().play();
-        unsigned oy = game.getCurrentPlayer().play();
-        cout << " ==== entrez les coordonnées de destination ==== :" << endl;
-        unsigned dx = game.getCurrentPlayer().play();
-        unsigned dy = game.getCurrentPlayer().play();
-        game.play(ox,oy,dx,dy);
+        string action = "";
+
+        while(countPasse<1 || countMove<2){
+            cout << endl;
+            cout << " taper les commandes : " << endl;
+            cout << " passe = pour passer la ball " << endl;
+            cout << " move  = pour deplacer un pion " << endl;
+            cout << endl;
+            cin >> action;
+
+            if(action == "passe" && countPasse<1){
+                cout << " ==== entrez les coordonnées de destination ==== " << endl;
+                game.action(action);
+                countPasse++;
+                game.showBoard();
+            }
+
+            if(action=="move" && countMove<2){
+                cout << " ==== entrez les coordonnées d'origine ==== "<< endl;
+                cout << endl;
+                cout << " ==== entrez les coordonnées de destination ==== :" << endl;
+                cout << endl;
+                game.action(action);
+                countMove++;
+                game.showBoard();
+            }
+
+        }
+
+
+        countPasse = 0;
+        countMove = 0;
         game.swapPlayer();
     }
 

@@ -2,11 +2,12 @@
 #define BOARD_H
 
 #include <vector>
-
 #include "Piece.h"
+#include "Players.h"
 
 using namespace std;
 using namespace PieceSpace;
+using namespace PlayersSpace;
 
 namespace BoardSpace {
 
@@ -27,7 +28,8 @@ public:
     ostream & showBoard (ostream & c);
     unsigned getWidth();
     unsigned getHeight();
-    void move(unsigned ox, unsigned oy, unsigned dx, unsigned dy);
+    void move(unsigned ox, unsigned oy, unsigned dx, unsigned dy, Color color);
+    void passe(unsigned dx, unsigned dy, Color color);
 };
 
 }

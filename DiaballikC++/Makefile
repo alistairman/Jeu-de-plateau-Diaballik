@@ -643,7 +643,8 @@ compiler_clean:
 
 Board.o: Board.cpp Board.h \
 		Piece.h \
-		Color.h
+		Color.h \
+		Players.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Board.o Board.cpp
 
 Game.o: Game.cpp Game.h \

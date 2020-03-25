@@ -196,4 +196,8 @@ bool Game::checkMove(unsigned int ox, unsigned int oy, unsigned int dx, unsigned
     return ok;
 }
 
+bool Game::checkPasse(unsigned int dx, unsigned int dy){
+    
+}
+
 }

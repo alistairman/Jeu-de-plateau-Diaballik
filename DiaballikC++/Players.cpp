@@ -28,7 +28,7 @@ ostream &  Players::afficheName(ostream & c ){
     return c;
 }
 
-int Players::play(){
+unsigned Players::play(){
     int x = 0;
     cout << "veuillez entrez un entier : ";
     cin >> x;
