@@ -164,7 +164,12 @@ void Game::passe(unsigned int dx, unsigned int dy){
 void Game::action(string action){
 
     if (action=="passe") {
-        passe(currentPlayer_.play(),currentPlayer_.play());
+        int dx = currentPlayer_.play();
+        int dy = currentPlayer_.play();
+        if(checkPasse(dx,dy)){
+            passe(dx,dy);
+        }
+
 
     }
 
@@ -194,6 +199,49 @@ bool Game::checkMove(unsigned int ox, unsigned int oy, unsigned int dx, unsigned
         cout << " en dehors du perimettre " << endl;
     }
     return ok;
+}
+
+bool Game::checkPasse( int dx,  int dy){
+    int x = 0;
+    int y = 0;
+    bool ok = false;
+    for(int i=0; i< board_.getWidth(); i++){
+        for(int j=0; board_.getHeight(); j++){
+            if(board_.getPiece(i,j).getColor()==currentPlayer_.getColor() & board_.isInside(i,j)){
+                x = i;
+                y = j;
+            }
+        }
+    }
+
+   if(direction(x,y,+1,-1).getColor()==currentPlayer_.getColor()){
+       ok=true;
+   }
+   if(direction(x,y,+1,+1).getColor()==currentPlayer_.getColor()){
+        ok = true;
+   }
+   if(direction(x,y,-1,-1).getColor()==currentPlayer_.getColor()){
+       ok = true;
+
+   }
+   if(direction(x,y,-1,+1).getColor()==currentPlayer_.getColor()){
+       ok = true;
+   }
+
+   return ok;
+
+}
+
+Piece Game::direction(int ox, int oy, int width, int height){
+    int directionWidth = ox+width;
+    int directionHeight = oy+height;
+
+    while(directionWidth >= 0 & directionWidth < board_.getWidth() & directionHeight >= 0 & directionHeight < board_.getHeight()
+            & board_.getPiece(directionWidth,directionHeight).getColor()!=currentPlayer_.getColor()){
+        directionWidth += width;
+        directionHeight += height;
+    }
+    return board_.getPiece(directionWidth,directionHeight);
 }
 
 }

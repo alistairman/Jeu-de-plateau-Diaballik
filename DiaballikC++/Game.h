@@ -39,7 +39,9 @@ public:
     void play(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
     void action(string action);
     void passe(unsigned dx, unsigned dy);
-    bool checkMove(unsigned x,unsigned y, unsigned a, unsigned b); // a definir
+    bool checkMove(unsigned x,unsigned y, unsigned a, unsigned b);
+    bool checkPasse(int dx, int dy);
+    Piece direction(int x, int y, int width, int height);
 
 };
 

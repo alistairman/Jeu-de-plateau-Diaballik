@@ -7,4 +7,6 @@ enum class Color{
     NO = 0
 };
 
+
+
 #endif // COLOR_H

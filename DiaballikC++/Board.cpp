@@ -15,7 +15,7 @@ Board::Board(unsigned width,unsigned height):
 
 {}
 
-Piece Board::getPiece(unsigned x, unsigned y){
+Piece Board::getPiece(int x, int y){
     Piece b = Piece(Color::NO);
     if(board_[x][y].getColor()!=Color::NO){
             b = board_[x][y];

@@ -21,7 +21,7 @@ private:
 public:
 
     Board(unsigned width, unsigned height);
-    Piece getPiece(unsigned x, unsigned y);
+    Piece getPiece(int x, int y);
     void addPiece(Piece p);
     bool isInside(unsigned x, unsigned y);
     void initBoard();
