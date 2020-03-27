@@ -157,7 +157,6 @@ void Game::play(unsigned int ox, unsigned int oy, unsigned int dx, unsigned int 
 void Game::passe(unsigned int dx, unsigned int dy, int ox, int oy){
 
     if(checkPasse(dx,dy,ox,oy)){
-        cout << "on fait le check";
         board_.passe(dx,dy,ox,oy);
     }
 
@@ -215,7 +214,6 @@ bool Game::checkMove(unsigned int ox, unsigned int oy, unsigned int dx, unsigned
 bool Game::checkPasse( int dx,  int dy, int ox, int oy){
     bool ok = false;
     Piece p = Piece(Color::NO);
-    cout << "on est dans le check";
 
     if(ox<dx & oy < dy){
         p = direction(ox,oy,+1,+1);
@@ -234,7 +232,6 @@ bool Game::checkPasse( int dx,  int dy, int ox, int oy){
     }
 
    if(p.getColor()==currentPlayer_.getColor()){
-       cout << " solution prise " << endl;
        ok=true;
    }
 
@@ -245,11 +242,9 @@ bool Game::checkPasse( int dx,  int dy, int ox, int oy){
 Piece Game::direction(int ox, int oy, int width, int height){
     int directionWidth = ox+width;
     int directionHeight = oy+height;
-    cout << " n'entre pas dans le while " << endl;
 
     while(directionWidth >= 0 & directionWidth < board_.getWidth() & directionHeight >= 0 & directionHeight < board_.getHeight()
             & board_.getPiece(directionWidth,directionHeight).getColor()!=currentPlayer_.getColor()){
-        cout << "ca entre dans le while";
         directionWidth += width;
         directionHeight += height;
     }

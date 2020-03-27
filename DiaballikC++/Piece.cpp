@@ -20,7 +20,7 @@ bool Piece::isInside(){
     return ball_ == true;
 }
 
-void Piece::passe(Piece piece){
+void Piece::passe(Piece & piece){
     if(!piece.isInside()){
         piece.ball_ = ball_;
         ball_ = false;
@@ -54,6 +54,8 @@ void Piece::setBool(){
 void Piece::setColor(Color color){
     color_ = color;
 }
+
+
 
 
 }

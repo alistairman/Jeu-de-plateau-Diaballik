@@ -23,13 +23,14 @@ public:
     Board(unsigned width, unsigned height);
     Piece getPiece(int x, int y);
     void addPiece(Piece p);
-    bool isInside(unsigned x, unsigned y);
+    bool isInsideBall(unsigned x, unsigned y);
     void initBoard();
     ostream & showBoard (ostream & c);
     unsigned getWidth();
     unsigned getHeight();
     void move(unsigned ox, unsigned oy, unsigned dx, unsigned dy, Color color);
-    void passe(unsigned dx, unsigned dy, Color color);
+    void passe(unsigned dx, unsigned dy, int ox, int oy);
+    Piece getBall(Players p);
 };
 
 }

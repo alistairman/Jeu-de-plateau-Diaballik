@@ -19,7 +19,7 @@ private:
 public:
     Piece (Color color);
     bool isInside();
-    void passe(Piece piece);
+    void passe(Piece & piece);
     Color getColor();
     void setColor(Color color);
     void toString();

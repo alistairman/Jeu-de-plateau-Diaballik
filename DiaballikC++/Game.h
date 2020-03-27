@@ -38,9 +38,9 @@ public:
     Color getOppoColor(Players currentPlayer);
     void play(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
     void action(string action);
-    void passe(unsigned dx, unsigned dy);
+    void passe(unsigned dx, unsigned dy,int ox,int oy);
     bool checkMove(unsigned x,unsigned y, unsigned a, unsigned b);
-    bool checkPasse(int dx, int dy);
+    bool checkPasse(int dx, int dy,int ox, int oy);
     Piece direction(int x, int y, int width, int height);
 
 };

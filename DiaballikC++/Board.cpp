@@ -24,7 +24,7 @@ Piece Board::getPiece(int x, int y){
 }
 
 
-bool Board::isInside(unsigned x, unsigned y){
+bool Board::isInsideBall(unsigned x, unsigned y){
     return board_[x][y].getBool()!=false;
 }
 
@@ -72,21 +72,24 @@ unsigned Board::getHeight(){
 
 void Board::move(unsigned ox, unsigned oy, unsigned dx, unsigned dy, Color currentColor){
 
-    if(board_[dx][dy].getColor() == Color::NO & board_[ox][oy].getColor()== currentColor && board_[ox][oy].getBool()!=true){
+    if(board_[dx][dy].getColor() == Color::NO & board_[ox][oy].getColor()== currentColor && !board_[ox][oy].isInside()){
         board_[dx][dy] = board_[ox][oy];
         board_[ox][oy] = Piece(Color::NO);
     }
 }
 
-void Board::passe(unsigned int dx, unsigned int dy, Color color){
-    if(!isInside(dx,dy) && board_[dx][dy].getColor()==color){
-    for(unsigned i=0; i<width_; i++){
-        for(unsigned j=0; j<height_; j++){
-            if(board_[i][j].getColor()==color & isInside(i,j)){
+void Board::passe(unsigned int dx, unsigned int dy, int ox, int oy){
+    if(board_[dx][dy].getColor()==board_[ox][oy].getColor()  && !isInsideBall(dx,dy)){
+        board_[ox][oy].passe(board_[dx][dy]);
+    }
+}
 
-                    board_[dx][dy].setBool();
-                    board_[i][j].setBool();
-                }
+Piece Board::getBall(Players p){
+
+    for(int i=0; i< width_; i++){
+        for(int j=0; height_; j++){
+            if(getPiece(i,j).getColor()==p.getColor() && isInsideBall(i,j)){
+               return getPiece(i,j);
             }
         }
     }
