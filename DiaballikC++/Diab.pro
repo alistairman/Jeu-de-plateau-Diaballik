@@ -6,13 +6,18 @@ QMAKE_CXXFLAGS += -pedantic-errors
 SOURCES += \
         Board.cpp \
         Game.cpp \
+        Observable.cpp \
         Piece.cpp \
         Players.cpp \
+        View.cpp \
         main.cpp
 
 HEADERS += \
     Board.h \
     Color.h \
     Game.h \
+    Observable.h \
+    Observer.h \
     Piece.h \
-    Players.h
+    Players.h \
+    View.h

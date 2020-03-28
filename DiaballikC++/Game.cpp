@@ -1,6 +1,5 @@
 
 #include <iostream>
-//#include <ostream>
 #include "Game.h"
 
 
@@ -8,18 +7,25 @@ namespace GameSpace {
 
 using namespace std;
 
-Game::Game(unsigned width, unsigned height,string a, string b):
+Game::Game(unsigned width, unsigned height):
     board_ (Board(width,height)),
-    player1_ (Players(a,Color::BLACK)),
-    player2_ (Players(b, Color::WHITE)),
-    currentPlayer_ (player1_)
+    currentPlayer_ (Players("",Color::NO)),
+    winner_(Players("",Color::NO))
 {}
 
-void Game::welcome(){
-    cout << " =======================" << endl;
-    cout << " Bienvenu Dans DIABALLIK " << endl;
-    cout << " =======================" << endl;
-    cout << endl;
+bool Game::isPossibleToAdd(){
+    return players_.size()<2;
+}
+
+void Game::addPlayer(string player){
+    if(players_.size()==0){
+        players_.push_back(Players(player,Color::BLACK));
+    }
+    else{
+        players_.push_back(Players(player,Color::WHITE));
+    }
+    currentPlayer_ = players_.front();
+
 }
 
 Players Game::getCurrentPlayer(){
@@ -27,23 +33,19 @@ Players Game::getCurrentPlayer(){
 }
 
 void Game::swapPlayer(){
-    if(currentPlayer_.getName() == player1_.getName()){
-        currentPlayer_ = player2_;
+    if(currentPlayer_.getName() == players_.front().getName()){
+        currentPlayer_ = players_.back();
 
     }else{
-        currentPlayer_ = player1_;
+        currentPlayer_ = players_.front();
     }
-    cout << "currentPlayer : " << currentPlayer_.getName() << endl;
 }
 
 void Game::start(){
 
     board_.initBoard();
-    getPlayer1();
-    getPlayer2();
-    showBoard();
     cout << "game started : " << endl;
-
+    showBoard();
 }
 
 void Game::showBoard(){
@@ -53,25 +55,24 @@ void Game::showBoard(){
     cout << endl;
 }
 
-void Game::getPlayer1(){
-    cout << "Player 1 : " ;
-    player1_.afficheName(cout);
-}
-
-void Game::getPlayer2(){
-    cout << "Player 2 : " ;
-    player2_.afficheName(cout);
-}
 
 bool Game::isOver(){
     bool finish = false;
     for(unsigned i=0; i< board_.getWidth(); i++){
-        if(board_.getPiece(0,i).getColor()==Color::WHITE & board_.getPiece(0,i).getBool()==true
-            || board_.getPiece(6,i).getColor()==Color::BLACK & board_.getPiece(6,i).getBool()==true){
+        if(board_.getPiece(0,i).getColor()==Color::WHITE && board_.getPiece(0,i).isInside()){
             finish = true;
+            winner_ = players_.back();
+        }
+         if(board_.getPiece(6,i).getColor()==Color::BLACK && board_.getPiece(6,i).isInside()){
+            finish = true;
+            winner_ = players_.front();
         }
     }
     return finish;
+}
+
+Players Game::getWinner(){
+    return  winner_;
 }
 
 bool Game::antiGame(Players currentPlayer){
@@ -120,30 +121,13 @@ bool Game::antiGame(Players currentPlayer){
 }
 
 Color Game::getOppoColor(Players currentPlayer){
-    if (currentPlayer.getColor() == player1_.getColor()){
-        return player2_.getColor();
+    if (currentPlayer.getColor() == players_.front().getColor()){
+        return players_.back().getColor();
     }else{
-        return player1_.getColor();
+        return players_.front().getColor();
     }
 }
 
-
-
-
-Players Game::getWinner(){
-    Players winner = Players("",Color::NO);
-    if(!isOver()){
-        for(unsigned i=0; i< board_.getWidth(); i++){
-            if(board_.getPiece(0,i).getColor()==player2_.getColor() & board_.getPiece(0,i).getBool()==true){
-                winner = player2_;
-            }
-            if(board_.getPiece(6,i).getColor()==player1_.getColor() & board_.getPiece(6,i).getBool()==true){
-                winner = player1_;
-            }
-        }
-    }
-    return  winner;
-}
 
 void Game::restart(){
     start();
@@ -157,7 +141,6 @@ void Game::play(unsigned int ox, unsigned int oy, unsigned int dx, unsigned int 
 void Game::passe(unsigned int dx, unsigned int dy, int ox, int oy){
 
     if(checkPasse(dx,dy,ox,oy)){
-        cout << "on fait le check";
         board_.passe(dx,dy,ox,oy);
     }
 
@@ -215,7 +198,6 @@ bool Game::checkMove(unsigned int ox, unsigned int oy, unsigned int dx, unsigned
 bool Game::checkPasse( int dx,  int dy, int ox, int oy){
     bool ok = false;
     Piece p = Piece(Color::NO);
-    cout << "on est dans le check";
 
     if(ox<dx & oy < dy){
         p = direction(ox,oy,+1,+1);
@@ -234,7 +216,6 @@ bool Game::checkPasse( int dx,  int dy, int ox, int oy){
     }
 
    if(p.getColor()==currentPlayer_.getColor()){
-       cout << " solution prise " << endl;
        ok=true;
    }
 
@@ -245,15 +226,15 @@ bool Game::checkPasse( int dx,  int dy, int ox, int oy){
 Piece Game::direction(int ox, int oy, int width, int height){
     int directionWidth = ox+width;
     int directionHeight = oy+height;
-    cout << " n'entre pas dans le while " << endl;
 
     while(directionWidth >= 0 & directionWidth < board_.getWidth() & directionHeight >= 0 & directionHeight < board_.getHeight()
             & board_.getPiece(directionWidth,directionHeight).getColor()!=currentPlayer_.getColor()){
-        cout << "ca entre dans le while";
         directionWidth += width;
         directionHeight += height;
     }
     return board_.getPiece(directionWidth,directionHeight);
 }
+
+
 
 }

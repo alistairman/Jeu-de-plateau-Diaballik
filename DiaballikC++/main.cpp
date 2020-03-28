@@ -27,8 +27,7 @@ int main()
     string player2;
     cin >> player2;
     cout << endl;
-    Game game = Game(7,7,player1,player2);
-    game.welcome();
+    Game game = Game(7,7);
     game.start();
 
     unsigned countPasse = 0;

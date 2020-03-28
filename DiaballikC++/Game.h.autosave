@@ -39,7 +39,7 @@ public:
     void restart();
     bool antiGame(Players currentPlayer);
     Color getOppoColor(Players currentPlayer);
-    void play(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
+    void move(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
     void action(string action);
     void passe(unsigned dx, unsigned dy,int ox,int oy);
     bool checkMove(unsigned x,unsigned y, unsigned a, unsigned b);
