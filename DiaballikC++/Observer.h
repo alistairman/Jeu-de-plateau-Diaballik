@@ -1,25 +1,28 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-//#include "Game.h"
-
 namespace ObserverSpace {
-
-//using namespace GameSpace;
 
 class Observable;
 
+/**
+ * @brief The Observer class
+ * this class represent the observer of the game
+ */
 class Observer{
 
 public:
-    virtual void update(const Observable * game) = 0;
+    //this method is the destructor of observer class
     virtual ~Observer() = default;
 
+    //this method is called when a change happend in the observable class
+    virtual void update() const = 0;
+
 protected:
+
+    //this method is the constructor of the obsever class
     Observer() = default;
-
 };
-
 
 }
 

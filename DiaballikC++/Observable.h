@@ -1,23 +1,39 @@
 #ifndef OBSERVABLE_H
 #define OBSERVABLE_H
-#include<set>
-//#include "View.cpp"
+
+#include <list>
+#include <set>
+#include "Observer.h"
+
+using namespace std;
+using namespace ObserverSpace;
 
 namespace ObservableSpace {
 
-class Observer;
+//class Observer;
 
+/**
+ * @brief The Observable class
+ * this class represent observable class of the game
+ */
 class Observable{
 
-
 public:
-    virtual void registerObserver(Observer * observer) final;
+    //this method is the constructor of the observable class
+    Observable()=default;
+
+    //this method is a desctrutor of the observable class
     virtual ~Observable() = default;
 
+    //this method registrer a new observer
+    virtual void registerObserver(Observer  observer) = 0;
+
+    //this method notify all observer registered
+    virtual void notifyObservers() = 0;
+
 protected:
-    std::set<Observer *> observers_ { };
-    Observable()=default;
-    virtual void notifyObservers() const final;
+    // this attribute is a list of all observe registered
+    list<Observer > observers_ { };
 
 
 };

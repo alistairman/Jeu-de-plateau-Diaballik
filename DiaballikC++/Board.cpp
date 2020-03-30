@@ -8,7 +8,7 @@ namespace BoardSpace {
 
 
 
-Board::Board(unsigned width,unsigned height):
+Board::Board(int width,int height):
         width_(width),
         height_(height),
         board_ (vector<vector<Piece>>(width_,vector<Piece>(height_,Piece(Color::NO))))
@@ -16,26 +16,22 @@ Board::Board(unsigned width,unsigned height):
 {}
 
 Piece Board::getPiece(int x, int y){
-    Piece b = Piece(Color::NO);
-    if(board_[x][y].getColor()!=Color::NO){
-            b = board_[x][y];
-        }
-    return b;
+    return board_[x][y];
 }
 
 
-bool Board::isInsideBall(unsigned x, unsigned y){
+bool Board::isInsideBall(int x, int y){
     return board_[x][y].getBool()!=false;
 }
 
 void Board::initBoard(){
-    for(unsigned i=0; i<height_; i++ ){
-        for(unsigned j=0; j<width_; j++){
+    for(int i=0; i<height_; i++ ){
+        for(int j=0; j<width_; j++){
             board_[i][j] = Piece(Color::NO);
         }
     }
 
-    for(unsigned i=0;i<height_;i++){
+    for(int i=0;i<height_;i++){
         board_[0][i] = Piece(Color::BLACK);
         board_[6][i] = Piece(Color::WHITE);
     }
@@ -45,12 +41,11 @@ void Board::initBoard(){
 }
 
 ostream& Board::showBoard (ostream & c ){
-    for(unsigned i=0; i<width_; i++){
+    for(int i=0; i<width_; i++){
         c << endl;
-        for(unsigned j=0; j<height_; j++){
+        for(int j=0; j<height_; j++){
             if(board_[i][j].getBool()==true){
                 c <<" " << static_cast<std::underlying_type<Color>::type>(board_[i][j].getColor()) << "b";
-                //c <<" " << static_cast<bool>(board_[i][j].getBool());
             }
             else{
                 c <<" " << static_cast<std::underlying_type<Color>::type>(board_[i][j].getColor()) << " ";
@@ -62,37 +57,104 @@ ostream& Board::showBoard (ostream & c ){
     return c;
 }
 
-unsigned Board::getWidth(){
+int Board::getWidth(){
     return width_;
 }
 
-unsigned Board::getHeight(){
+int Board::getHeight(){
     return height_;
 }
 
-void Board::move(unsigned ox, unsigned oy, unsigned dx, unsigned dy, Color currentColor){
-
-    if(board_[dx][dy].getColor() == Color::NO & board_[ox][oy].getColor()== currentColor && !board_[ox][oy].isInside()){
-        board_[dx][dy] = board_[ox][oy];
-        board_[ox][oy] = Piece(Color::NO);
+void Board::move(int ox, int oy, int dx, int dy, Color currentColor){
+    if(checkMove(ox,oy,dx,dy)){
+        if(board_[dx][dy].getColor() == Color::NO && board_[ox][oy].getColor()== currentColor && !board_[ox][oy].isInside()){
+            board_[dx][dy] = board_[ox][oy];
+            board_[ox][oy] = Piece(Color::NO);
+        }
+        else{
+            throw string("impossible de deplacer le pion... ");
+        }
     }
 }
 
-void Board::passe(unsigned int dx, unsigned int dy, int ox, int oy){
-    if(board_[dx][dy].getColor()==board_[ox][oy].getColor()  && !isInsideBall(dx,dy)){
-        board_[ox][oy].passe(board_[dx][dy]);
+bool Board::checkMove(int ox, int oy, int dx, int dy){
+    bool ok = false;
+    if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+        if((dx==ox-1 & dy ==oy) || (dx==ox & dy==oy+1) || (dx==ox+1 & dy==oy) || (dx==ox & dy==oy-1)){
+            ok = true;
+        }
+        else{
+           throw string(" Distance trop grande ");
+        }
     }
+    else{
+        throw string(" impossible de deplacer le pion");
+    }
+    return ok;
 }
 
-Piece Board::getBall(Players p){
+void Board::passe(int dx, int dy,Players currentPlayer){
+    int ox;
+    int oy;
 
-    for(int i=0; i< width_; i++){
-        for(int j=0; height_; j++){
-            if(getPiece(i,j).getColor()==p.getColor() && isInsideBall(i,j)){
-               return getPiece(i,j);
+    for(int i=0;i<width_;i++){
+        for(int j=0;j<height_;j++){
+            if(currentPlayer.getColor() == board_[i][j].getColor() && board_[i][j].isInside()){
+                ox = i;
+                oy = j;
             }
         }
     }
+
+    if(checkPasse(ox,oy,dx,dy,currentPlayer.getColor())){
+        if(board_[dx][dy].getColor()==board_[ox][oy].getColor() && !isInsideBall(dx,dy)){
+            board_[ox][oy].passe(board_[dx][dy]);
+        }
+        else{
+            throw string("destination invalide ");
+        }
+    }
+    else{
+        throw string("passe non valide ");
+    }
+}
+
+bool Board::checkPasse(int ox, int oy,int dx, int dy,Color color){
+    bool ok = false;
+    Piece p = Piece(Color::NO);
+
+    if(ox<dx & oy < dy){
+        p = direction(ox,oy,+1,+1,color);
+    }
+
+    if(ox<dx & oy>dy){
+        p = direction(ox,oy,+1,-1,color);
+    }
+
+    if(ox>dx & oy>dy){
+        p = direction(ox,oy,-1,-1,color);
+    }
+
+    if(ox>dx & oy<dy){
+        p = direction(ox,oy,-1,+1,color);
+    }
+
+   if(p.getColor()==color){
+       ok=true;
+   }
+   return ok;
+}
+
+Piece Board::direction(int ox, int oy, int width, int height,Color color){
+    int directionWidth = ox+width;
+    int directionHeight = oy+height;
+
+    while(directionWidth >= 0 & directionWidth < width_ & directionHeight >= 0 & directionHeight < height_
+            & board_[directionWidth][directionHeight].getColor()!=color){
+        directionWidth += width;
+        directionHeight += height;
+    }
+    return board_[directionWidth][directionHeight];
 }
 
 

@@ -6,7 +6,6 @@ QMAKE_CXXFLAGS += -pedantic-errors
 SOURCES += \
         Board.cpp \
         Game.cpp \
-        Observable.cpp \
         Piece.cpp \
         Players.cpp \
         View.cpp \

@@ -1,6 +1,5 @@
 
 #include <iostream>
-//#include <ostream>
 
 #include "Piece.h"
 
@@ -22,8 +21,8 @@ bool Piece::isInside(){
 
 void Piece::passe(Piece & piece){
     if(!piece.isInside()){
-        piece.ball_ = ball_;
-        ball_ = false;
+        piece.setBool();
+        this->setBool();
 
     }
     else{
@@ -48,15 +47,8 @@ void Piece::setBool(){
         ball_=false;
     }else {
         ball_=true;
+    }
 }
-}
-
-void Piece::setColor(Color color){
-    color_ = color;
-}
-
-
-
 
 }
 

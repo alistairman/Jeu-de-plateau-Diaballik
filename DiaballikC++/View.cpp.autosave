@@ -106,7 +106,6 @@ void View::getWinner(){
 void View::update() const{
     cout << endl;
     cout << "Board : " << endl;
-
     cout << endl;
 }
 
