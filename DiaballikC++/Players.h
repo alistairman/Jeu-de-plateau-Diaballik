@@ -54,7 +54,7 @@ public:
      * @brief play
      * this method get the value input by the player
      */
-    int play();
+    int play(istream & c);
 
     /**
      * @brief tapeName

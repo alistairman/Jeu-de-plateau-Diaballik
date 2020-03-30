@@ -46,6 +46,7 @@ ostream& Board::showBoard (ostream & c ){
         for(int j=0; j<height_; j++){
             if(board_[i][j].getBool()==true){
                 c <<" " << static_cast<std::underlying_type<Color>::type>(board_[i][j].getColor()) << "b";
+                 //return board_[i][j].toString(c) << "b";
             }
             else{
                 c <<" " << static_cast<std::underlying_type<Color>::type>(board_[i][j].getColor()) << " ";
@@ -88,14 +89,14 @@ bool Board::checkMove(int ox, int oy, int dx, int dy){
         }
     }
     else{
-        throw string(" impossible de deplacer le pion");
+        throw string(" impossible de deplacer le pion hors du tableau ");
     }
     return ok;
 }
 
 void Board::passe(int dx, int dy,Players currentPlayer){
-    int ox;
-    int oy;
+    int ox=0;
+    int oy=0;
 
     for(int i=0;i<width_;i++){
         for(int j=0;j<height_;j++){

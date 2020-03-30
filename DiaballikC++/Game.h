@@ -56,6 +56,8 @@ public:
      */
     Game(int x, int y);
 
+    ~Game() override;
+
     /**
      * @brief registerObserver
      * this method add a new observer to the list of the observer

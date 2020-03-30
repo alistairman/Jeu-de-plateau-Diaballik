@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <set>
+//#include <set>
 #include <list>
 
 #include "Game.h"
@@ -12,6 +12,9 @@ namespace GameSpace  {
 using namespace std;
 using namespace ObservableSpace;
 
+Game::~Game(){
+
+}
 
 Game::Game(int width, int height):
     board_ (Board(width,height)),
@@ -50,6 +53,7 @@ void Game::swapPlayer(){
 void Game::start(){
     if(!isPossibleToAdd()){
         board_.initBoard();
+        cout << endl;
         cout << "game started : " << endl;
     }
     this->notifyObservers();
@@ -62,9 +66,9 @@ ostream & Game::showBoard(ostream & c){
 
 bool Game::isOver(){
     bool finish = false;
-    if(antiGame(currentPlayer_)){
+    //if(antiGame(currentPlayer_)){
 
-    }
+    //}
     for(int i=0; i< board_.getWidth(); i++){
         if(board_.getPiece(0,i).getColor()==Color::WHITE && board_.getPiece(0,i).isInside()){
             finish = true;
@@ -152,7 +156,12 @@ void Game::passe(int dx,int dy){
 }
 
 void Game::registerObserver(Observer  observer) {
-    observers_.push_back(observer);
+    //observers_.insert(observer);
+}
+
+
+void Game::notifyObservers(){
+
 }
 
 /**void Game::notifyObservers(){
@@ -165,9 +174,6 @@ void Game::registerObserver(Observer  observer) {
     //   (*o).update();
     //}
 }*/
-
-
-
 
 }
 

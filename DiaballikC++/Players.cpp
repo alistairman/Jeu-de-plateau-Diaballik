@@ -28,11 +28,8 @@ ostream &  Players::afficheName(ostream & c ){
     return c;
 }
 
-int Players::play(){
-    int x = 0;
-    cout << "veuillez entrez un entier : ";
-    cin >> x;
-    cout << endl;
+int Players::play(istream & c){
+    int x = 0; c >> x;
     return x;
 }
 

@@ -2,7 +2,9 @@ TEMPLATE = app
 CONFIG += console c++14
 CONFIG -= app_bundle
 CONFIG -= qt
-QMAKE_CXXFLAGS += -pedantic-errors
+QMAKE_CXXFLAGS += -pedantic-errors\
+                -std=c++17\
+                -Wall
 SOURCES += \
         Board.cpp \
         Game.cpp \

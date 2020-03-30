@@ -21,6 +21,8 @@ private:
      * this attribute represent the model game
      */
     Game & game_;
+    int countPasse;
+    int countMove;
 
 public:
     /**

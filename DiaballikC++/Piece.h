@@ -1,8 +1,10 @@
 #ifndef PIECE_H
 #define PIECE_H
 
-
+#include <iostream>
 #include "Color.h"
+
+using namespace std;
 
 namespace PieceSpace {
 
@@ -52,12 +54,6 @@ public:
      * @return the color of the piece
      */
     Color getColor();
-
-    /**
-     * @brief toString
-     * this method show the string value of the piece
-     */
-    void toString();
 
     /**
      * @brief getBool

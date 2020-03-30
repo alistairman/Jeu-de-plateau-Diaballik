@@ -1,6 +1,5 @@
 
 #include <iostream>
-
 #include "Piece.h"
 
 using namespace std;
@@ -26,16 +25,12 @@ void Piece::passe(Piece & piece){
 
     }
     else{
-        cout << "error ball is already get " << endl;
+        throw string ("error ball is already get ");
     }
 }
 
 Color Piece::getColor(){
     return color_;
-}
-
-void Piece::toString(){
-    cout << static_cast<int>(color_) << endl;
 }
 
 bool Piece::getBool(){

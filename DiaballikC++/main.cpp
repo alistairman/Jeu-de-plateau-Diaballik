@@ -18,20 +18,18 @@ ostream& operator << (ostream& os, const Color& obj)
 
 int main()
 {
-    //vector <vector <int>> vect (7,vector<int>(7,0));
-
     Game game = Game(7,7);
-    //View view = View(game);
+    View view = View(game);
     //View * v = &view;
-    //game.registerObserver(view);
-    //view.addPlayers();
+    //game.registerObserver((Observer)view);
+    view.addPlayers();
     game.start();
 
     while(!game.isOver()){
-        //view.getAction();
+        view.getAction();
     }
 
-    //view.getWinner();
+    view.getWinner();
 
     cout << "---------------------------" << endl;
     cout << " Hello World!" << endl;

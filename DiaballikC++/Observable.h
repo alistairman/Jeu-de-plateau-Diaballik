@@ -1,7 +1,7 @@
 #ifndef OBSERVABLE_H
 #define OBSERVABLE_H
 
-#include <list>
+//#include <list>
 #include <set>
 #include "Observer.h"
 
@@ -32,8 +32,8 @@ public:
     virtual void notifyObservers() = 0;
 
 protected:
-    // this attribute is a list of all observe registered
-    list<Observer > observers_ { };
+    // this attribute is a list of all observer registered
+    set<Observer *> observers_ { };
 
 
 };
