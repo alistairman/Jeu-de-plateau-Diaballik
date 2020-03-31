@@ -26,7 +26,7 @@ public:
     virtual ~Observable() = default;
 
     //this method registrer a new observer
-    virtual void registerObserver(Observer  observer) = 0;
+    virtual void registerObserver(Observer * observer) = 0;
 
     //this method notify all observer registered
     virtual void notifyObservers() = 0;

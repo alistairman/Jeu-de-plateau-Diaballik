@@ -155,7 +155,7 @@ void Game::passe(int dx,int dy){
     this->notifyObservers();
 }
 
-void Game::registerObserver(Observer  observer) {
+void Game::registerObserver(Observer * observer) {
     //observers_.insert(observer);
 }
 

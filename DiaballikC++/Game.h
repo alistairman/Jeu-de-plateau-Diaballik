@@ -63,7 +63,7 @@ public:
      * this method add a new observer to the list of the observer
      * @param observer the observer to register in the list of observer
      */
-    void registerObserver(Observer observer) override;
+    void registerObserver(Observer * observer) override;
 
     /**
      * @brief notifyObservers
