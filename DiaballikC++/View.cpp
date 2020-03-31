@@ -15,9 +15,13 @@ View::View(Game & game):
   countMove(0)
 {}
 
+View::~View(){
+    game_.unregisterObserver(this);
+    game_.~Game();
+}
 
 void View::addPlayers(){
-    //game_.registerObserver(this);
+    game_.registerObserver(this);
     cout << endl;
     cout << " ==========================" << endl;
     cout << "  Bienvenus Dans DIABALLIK " << endl;
@@ -32,9 +36,7 @@ void View::addPlayers(){
     }
 }
 
-void View::showBoard(){
-    game_.showBoard(cout);
-}
+
 
 
 void View::showCommand(){
@@ -46,9 +48,6 @@ void View::showCommand(){
 }
 
 void View::getAction(){
-    cout << "move = " <<countMove << endl;
-    cout << "passe = " << countPasse << endl;
-    showBoard();
     cout << endl;
     cout << "joueur courant est : ";
     game_.getCurrentPlayer().afficheName(cout);
@@ -57,8 +56,9 @@ void View::getAction(){
     try {
 
         while(countMove < 2 || countPasse < 1){
-            cout << "move = " <<countMove << endl;
-            cout << "passe = " << countPasse << endl;
+            cout << endl;
+            cout << countMove <<" move done"<< endl;
+            cout << countPasse << " passe done " << endl;
 
             showCommand();
             cout << "action : ";
@@ -102,7 +102,7 @@ void View::playAction(string action,int & countMove,int & countPasse){
 
             game_.move(ox,oy,dx,dy);
             countMove++;
-            showBoard();
+
         }
         else if(action =="passe" && countPasse < 1){
             cout << "veuillez entrez les coordonnées de destination " << endl;
@@ -114,19 +114,23 @@ void View::playAction(string action,int & countMove,int & countPasse){
 
             game_.passe(dx,dy);
             countPasse++;
-            showBoard();
         }
-
+        else{
+            throw string(" action déjà réalisé veuillez réessayer ");
+        }
 }
 
 void View::getWinner(){
     if(game_.isOver()){
-        cout << "the winner is : " << game_.getWinner().getName() << endl;
+        cout << "the winner is : ";
+        game_.getWinner().afficheName(cout);
+        cout << endl;
+        this->~View();
     }
 }
 
 void View::update() const{
-
+    game_.showBoard(cout);
 }
 
 

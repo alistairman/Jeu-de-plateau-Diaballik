@@ -1,6 +1,5 @@
 
 #include <iostream>
-//#include <set>
 #include <list>
 
 #include "Game.h"
@@ -12,15 +11,18 @@ namespace GameSpace  {
 using namespace std;
 using namespace ObservableSpace;
 
-Game::~Game(){
-
-}
 
 Game::Game(int width, int height):
     board_ (Board(width,height)),
     currentPlayer_ (Players("",Color::NO)),
     winner_(Players("",Color::NO))
 {}
+
+Game::~Game(){
+    for(Observer * o: observers_){
+        delete [] o;
+    }
+}
 
 bool Game::isPossibleToAdd(){
     return players_.size()<2;
@@ -33,8 +35,6 @@ void Game::addPlayer(string player){
     else{
         players_.push_back(Players(player,Color::WHITE));
     }
-    currentPlayer_ = players_.front();
-
 }
 
 Players Game::getCurrentPlayer(){
@@ -53,6 +53,7 @@ void Game::swapPlayer(){
 void Game::start(){
     if(!isPossibleToAdd()){
         board_.initBoard();
+        currentPlayer_ = players_.front();
         cout << endl;
         cout << "game started : " << endl;
     }
@@ -66,9 +67,6 @@ ostream & Game::showBoard(ostream & c){
 
 bool Game::isOver(){
     bool finish = false;
-    //if(antiGame(currentPlayer_)){
-
-    //}
     for(int i=0; i< board_.getWidth(); i++){
         if(board_.getPiece(0,i).getColor()==Color::WHITE && board_.getPiece(0,i).isInside()){
             finish = true;
@@ -126,6 +124,9 @@ bool Game::antiGame(Players currentPlayer){
             }
 
         }
+        if(find && count == 3){
+            winner_ = currentPlayer;
+        }
 
     return  find ;
 
@@ -145,35 +146,41 @@ void Game::restart(){
 }
 
 void Game::move(int ox,int oy,int dx,int dy){
-    board_.move(ox,oy,dx,dy,currentPlayer_.getColor());
-    this->notifyObservers();
+    if(ox == (int)ox && oy == (int)oy && dx==(int)dx && dy==(int)dy){
+        board_.move(ox,oy,dx,dy,currentPlayer_.getColor());
+        this->notifyObservers();
+    }
+    else{
+        throw string(" les valeurs entrées ne sont pas conforme, veuillez réessayer ");
+    }
 }
 
 
 void Game::passe(int dx,int dy){
-    board_.passe(dx,dy,currentPlayer_);
-    this->notifyObservers();
+    if(dx==(int)dx && dy==(int)dy){
+        board_.passe(dx,dy,currentPlayer_);
+        this->notifyObservers();
+    }
+    else{
+        throw string ("les valeurs entrées ne sont pas conforme, veuillez réessayer");
+    }
+
 }
 
 void Game::registerObserver(Observer * observer) {
-    //observers_.insert(observer);
+    observers_.insert(observer);
 }
 
+void Game::unregisterObserver(Observer * observer){
+    observers_.erase(observer);
+}
 
 void Game::notifyObservers(){
-
+    for(Observer * o : observers_){
+        o->update();
+    }
 }
 
-/**void Game::notifyObservers(){
-    list<ObserverSpace::Observer>o {this};
-    for(ObserverSpace::Observer o : observers_){
-
-    }
-
-    //for(o=observers_.begin(); o != observers_.end(); ++o){
-    //   (*o).update();
-    //}
-}*/
 
 }
 

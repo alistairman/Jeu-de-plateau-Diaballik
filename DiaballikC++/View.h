@@ -38,17 +38,13 @@ public:
      */
     View(Game & game);
 
+    ~View() override;
+
     /**
      * @brief addPlayers
      * this method called to add new player to the game
      */
     void addPlayers();
-
-    /**
-     * @brief showBoard
-     * this method show the board in the consol
-     */
-    void showBoard();
 
     /**
      * @brief getAction

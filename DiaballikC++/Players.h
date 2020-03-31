@@ -57,12 +57,6 @@ public:
     int play(istream & c);
 
     /**
-     * @brief tapeName
-     * this method ask the player to enter his name
-     */
-    void tapeName();
-
-    /**
      * @brief getColor
      * this method make the color of the player accessible
      * @return the color of the player

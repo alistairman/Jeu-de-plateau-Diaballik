@@ -7,12 +7,10 @@ using namespace std;
 namespace BoardSpace {
 
 
-
 Board::Board(int width,int height):
         width_(width),
         height_(height),
         board_ (vector<vector<Piece>>(width_,vector<Piece>(height_,Piece(Color::NO))))
-
 {}
 
 Piece Board::getPiece(int x, int y){

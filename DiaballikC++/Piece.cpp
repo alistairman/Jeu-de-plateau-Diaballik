@@ -10,8 +10,7 @@ namespace PieceSpace {
 Piece::Piece(Color color):
     color_(color),
     ball_(false)
-
-    {}
+{}
 
 
 bool Piece::isInside(){

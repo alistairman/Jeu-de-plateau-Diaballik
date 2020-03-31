@@ -56,6 +56,9 @@ public:
      */
     Game(int x, int y);
 
+    /**
+    * this method destroy the model of the game and make free all the allocate memories
+    */
     ~Game() override;
 
     /**
@@ -64,6 +67,13 @@ public:
      * @param observer the observer to register in the list of observer
      */
     void registerObserver(Observer * observer) override;
+
+    /**
+     * @brief unregisterObserver
+     * this method delete an observer from the list of the observer registered
+     * @param observer
+     */
+    void unregisterObserver(Observer *observer) override;
 
     /**
      * @brief notifyObservers
