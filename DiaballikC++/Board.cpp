@@ -74,6 +74,7 @@ void Board::move(int ox, int oy, int dx, int dy, Color currentColor){
             throw string("impossible de deplacer le pion... ");
         }
     }
+
 }
 
 bool Board::checkMove(int ox, int oy, int dx, int dy){

@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <list>
+#include <string>
+#include <typeinfo>
 
 #include "Game.h"
 #include "Observable.h"
@@ -146,25 +148,14 @@ void Game::restart(){
 }
 
 void Game::move(int ox,int oy,int dx,int dy){
-    if(ox == (int)ox && oy == (int)oy && dx==(int)dx && dy==(int)dy){
-        board_.move(ox,oy,dx,dy,currentPlayer_.getColor());
-        this->notifyObservers();
-    }
-    else{
-        throw string(" les valeurs entrées ne sont pas conforme, veuillez réessayer ");
-    }
+    board_.move(ox,oy,dx,dy,currentPlayer_.getColor());
+    this->notifyObservers();
 }
 
 
 void Game::passe(int dx,int dy){
-    if(dx==(int)dx && dy==(int)dy){
-        board_.passe(dx,dy,currentPlayer_);
-        this->notifyObservers();
-    }
-    else{
-        throw string ("les valeurs entrées ne sont pas conforme, veuillez réessayer");
-    }
-
+    board_.passe(dx,dy,currentPlayer_);
+    this->notifyObservers();
 }
 
 void Game::registerObserver(Observer * observer) {

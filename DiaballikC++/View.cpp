@@ -11,8 +11,8 @@ namespace ViewSpace {
 
 View::View(Game & game):
     game_(game),
-  countPasse(0),
-  countMove(0)
+    countPasse{0},
+    countMove{0}
 {}
 
 View::~View(){
@@ -55,7 +55,7 @@ void View::getAction(){
 
     try {
 
-        while(countMove < 2 || countPasse < 1){
+        while (countMove<2 || countPasse < 1){
             cout << endl;
             cout << countMove <<" move done"<< endl;
             cout << countPasse << " passe done " << endl;
@@ -67,10 +67,10 @@ void View::getAction(){
                 playAction(action,countMove,countPasse);
             }
             else{
-                throw string ("command non reconnu veuillez réessayer ");
+                throw string ("command non reconnu! veuillez réessayer ");
             }
-        }
 
+        }
         countMove = 0;
         countPasse = 0;
         game_.swapPlayer();

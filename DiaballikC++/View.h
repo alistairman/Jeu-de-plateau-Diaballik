@@ -24,6 +24,7 @@ private:
     int countPasse;
     int countMove;
 
+
 public:
     /**
      * @brief update

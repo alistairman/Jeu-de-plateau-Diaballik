@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.0, 2020-03-31T22:09:15. -->
+<!-- Written by QtCreator 4.10.0, 2020-04-13T15:28:56. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -311,8 +311,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Diab</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/alistairclerebaut/Applications/QT_/Diab/Diab.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Diab2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/alistairclerebaut/Applications/QT_/Diaballik/Diab/DEV4-Diaballik/DiaballikC++/Diab.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="uint" key="RunConfiguration.QmlDebugServerPort">3768</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
@@ -322,7 +322,6 @@
     <value type="bool" key="RunConfiguration.UseMultiProcess">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="bool" key="RunConfiguration.UseTerminal">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory"></value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/alistairclerebaut/Applications/QT_/Diab</value>
    </valuemap>
