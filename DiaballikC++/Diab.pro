@@ -5,6 +5,7 @@ CONFIG -= qt
 QMAKE_CXXFLAGS += -pedantic-errors\
                 -std=c++17\
                 -Wall
+
 SOURCES += \
         Board.cpp \
         Game.cpp \
@@ -15,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     Board.h \
+    Board_copy.h \
     Color.h \
     Game.h \
     Observable.h \
@@ -22,3 +24,7 @@ HEADERS += \
     Piece.h \
     Players.h \
     View.h
+
+
+
+FORMS +=
