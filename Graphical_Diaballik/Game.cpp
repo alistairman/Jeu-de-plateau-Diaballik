@@ -47,6 +47,7 @@ bool Game::addPlayers(list<Players> player){
         nbPlayerOk = true;
     }
     notifyObservers();
+    return nbPlayerOk;
 }
 
 Players Game::getCurrentPlayer(){
@@ -76,6 +77,13 @@ ostream & Game::showBoard(ostream & c){
    return board_.showBoard(c);
 }
 
+Piece Game::getPiece(int i, int j){
+    return board_.getPiece(i,j);
+}
+
+void Game::showTable(QTableWidget *table){
+    board_.showTable(table);
+}
 
 bool Game::isOver(){
     bool finish = false;

@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     w.setGame(game);
     w.show();
     w.addPlayers();
+    game->start();
     w.initGame();
     return a.exec();
 }

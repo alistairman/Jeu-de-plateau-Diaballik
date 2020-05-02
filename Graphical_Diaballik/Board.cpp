@@ -157,7 +157,20 @@ Piece Board::direction(int ox, int oy, int width, int height,Color color){
     return board_[directionWidth][directionHeight];
 }
 
-QTableWidget Board::showTable(QTableWidget table){
+void Board::showTable(QTableWidget *table){
+
+    for(int i=0;i < height_;i++){
+        for(int j =0; j<width_; j++){
+            if(board_[i][j].getColor() == Color::BLACK){
+                QString test = QString::fromStdString("BLACK");
+                table->setItem(i,j,new QTableWidgetItem(test));
+            }
+            if(board_[i][j].getColor() ==Color::WHITE){
+                QString test = QString::fromStdString("WHITE");
+                table->setItem(i,j,new QTableWidgetItem(test));
+            }
+        }
+    }
 
 }
 

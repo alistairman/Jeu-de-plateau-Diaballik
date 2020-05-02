@@ -150,7 +150,7 @@ public:
      */
     Piece direction(int ox,int oy, int width, int height,Color color);
 
-    QTableWidget showTable(QTableWidget table);
+    void showTable(QTableWidget *table);
 
 };
 

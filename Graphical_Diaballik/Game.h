@@ -181,6 +181,10 @@ public:
      */
     void passe(int dx, int dy);
 
+    Piece getPiece(int i, int j);
+
+    void showTable(QTableWidget * table);
+
 
 };
 

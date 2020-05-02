@@ -16,7 +16,9 @@ MainWindow::MainWindow(QWidget *parent,Game * game):
     setWindowTitle(" DIABALLIK");
     ui->tableWidget->setRowCount(7);
     ui->tableWidget->setColumnCount(7);
-    ui->tableWidget->setVisible(true);
+    //ui->tableWidget->setShowGrid(true);
+    //ui->tableWidget->setVisible(true);
+    //ui->tableWidget->resize(500,500);
     //ui->Player1->setText("");
     //ui->Player2->setText("");
 
@@ -67,12 +69,23 @@ void MainWindow::update() const{
 
 void MainWindow::initGame(){
 
-    for(int i=0;i < 7;i++){
+    //Piece * piece = new Piece(Color::NO);
+    /**for(int i=0;i < 7;i++){
         for(int j =0;j<7;j++){
-            QString test = QString::fromStdString("hello");
-            ui->tableWidget->setItem(i,j,new QTableWidgetItem(test));
+            if(game_->getPiece(i,j).getColor()==Color::BLACK){
+                QString test = QString::fromStdString("BLACK");
+                ui->tableWidget->setItem(i,j,new QTableWidgetItem(test));
+            }
+            if(game_->getPiece(i,j).getColor()==Color::WHITE){
+                QString test = QString::fromStdString("WHITE");
+                ui->tableWidget->setItem(i,j,new QTableWidgetItem(test));
+            }
         }
-    }
+    }*/
+
+    game_->showTable(ui->tableWidget);
+    QString name = name.fromStdString("Current Player is : "+game_->getCurrentPlayer().getName());
+    ui->currentPlayer->setText(name);
 }
 
 

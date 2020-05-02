@@ -32,6 +32,7 @@ public:
     QLabel *Player2;
     QTableWidget *tableWidget;
     QLabel *label;
+    QLabel *currentPlayer;
     QMenuBar *menubar;
     QMenu *menuml;
     QStatusBar *statusbar;
@@ -47,16 +48,20 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         Player1 = new QLabel(centralwidget);
         Player1->setObjectName(QString::fromUtf8("Player1"));
-        Player1->setGeometry(QRect(560, 20, 58, 16));
+        Player1->setGeometry(QRect(210, 20, 58, 16));
         Player2 = new QLabel(centralwidget);
         Player2->setObjectName(QString::fromUtf8("Player2"));
-        Player2->setGeometry(QRect(190, 20, 58, 16));
+        Player2->setGeometry(QRect(530, 20, 58, 16));
         tableWidget = new QTableWidget(centralwidget);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
         tableWidget->setGeometry(QRect(40, 60, 711, 231));
+        tableWidget->setMouseTracking(false);
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(390, 20, 21, 16));
+        currentPlayer = new QLabel(centralwidget);
+        currentPlayer->setObjectName(QString::fromUtf8("currentPlayer"));
+        currentPlayer->setGeometry(QRect(210, 310, 341, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -83,6 +88,7 @@ public:
         Player1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         Player2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "VS", nullptr));
+        currentPlayer->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         menuml->setTitle(QCoreApplication::translate("MainWindow", "Menu", nullptr));
     } // retranslateUi
 
