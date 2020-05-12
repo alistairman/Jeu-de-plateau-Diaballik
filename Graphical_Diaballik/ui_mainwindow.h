@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
@@ -33,6 +34,12 @@ public:
     QTableWidget *tableWidget;
     QLabel *label;
     QLabel *currentPlayer;
+    QPushButton *move;
+    QLabel *label_move;
+    QLabel *label_passe;
+    QLabel *label_selected;
+    QPushButton *passe;
+    QPushButton *cancel;
     QMenuBar *menubar;
     QMenu *menuml;
     QStatusBar *statusbar;
@@ -61,7 +68,25 @@ public:
         label->setGeometry(QRect(390, 20, 21, 16));
         currentPlayer = new QLabel(centralwidget);
         currentPlayer->setObjectName(QString::fromUtf8("currentPlayer"));
-        currentPlayer->setGeometry(QRect(210, 310, 341, 16));
+        currentPlayer->setGeometry(QRect(40, 310, 251, 16));
+        move = new QPushButton(centralwidget);
+        move->setObjectName(QString::fromUtf8("move"));
+        move->setGeometry(QRect(30, 350, 112, 32));
+        label_move = new QLabel(centralwidget);
+        label_move->setObjectName(QString::fromUtf8("label_move"));
+        label_move->setGeometry(QRect(340, 310, 58, 16));
+        label_passe = new QLabel(centralwidget);
+        label_passe->setObjectName(QString::fromUtf8("label_passe"));
+        label_passe->setGeometry(QRect(340, 430, 58, 16));
+        label_selected = new QLabel(centralwidget);
+        label_selected->setObjectName(QString::fromUtf8("label_selected"));
+        label_selected->setGeometry(QRect(590, 310, 58, 16));
+        passe = new QPushButton(centralwidget);
+        passe->setObjectName(QString::fromUtf8("passe"));
+        passe->setGeometry(QRect(30, 400, 112, 32));
+        cancel = new QPushButton(centralwidget);
+        cancel->setObjectName(QString::fromUtf8("cancel"));
+        cancel->setGeometry(QRect(30, 450, 112, 32));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -89,6 +114,12 @@ public:
         Player2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "VS", nullptr));
         currentPlayer->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        move->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
+        label_move->setText(QCoreApplication::translate("MainWindow", "move:", nullptr));
+        label_passe->setText(QCoreApplication::translate("MainWindow", "passe:", nullptr));
+        label_selected->setText(QCoreApplication::translate("MainWindow", "Selected:", nullptr));
+        passe->setText(QCoreApplication::translate("MainWindow", "Passe", nullptr));
+        cancel->setText(QCoreApplication::translate("MainWindow", "Cancel", nullptr));
         menuml->setTitle(QCoreApplication::translate("MainWindow", "Menu", nullptr));
     } // retranslateUi
 

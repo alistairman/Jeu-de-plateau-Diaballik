@@ -61,13 +61,15 @@ public:
      * this method make the boolean accessible if the piece conteint the ball
      * @return the ball value of the piece
      */
-    bool getBool();
+
 
     /**
      * @brief setBool
      * this method change the value of the boolean ball
      */
     void setBool();
+
+    void setColor(Color color);
 
 };
 

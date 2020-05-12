@@ -97,7 +97,7 @@ public:
      * this method create and add a new player to the game
      * @param player the name of the new player to create
      */
-    bool addPlayers(list<Players> player);
+    void addPlayers(list<Players> player);
 
     /**
      * @brief start
@@ -179,7 +179,7 @@ public:
      * @param dx the destination value of the specific row in the board
      * @param dy the destination value of the specific column in the board
      */
-    void passe(int dx, int dy);
+    void passe(unsigned ox, unsigned oy, int dx, int dy);
 
     Piece getPiece(int i, int j);
 

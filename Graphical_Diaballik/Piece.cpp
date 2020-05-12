@@ -18,30 +18,22 @@ bool Piece::isInside(){
 }
 
 void Piece::passe(Piece & piece){
-    if(!piece.isInside()){
-        piece.setBool();
-        this->setBool();
-
-    }
-    else{
-        throw string ("error ball is already get ");
-    }
+    piece.setBool();
+    this->setBool();
 }
 
 Color Piece::getColor(){
     return color_;
 }
 
-bool Piece::getBool(){
-    return ball_;
-}
 
 void Piece::setBool(){
-    if(ball_==true){
-        ball_=false;
-    }else {
-        ball_=true;
-    }
+    if(ball_==true) ball_=false;
+    else ball_=true;
+}
+
+void Piece::setColor(Color color){
+    color_ = color;
 }
 
 }

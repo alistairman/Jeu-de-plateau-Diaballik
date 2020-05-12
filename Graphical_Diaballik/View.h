@@ -30,7 +30,7 @@ public:
      * @brief update
      * this is a method from the observer class to update itself when a change happend in observable class
      */
-    void update() const override;
+    void update() override;
 
     /**
      * @brief View

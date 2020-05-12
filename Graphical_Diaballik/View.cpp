@@ -15,7 +15,9 @@ View::View(Game & game):
     game_(game),
     countPasse{0},
     countMove{0}
-{}
+{
+    game_.registerObserver(this);
+}
 
 View::~View(){
     game_.unregisterObserver(this);
@@ -23,7 +25,7 @@ View::~View(){
 }
 
 void View::addPlayers(){
-    game_.registerObserver(this);
+
     cout << endl;
     cout << " ==========================" << endl;
     cout << "  Bienvenus Dans DIABALLIK " << endl;
@@ -42,8 +44,6 @@ void View::addPlayers(){
     }
     game_.addPlayers(players);
 }
-
-
 
 
 void View::showCommand(){
@@ -119,7 +119,7 @@ void View::playAction(string action,int & countMove,int & countPasse){
             cout << "veuillez entrez position y de destination : ";
             int dy = game_.getCurrentPlayer().play(cin);
 
-            game_.passe(dx,dy);
+            game_.passe(0,0,dx,dy);
             countPasse++;
         }
         else{
@@ -136,7 +136,7 @@ void View::getWinner(){
     }
 }
 
-void View::update() const{
+void View::update() {
     game_.showBoard(cout);
 }
 

@@ -16,21 +16,38 @@ class MainWindow : public QMainWindow, public ObserverSpace::Observer
 {
     Q_OBJECT
 
+
 public:
-    explicit MainWindow(QWidget *parent = nullptr,Game * game = 0);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
-    void update() const override;
+    void update() override;
     void addPlayers();
     void quit();
-    void setGame(Game * game);
-    void initGame();
+    void setGame(Game & game);
+    void updateTable();
+    void getCurrentPlayer();
+    void showWinner();
+
 
 private slots:
+
+    void on_move_clicked();
+    void getIndice(const QModelIndex &);
+    void move ();
+    void passe ();
+    void on_passe_clicked();
+    void on_cancel_clicked();
 
 private:
     bool isPossibleToAdd();
     Ui::MainWindow *ui;
-    Game  * game_;
+    Game  *game_=nullptr;
+    int rowO;
+    int rowD;
+    int colO;
+    int colD;
+    int countMove;
+    int countPasse;
 
 };
 

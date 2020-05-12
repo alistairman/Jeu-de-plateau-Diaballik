@@ -35,19 +35,17 @@ bool Game::isPossibleToAdd(){
     return players_.size()<2;
 }
 
-bool Game::addPlayers(list<Players> player){
-    bool nbPlayerOk = false;
+void Game::addPlayers(list<Players> player){
+
     if(player.size()==0){
-        nbPlayerOk = false;
+       cout << "pas assez de jouer" << endl;
     }
     else{
+
         for(Players p : player){
             players_.push_back(p);
         }
-        nbPlayerOk = true;
     }
-    notifyObservers();
-    return nbPlayerOk;
 }
 
 Players Game::getCurrentPlayer(){
@@ -70,7 +68,7 @@ void Game::start(){
         cout << endl;
         cout << "game started : " << endl;
     }
-    //notifyObservers();
+    notifyObservers();
 }
 
 ostream & Game::showBoard(ostream & c){
@@ -166,14 +164,16 @@ void Game::restart(){
 }
 
 void Game::move(int ox,int oy,int dx,int dy){
+    cout << currentPlayer_.getName() << endl;
+    cout << "current color :" << static_cast<std::underlying_type<Color>::type>(currentPlayer_.getColor()) << endl;
     board_.move(ox,oy,dx,dy,currentPlayer_.getColor());
-    //notifyObservers();
+    notifyObservers();
 }
 
 
-void Game::passe(int dx,int dy){
-    board_.passe(dx,dy,currentPlayer_);
-    this->notifyObservers();
+void Game::passe(unsigned ox, unsigned oy, int dx,int dy){
+    board_.passe(ox,oy,dx,dy,currentPlayer_);
+    notifyObservers();
 }
 
 void Game::registerObserver(Observer * observer) {

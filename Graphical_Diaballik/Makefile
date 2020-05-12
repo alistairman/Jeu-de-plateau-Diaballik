@@ -774,7 +774,8 @@ main.o: main.cpp mainwindow.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
-		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		View.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \

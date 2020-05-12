@@ -25,13 +25,13 @@ private:
      * @brief width_
      * the length of the column
      */
-    int width_;
+    unsigned width_;
 
     /**
      * @brief height_
      * the length of the row
      */
-    int height_;
+    unsigned height_;
 
     /**
      * @brief board_
@@ -47,7 +47,7 @@ public:
      * @param width the length of the column
      * @param height the length of the row
      */
-    Board(int width, int height);
+    Board(unsigned width, unsigned height);
 
     /**
      * @brief getPiece
@@ -56,7 +56,7 @@ public:
      * @param y the height position of the piece
      * @return piece in the x column et y row of the board
      */
-    Piece getPiece(int x, int y);
+    Piece  & getPiece(unsigned x, unsigned y);
 
     /**
      * @brief isInsideBall this method check if a piece in the specific position
@@ -65,7 +65,9 @@ public:
      * @param y the height position of the piece in the board
      * @return true if this piece conteint a ball
      */
-    bool isInsideBall(int x, int y);
+    bool isInsideBall(unsigned x, unsigned y);
+
+    bool isInside(unsigned x, unsigned y);
 
     /**
      * @brief initBoard
@@ -85,13 +87,13 @@ public:
      * @brief getWidth
      * this method make the attribute width accessible
      */
-    int getWidth();
+    unsigned getWidth();
 
     /**
      * @brief getHeight
      * this method make the attribute height accessible
      */
-    int getHeight();
+    unsigned getHeight();
 
     /**
      * @brief checkMove
@@ -103,7 +105,7 @@ public:
      * @param dy the height destination position in the board
      * @return true if the move is correct width rules of the game
      */
-    bool checkMove(int ox,int oy, int dx, int dy);
+    bool checkMove(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
 
     /**
      * @brief move
@@ -115,7 +117,7 @@ public:
      * @param dy the height destination position in the board
      * @param color the piece color of the current player
      */
-    void move(int ox, int oy, int dx, int dy, Color color);
+    void move(unsigned ox, unsigned oy, unsigned dx, unsigned dy,Color color);
 
     /**
      * @brief checkPasse
@@ -127,7 +129,7 @@ public:
      * @param color the piece color of the current player
      * @return true if the passe can be done according to the rules of the game
      */
-    bool checkPasse(int ox, int oy, int dx, int dy,Color color);
+    bool checkPasse(unsigned ox, unsigned oy, unsigned dx, unsigned dy,Players currentPlayer);
 
     /**
      * @brief passe
@@ -136,7 +138,7 @@ public:
      * @param dy the height destination position in the board
      * @param currentPlayer the player who want to move the ball
      */
-    void passe(int dx, int dy,Players currentPlayer);
+    void passe(unsigned ox,unsigned oy, unsigned dx, unsigned dy,Players currentPlayer);
 
     /**
      * @brief direction
@@ -148,9 +150,11 @@ public:
      * @param color the color of current player
      * @return the last piece found in that direction
      */
-    Piece direction(int ox,int oy, int width, int height,Color color);
+    bool direction(unsigned ox,unsigned oy, unsigned width, unsigned height,unsigned dx, unsigned dy, Players currentPlayer);
 
     void showTable(QTableWidget *table);
+
+    bool checkDistance(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
 
 };
 

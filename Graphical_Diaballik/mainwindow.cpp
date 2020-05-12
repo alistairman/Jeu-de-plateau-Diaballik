@@ -7,21 +7,17 @@
 using namespace std;
 using namespace GameSpace;
 
-MainWindow::MainWindow(QWidget *parent,Game * game):
+MainWindow::MainWindow(QWidget *parent):
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    game_(game)
+    ui(new Ui::MainWindow)
+
 {
+
     ui->setupUi(this);
     setWindowTitle(" DIABALLIK");
     ui->tableWidget->setRowCount(7);
     ui->tableWidget->setColumnCount(7);
-    //ui->tableWidget->setShowGrid(true);
-    //ui->tableWidget->setVisible(true);
-    //ui->tableWidget->resize(500,500);
-    //ui->Player1->setText("");
-    //ui->Player2->setText("");
-
+    connect(ui->tableWidget, SIGNAL(clicked(const QModelIndex &)), this, SLOT(getIndice(const QModelIndex &)));
 }
 
 
@@ -31,61 +27,147 @@ MainWindow::~MainWindow()
 }
 
 
-bool MainWindow::isPossibleToAdd(){
-    return game_->isPossibleToAdd();
-}
-
 void MainWindow::addPlayers(){
 
     QString title = title.fromStdString("entrez nom");
+    Color color = Color::BLACK;
     list<Players> players;
     while(players.size()<2){
+        if(players.size()==1) color = Color::WHITE;
         QString player1 = QInputDialog::getText(this,title,"Player ");
         string name = player1.toStdString();
-        Players * p = new Players(name,Color::NO);
+        Players * p = new Players(name,color);
         players.push_back(*p);
     }
     game_->addPlayers(players);
-}
-
-void MainWindow::quit(){
-    this->close();
-}
-
-void MainWindow::setGame(Game * game){
-    game_ = game;
-    game_->registerObserver(this);
-}
-
-
-void MainWindow::update() const{
 
     QString player1 = QString::fromStdString(game_->getPlayer(1).getName());
     ui->Player1->setText(player1);
 
     QString player2 = QString::fromStdString(game_->getPlayer(2).getName());
     ui->Player2->setText(player2);
+    getCurrentPlayer();
 }
 
-void MainWindow::initGame(){
+void MainWindow::quit(){
+    this->close();
+}
 
-    //Piece * piece = new Piece(Color::NO);
-    /**for(int i=0;i < 7;i++){
-        for(int j =0;j<7;j++){
-            if(game_->getPiece(i,j).getColor()==Color::BLACK){
-                QString test = QString::fromStdString("BLACK");
-                ui->tableWidget->setItem(i,j,new QTableWidgetItem(test));
-            }
-            if(game_->getPiece(i,j).getColor()==Color::WHITE){
-                QString test = QString::fromStdString("WHITE");
-                ui->tableWidget->setItem(i,j,new QTableWidgetItem(test));
-            }
-        }
-    }*/
+void MainWindow::setGame(Game & game){
+    game_ = &game;
+    rowO=-1;
+    colO=-1;
+    rowD=-1;
+    colD=-1;
+    countMove = 0;
+    countPasse = 0;
+    game_->registerObserver(this);
 
-    game_->showTable(ui->tableWidget);
-    QString name = name.fromStdString("Current Player is : "+game_->getCurrentPlayer().getName());
+}
+
+
+void MainWindow::getCurrentPlayer(){
+    QString name = name.fromStdString("Current Player is : "+ game_->getCurrentPlayer().getName());
     ui->currentPlayer->setText(name);
+}
+
+
+void MainWindow::update() {
+    updateTable();
+    getCurrentPlayer();
+}
+
+
+
+void MainWindow::updateTable(){
+    game_->showTable(ui->tableWidget);
+}
+
+void MainWindow::getIndice(const QModelIndex & index){
+
+
+    QString row = row.fromStdString(to_string(index.row()));
+    QString col= col.fromStdString(to_string(index.column()));
+    ui->label_selected->setText(row +"-"+col);
+
+    if(rowO==-1){
+        rowO = index.row();
+        colO=index.column();
+        QString rowOO = rowOO.fromStdString(to_string(rowO));
+        QString colOO= colOO.fromStdString(to_string(colO));
+        ui->label_move->setText(rowOO +"-"+colOO);
+    }
+    else{
+        rowD = index.row();
+        colD = index.column();
+        QString rowDD = row.fromStdString(to_string(rowD));
+        QString colDD= col.fromStdString(to_string(colD));
+        ui->label_passe->setText(rowDD +"-"+colDD);
+    }
+
+}
+
+void MainWindow::move()
+{
+    game_->move(rowO,colO,rowD,colD);
+    rowO=-1;
+    colO = -1;
+    rowD = -1;
+    colD=-1;
+}
+
+void MainWindow::passe()
+{
+    game_->passe(rowO,colO,rowD,colD);
+    rowO=-1;
+    colO = -1;
+    rowD = -1;
+    colD=-1;
+}
+
+
+
+void MainWindow::on_move_clicked()
+{
+    if(countMove<2){
+        move();
+        countMove++;
+    }
+    if (countMove==2 & countPasse==1){
+        countMove=0; countPasse=0; game_->swapPlayer();
+        getCurrentPlayer();
+    }
+}
+
+
+void MainWindow::on_passe_clicked()
+{
+    if(countPasse<1){
+        passe();
+        countPasse++;
+    }
+    if(countMove==2 & countPasse==1){
+        countMove=0; countPasse=0; game_->swapPlayer();
+        getCurrentPlayer();
+    }
+    if(game_->isOver()){
+
+    }
+
+}
+
+void MainWindow::on_cancel_clicked()
+{
+    rowO=-1;
+    colO = -1;
+    rowD = -1;
+    colD=-1;
+}
+
+
+void MainWindow::showWinner(){
+
+    quit();
 }
 
 

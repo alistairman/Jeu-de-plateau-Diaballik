@@ -1,6 +1,7 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
+
 namespace ObserverSpace {
 
 class Observable;
@@ -16,7 +17,7 @@ public:
     virtual ~Observer() = default;
 
     //this method is called when a change happend in the observable class
-    virtual void update() const = 0;
+    virtual void update() = 0;
 
 protected:
 
