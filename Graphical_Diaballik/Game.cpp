@@ -14,10 +14,10 @@ using namespace std;
 using namespace ObservableSpace;
 
 
-Game::Game(int width, int height):
+Game::Game(unsigned width, unsigned height):
     board_ (Board(width,height)),
     currentPlayer_ (Players("",Color::NO)),
-    winner_(Players("",Color::NO))
+    winner_("")
 {}
 
 Game::~Game(){
@@ -26,7 +26,7 @@ Game::~Game(){
     }
 }
 
-Players Game::getPlayer(int i){
+Players Game::getPlayer(unsigned i){
     if(i==1) return players_.front();
     else return players_.back();
 }
@@ -55,10 +55,12 @@ Players Game::getCurrentPlayer(){
 void Game::swapPlayer(){
     if(currentPlayer_.getName() == players_.front().getName()){
         currentPlayer_ = players_.back();
-
     }else{
         currentPlayer_ = players_.front();
     }
+    /**if(antiGame(currentPlayer_)){
+        winner_ = currentPlayer_.getName();
+    }*/
 }
 
 void Game::start(){
@@ -75,7 +77,7 @@ ostream & Game::showBoard(ostream & c){
    return board_.showBoard(c);
 }
 
-Piece Game::getPiece(int i, int j){
+Piece Game::getPiece(unsigned i, unsigned j){
     return board_.getPiece(i,j);
 }
 
@@ -85,69 +87,89 @@ void Game::showTable(QTableWidget *table){
 
 bool Game::isOver(){
     bool finish = false;
-    for(int i=0; i< board_.getWidth(); i++){
-        if(board_.getPiece(0,i).getColor()==Color::WHITE && board_.getPiece(0,i).isInside()){
-            finish = true;
-            winner_ = players_.back();
-        }
-         if(board_.getPiece(6,i).getColor()==Color::BLACK && board_.getPiece(6,i).isInside()){
-            finish = true;
-            winner_ = players_.front();
+    if(winner_==""){
+        for(unsigned i=0; i< board_.getWidth(); i++){
+            if(board_.getPiece(0,i).getColor()==Color::WHITE && board_.getPiece(0,i).isInside()){
+                finish = true;
+                winner_ = players_.back().getName();
+            }
+             if(board_.getPiece(6,i).getColor()==Color::BLACK && board_.getPiece(6,i).isInside()){
+                finish = true;
+                winner_ = players_.front().getName();
+            }
         }
     }
-    return finish;
+    else finish=true;
+    return  finish;
 }
 
-Players Game::getWinner(){
+string Game::getWinner(){
     return  winner_;
+}
+
+bool Game::overAntigame(unsigned i, unsigned j){
+    bool ok = false;
+    if(getPiece(i,j).getColor()==Color::BLACK){
+        while (static_cast<int>(i)>=0) {
+            if(getPiece(i,j).getColor()==Color::WHITE){
+                ok = true;
+            }
+            i--;
+        }
+    }
+    else{
+        while (i<board_.getWidth()) {
+            if(getPiece(i,j).getColor()==Color::BLACK){
+                ok = true;
+            }
+            i++;
+        }
+    }
+    return ok;
+}
+
+int Game::meetOpposite(unsigned i, unsigned j){
+    if(getPiece(i,j).getColor()==Color::BLACK & getPiece(i+1,j).getColor()==Color::WHITE) return 1;
+    else if(getPiece(i,j).getColor()==Color::WHITE & getPiece(i-1,j).getColor()==Color::BLACK) return 1;
+    else return 0;
 }
 
 bool Game::antiGame(Players currentPlayer){
 
     bool find = true;
+    unsigned indice = 0;
+    unsigned j=0;
+    Color color = getOppoColor(currentPlayer);
+    int countMeetOpposite = 0;
 
-        Piece opPiece = Piece(Color::NO);
-        int x = 0;
-        int limit = 1;
-        int count = 0;
-
-        for (int i=0; i<board_.getWidth(); i++){
-            if(board_.getPiece(i,0).getColor()==getOppoColor(currentPlayer)){
-                opPiece = board_.getPiece(i,0);
-                x = i;
-            }
+    for(unsigned i=0;i<board_.getWidth();i++){
+        if(getPiece(i,0).getColor()==color){
+            indice = i;
         }
+    }
 
-
-        while (find && limit < board_.getHeight() && x>=0){
-            if(board_.getPiece(x-1,limit-1).getColor()==currentPlayer.getColor()){
-                count++;
-            }
-
-
-            if(board_.getPiece(x-1,limit).getColor() ==  opPiece.getColor()){
-                x = x-1;
-                limit++;
-            }
-            else if (board_.getPiece(x+1,limit).getColor() == opPiece.getColor()){
-                x = x+1;
-                limit++;
-            }
-
-            else if (board_.getPiece(x,limit).getColor() == opPiece.getColor()){
-                limit ++;
-            }
-            else{
-                find = false;
-            }
+    while (find && j<board_.getHeight() & indice<board_.getWidth() & static_cast<int>(indice)>=0)  {
+        countMeetOpposite = meetOpposite(indice,j);
+        if(getPiece(indice,j).getColor()!=color || overAntigame(indice,j)){
+            return find=false;
 
         }
-        if(find && count == 3){
-            winner_ = currentPlayer;
+        else{
+            j++;
+            if(getPiece(indice,j).getColor()==color){
+                j++;
+            }
+            else if(getPiece(indice-1,j).getColor()==color){
+                indice--;
+                j++;
+            }
+            else if(getPiece(indice+1,j).getColor()==color){
+                indice++;
+                j++;
+            }
         }
-
-    return  find ;
-
+    }
+    return  find && countMeetOpposite>2;
 }
 
 Color Game::getOppoColor(Players currentPlayer){
@@ -163,7 +185,7 @@ void Game::restart(){
     start();
 }
 
-void Game::move(int ox,int oy,int dx,int dy){
+void Game::move(unsigned ox,unsigned oy,unsigned dx,unsigned dy){
     cout << currentPlayer_.getName() << endl;
     cout << "current color :" << static_cast<std::underlying_type<Color>::type>(currentPlayer_.getColor()) << endl;
     board_.move(ox,oy,dx,dy,currentPlayer_.getColor());
@@ -171,7 +193,7 @@ void Game::move(int ox,int oy,int dx,int dy){
 }
 
 
-void Game::passe(unsigned ox, unsigned oy, int dx,int dy){
+void Game::passe(unsigned ox, unsigned oy, unsigned dx,unsigned dy){
     board_.passe(ox,oy,dx,dy,currentPlayer_);
     notifyObservers();
 }

@@ -14,7 +14,8 @@ Board::Board(unsigned width,unsigned height):
 {}
 
 Piece & Board::getPiece(unsigned x, unsigned y){
-    if(x>=0 & x<width_ & y >= 0 & y <height_){
+
+    if(static_cast<int>(x)>=0 & x<width_ & static_cast<int>(y)>= 0 & y <height_){
         return board_[x][y];
     }else{
         throw string(" données non valide ");
@@ -64,7 +65,7 @@ unsigned Board::getHeight(){
     return height_;
 }
 
-bool Board::isInside(unsigned int x, unsigned int y){
+bool Board::isInside(unsigned x, unsigned y){
     return getPiece(x,y).getColor() != Color::NO;
 }
 
@@ -72,7 +73,7 @@ bool Board::isInsideBall(unsigned x, unsigned y){
     return getPiece(x,y).isInside();
 }
 
-bool Board::checkDistance(unsigned int ox, unsigned int oy, unsigned int dx, unsigned int dy){
+bool Board::checkDistance(unsigned ox, unsigned oy, unsigned dx, unsigned dy){
     return (dx==ox-1 & dy ==oy) || (dx==ox & dy==oy+1) || (dx==ox+1 & dy==oy) || (dx==ox & dy==oy-1);
 }
 
@@ -114,13 +115,13 @@ bool Board::checkPasse(unsigned ox, unsigned oy,unsigned dx, unsigned dy,Players
 
     if(getPiece(ox,oy).getColor()==currentPlayer.getColor() & getPiece(dx,dy).getColor()==currentPlayer.getColor()){
         if(ox < dx & oy < dy) return direction(ox,oy,+1,+1,dx,dy,currentPlayer);
-        if(ox < dx & oy > dy) return direction(ox,oy,+1,-1,dx,dy,currentPlayer);
-        if(ox > dx & oy > dy) return direction(ox,oy,-1,-1,dx,dy,currentPlayer);
-        if(ox > dx & oy < dy) return direction(ox,oy,-1,+1,dx,dy,currentPlayer);
+        if(ox < dx & oy > dy) return direction(ox,oy,+1,static_cast<unsigned>(-1),dx,dy,currentPlayer);
+        if(ox > dx & oy > dy) return direction(ox,oy,static_cast<unsigned>(-1),static_cast<unsigned>(-1),dx,dy,currentPlayer);
+        if(ox > dx & oy < dy) return direction(ox,oy,static_cast<unsigned>(-1),+1,dx,dy,currentPlayer);
 
         if(ox == dx & oy < dy) return direction(ox,oy,0,+1,dx,dy,currentPlayer);
-        if(ox == dx & oy > dy) return direction(ox,oy,0,-1,dx,dy,currentPlayer);
-        if(ox > dx & oy == dy) return direction(ox,oy,-1,0,dx,dy,currentPlayer);
+        if(ox == dx & oy > dy) return direction(ox,oy,0,static_cast<unsigned>(-1),dx,dy,currentPlayer);
+        if(ox > dx & oy == dy) return direction(ox,oy,static_cast<unsigned>(-1),0,dx,dy,currentPlayer);
         if(ox < dx & oy == dy) return direction(ox,oy,+1,0,dx,dy,currentPlayer);
     }
     else return false;
@@ -131,7 +132,7 @@ bool Board::direction(unsigned ox, unsigned oy, unsigned width, unsigned height,
     unsigned directionHeight = oy+height;
     bool valid = true;
 
-    while(directionWidth >= 0 & directionWidth < width_ & directionHeight >= 0 &
+    while(static_cast<int>(directionWidth) >= 0 & directionWidth < width_ & static_cast<int>(directionHeight) >= 0 &
           directionHeight < height_ & directionWidth!=dx & directionHeight != dy){
 
         if(getPiece(directionWidth,directionHeight).getColor()!=Color::NO &
@@ -153,30 +154,30 @@ void Board::showTable(QTableWidget *table){
         for(unsigned j =0; j<width_; j++){
 
             if(board_[i][j].getColor()!=Color::NO){
-                //string colored = ToString(board_[i][j].getColor());
+
                 if(board_[i][j].getColor()==Color::BLACK){
                     if(board_[i][j].isInside()){
                         QString color = QString::fromStdString("BLACK-B");
-                        table->setItem(i,j,new QTableWidgetItem(color));
+                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
                     }
                     else{
                         QString color = QString::fromStdString("BLACK");
-                        table->setItem(i,j,new QTableWidgetItem(color));
+                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
                     }
                 }
                 else{
                     if(board_[i][j].isInside()){
                         QString color = QString::fromStdString("WHITE-B");
-                        table->setItem(i,j,new QTableWidgetItem(color));
+                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
                     }
                     else{
                         QString color = QString::fromStdString("WHITE");
-                        table->setItem(i,j,new QTableWidgetItem(color));
+                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
                     }
                 }
             }
             else{
-                table->setItem(i,j,new QTableWidgetItem(""));
+                table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(""));
             }
         }
     }

@@ -129,8 +129,7 @@ void View::playAction(string action,int & countMove,int & countPasse){
 
 void View::getWinner(){
     if(game_.isOver()){
-        cout << "the winner is : ";
-        game_.getWinner().afficheName(cout);
+        cout << "the winner is : " << game_.getWinner();
         cout << endl;
         this->~View();
     }

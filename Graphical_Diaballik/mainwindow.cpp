@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent):
     ui(new Ui::MainWindow)
 
 {
-
     ui->setupUi(this);
     setWindowTitle(" DIABALLIK");
     ui->tableWidget->setRowCount(7);
@@ -50,6 +49,7 @@ void MainWindow::addPlayers(){
 }
 
 void MainWindow::quit(){
+    ui->~MainWindow();
     this->close();
 }
 
@@ -62,7 +62,6 @@ void MainWindow::setGame(Game & game){
     countMove = 0;
     countPasse = 0;
     game_->registerObserver(this);
-
 }
 
 
@@ -85,31 +84,35 @@ void MainWindow::updateTable(){
 
 void MainWindow::getIndice(const QModelIndex & index){
 
-
+    ui->erreur->setVisible(false);
     QString row = row.fromStdString(to_string(index.row()));
     QString col= col.fromStdString(to_string(index.column()));
-    ui->label_selected->setText(row +"-"+col);
+    ui->label_selected->setText("Selected: "+row +"-"+col);
 
     if(rowO==-1){
         rowO = index.row();
-        colO=index.column();
-        QString rowOO = rowOO.fromStdString(to_string(rowO));
-        QString colOO= colOO.fromStdString(to_string(colO));
-        ui->label_move->setText(rowOO +"-"+colOO);
+        colO = index.column();
     }
     else{
         rowD = index.row();
         colD = index.column();
-        QString rowDD = row.fromStdString(to_string(rowD));
-        QString colDD= col.fromStdString(to_string(colD));
-        ui->label_passe->setText(rowDD +"-"+colDD);
     }
-
 }
 
 void MainWindow::move()
 {
-    game_->move(rowO,colO,rowD,colD);
+    QString rowOO = rowOO.fromStdString(to_string(rowO));
+    QString colOO= colOO.fromStdString(to_string(colO));
+    QString rowDD = rowDD.fromStdString(to_string(rowD));
+    QString colDD= colDD.fromStdString(to_string(colD));
+    ui->label_move->setText("move from: "+rowOO +"-"+colOO+" to: "+rowDD+"-"+colDD);
+
+    unsigned row =  static_cast<unsigned>(rowO);
+    unsigned col = static_cast<unsigned>(colO);
+    unsigned roww = static_cast<unsigned>(rowD);
+    unsigned coll = static_cast<unsigned>(colD);
+
+    game_->move(row,col,roww,coll);
     rowO=-1;
     colO = -1;
     rowD = -1;
@@ -118,7 +121,18 @@ void MainWindow::move()
 
 void MainWindow::passe()
 {
-    game_->passe(rowO,colO,rowD,colD);
+    QString rowOO = rowOO.fromStdString(to_string(rowO));
+    QString colOO= colOO.fromStdString(to_string(colO));
+    QString rowDD = rowDD.fromStdString(to_string(rowD));
+    QString colDD= colDD.fromStdString(to_string(colD));
+    ui->label_passe->setText("passe from: "+rowOO +"-"+colOO+" to: "+rowDD+"-"+colDD);
+
+    unsigned row =  static_cast<unsigned>(rowO);
+    unsigned col = static_cast<unsigned>(colO);
+    unsigned roww = static_cast<unsigned>(rowD);
+    unsigned coll = static_cast<unsigned>(colD);
+
+    game_->passe(row,col,roww,coll);
     rowO=-1;
     colO = -1;
     rowD = -1;
@@ -129,31 +143,45 @@ void MainWindow::passe()
 
 void MainWindow::on_move_clicked()
 {
-    if(countMove<2){
-        move();
-        countMove++;
-    }
-    if (countMove==2 & countPasse==1){
-        countMove=0; countPasse=0; game_->swapPlayer();
-        getCurrentPlayer();
+    try {
+        if(countMove<2){
+            move();
+            countMove++;
+        }
+        if (countMove==2 & countPasse==1){
+            countMove=0; countPasse=0; game_->swapPlayer();
+            getCurrentPlayer();
+        }
+        if(game_->isOver()){
+            showWinner();
+        }
+    } catch (string const & e) {
+        QString err = err.fromStdString(e);
+        ui->erreur->setText(err);
+        ui->erreur->setVisible(true);
     }
 }
 
 
 void MainWindow::on_passe_clicked()
 {
-    if(countPasse<1){
-        passe();
-        countPasse++;
+    try {
+        if(countPasse<1){
+            passe();
+            countPasse++;
+        }
+        if(countMove==2 & countPasse==1){
+            countMove=0; countPasse=0; game_->swapPlayer();
+            getCurrentPlayer();
+        }
+        if(game_->isOver()){
+            showWinner();
+        }
+    } catch (string const & e) {
+        QString err = err.fromStdString(e);
+        ui->erreur->setText(err);
+        ui->erreur->setVisible(true);
     }
-    if(countMove==2 & countPasse==1){
-        countMove=0; countPasse=0; game_->swapPlayer();
-        getCurrentPlayer();
-    }
-    if(game_->isOver()){
-
-    }
-
 }
 
 void MainWindow::on_cancel_clicked()
@@ -166,8 +194,11 @@ void MainWindow::on_cancel_clicked()
 
 
 void MainWindow::showWinner(){
-
-    quit();
+    string winner = game_->getWinner();
+    QString w = w.fromStdString(winner);
+    ui->winner->setText("Winner is "+ w);
+    ui->winner->setVisible(true);
+    //quit();
 }
 
 

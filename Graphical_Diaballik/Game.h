@@ -44,7 +44,7 @@ private:
      * @brief winner_
      * this attribute represent the winner of the Game
      */
-    Players winner_;
+    string winner_;
 
 public:
 
@@ -56,7 +56,7 @@ public:
      * @param x this is the value of the length of the column
      * @param y this is the value of the length of the row
      */
-    Game(int x, int y);
+    Game(unsigned x, unsigned y);
 
     /**
     * this method destroy the model of the game and make free all the allocate memories
@@ -83,7 +83,7 @@ public:
      */
     void notifyObservers() override;
 
-    Players getPlayer(int i);
+    Players getPlayer(unsigned i);
 
     /**
      * @brief isPossibleToAdd
@@ -139,7 +139,7 @@ public:
      * this method make the attribute winner accessible if the game is finish
      * @return the winner of the game
      */
-    Players getWinner();
+    string getWinner();
 
     /**
      * @brief restart
@@ -171,7 +171,7 @@ public:
      * @param dx the destination value of the specific row in the board
      * @param dy the destination value of the specific column in the board
      */
-    void move(int ox,int oy, int dx, int dy);
+    void move(unsigned ox,unsigned oy, unsigned dx, unsigned dy);
 
     /**
      * @brief passe
@@ -179,11 +179,15 @@ public:
      * @param dx the destination value of the specific row in the board
      * @param dy the destination value of the specific column in the board
      */
-    void passe(unsigned ox, unsigned oy, int dx, int dy);
+    void passe(unsigned ox, unsigned oy, unsigned dx, unsigned dy);
 
-    Piece getPiece(int i, int j);
+    Piece getPiece(unsigned i, unsigned j);
 
     void showTable(QTableWidget * table);
+
+    bool overAntigame(unsigned i,unsigned j);
+
+    int meetOpposite(unsigned i,unsigned j);
 
 
 };

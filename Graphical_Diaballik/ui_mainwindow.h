@@ -40,6 +40,8 @@ public:
     QLabel *label_selected;
     QPushButton *passe;
     QPushButton *cancel;
+    QLabel *erreur;
+    QLabel *winner;
     QMenuBar *menubar;
     QMenu *menuml;
     QStatusBar *statusbar;
@@ -74,19 +76,25 @@ public:
         move->setGeometry(QRect(30, 350, 112, 32));
         label_move = new QLabel(centralwidget);
         label_move->setObjectName(QString::fromUtf8("label_move"));
-        label_move->setGeometry(QRect(340, 310, 58, 16));
+        label_move->setGeometry(QRect(400, 310, 151, 16));
         label_passe = new QLabel(centralwidget);
         label_passe->setObjectName(QString::fromUtf8("label_passe"));
-        label_passe->setGeometry(QRect(340, 430, 58, 16));
+        label_passe->setGeometry(QRect(590, 310, 161, 16));
         label_selected = new QLabel(centralwidget);
         label_selected->setObjectName(QString::fromUtf8("label_selected"));
-        label_selected->setGeometry(QRect(590, 310, 58, 16));
+        label_selected->setGeometry(QRect(240, 310, 121, 16));
         passe = new QPushButton(centralwidget);
         passe->setObjectName(QString::fromUtf8("passe"));
         passe->setGeometry(QRect(30, 400, 112, 32));
         cancel = new QPushButton(centralwidget);
         cancel->setObjectName(QString::fromUtf8("cancel"));
         cancel->setGeometry(QRect(30, 450, 112, 32));
+        erreur = new QLabel(centralwidget);
+        erreur->setObjectName(QString::fromUtf8("erreur"));
+        erreur->setGeometry(QRect(240, 380, 511, 16));
+        winner = new QLabel(centralwidget);
+        winner->setObjectName(QString::fromUtf8("winner"));
+        winner->setGeometry(QRect(320, 460, 181, 16));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -113,13 +121,15 @@ public:
         Player1->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         Player2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "VS", nullptr));
-        currentPlayer->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        currentPlayer->setText(QCoreApplication::translate("MainWindow", "CurrentPlayer:", nullptr));
         move->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
         label_move->setText(QCoreApplication::translate("MainWindow", "move:", nullptr));
         label_passe->setText(QCoreApplication::translate("MainWindow", "passe:", nullptr));
         label_selected->setText(QCoreApplication::translate("MainWindow", "Selected:", nullptr));
         passe->setText(QCoreApplication::translate("MainWindow", "Passe", nullptr));
         cancel->setText(QCoreApplication::translate("MainWindow", "Cancel", nullptr));
+        erreur->setText(QCoreApplication::translate("MainWindow", "Erreur:", nullptr));
+        winner->setText(QCoreApplication::translate("MainWindow", "Winner is :", nullptr));
         menuml->setTitle(QCoreApplication::translate("MainWindow", "Menu", nullptr));
     } // retranslateUi
 
