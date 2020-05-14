@@ -5,6 +5,7 @@
 #include "Piece.h"
 #include "Players.h"
 #include <QTableWidget>
+#include <QGridLayout>
 
 using namespace std;
 using namespace PieceSpace;

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 #include "Board.h"
+#include <QLabel>
+#include <QPixmap>
+
 
 using namespace std;
 
@@ -150,35 +153,57 @@ bool Board::direction(unsigned ox, unsigned oy, unsigned width, unsigned height,
 
 void Board::showTable(QTableWidget *table){
 
+    int count = 1;
+
     for(unsigned i=0;i < height_;i++){
         for(unsigned j =0; j<width_; j++){
 
-            if(board_[i][j].getColor()!=Color::NO){
+            QLabel *label = new QLabel();
+            label->setAlignment(Qt::AlignCenter);
 
+            if(count==1){
+                label->setStyleSheet("background-color: bleu;");
+                count = 2;
+            }else{
+                label->setStyleSheet("background-color: green;");
+                count = 1;
+            }
+
+            if(board_[i][j].getColor()!=Color::NO){
                 if(board_[i][j].getColor()==Color::BLACK){
                     if(board_[i][j].isInside()){
-                        QString color = QString::fromStdString("BLACK-B");
-                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
+
+                        //label->setText("B-B");
+                        QPixmap pix = QPixmap("pionJBall.png");
+                        label->setPixmap(pix);
+                        table->setCellWidget(i,j,label);
                     }
                     else{
-                        QString color = QString::fromStdString("BLACK");
-                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
+                        //label->setText("BLACK");
+                        QPixmap pix = QPixmap("pionJaune.png");
+                        label->setPixmap(pix);
+                        table->setCellWidget(i,j,label);
                     }
                 }
                 else{
                     if(board_[i][j].isInside()){
-                        QString color = QString::fromStdString("WHITE-B");
-                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
+                        //label->setText("WHITE-B");
+                        QPixmap pix = QPixmap("pionRBall.png");
+                        label->setPixmap(pix);
+                        table->setCellWidget(i,j,label);
                     }
                     else{
-                        QString color = QString::fromStdString("WHITE");
-                        table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(color));
+                        //label->setText("WHITE");
+                        QPixmap pix = QPixmap("pionRouge.png");
+                        label->setPixmap(pix);
+                        table->setCellWidget(i,j,label);
                     }
                 }
             }
             else{
-                table->setItem(static_cast<int>(i),static_cast<int>(j),new QTableWidgetItem(""));
+                table->setCellWidget(i,j,label);
             }
+
         }
     }
 }

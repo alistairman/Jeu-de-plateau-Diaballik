@@ -3,6 +3,9 @@
 #include <string>
 #include "Game.h"
 #include <QInputDialog>
+#include <QMessageBox>
+#include <QGridLayout>
+#include <QEvent>
 
 using namespace std;
 using namespace GameSpace;
@@ -14,17 +17,29 @@ MainWindow::MainWindow(QWidget *parent):
 {
     ui->setupUi(this);
     setWindowTitle(" DIABALLIK");
-    ui->tableWidget->setRowCount(7);
-    ui->tableWidget->setColumnCount(7);
-    connect(ui->tableWidget, SIGNAL(clicked(const QModelIndex &)), this, SLOT(getIndice(const QModelIndex &)));
+    initBoard();
 }
-
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+void MainWindow::initBoard(){
+
+    ui->tableWidget->setRowCount(7);
+
+    ui->tableWidget->setColumnCount(7);
+    ui->tableWidget->horizontalHeader()->setVisible(false);
+    ui->tableWidget->verticalHeader()->setVisible(false);
+    connect(ui->tableWidget, SIGNAL(clicked(const QModelIndex &)), this, SLOT(getIndice(const QModelIndex &)));
+    //this->setStyleSheet("QWidget { background-color: #b7927c}");
+
+    QHeaderView *verticalHeader = ui->tableWidget->verticalHeader();
+    verticalHeader->setSectionResizeMode(QHeaderView::Fixed);
+    verticalHeader->setDefaultSectionSize(60);
+
+}
 
 void MainWindow::addPlayers(){
 
@@ -64,12 +79,10 @@ void MainWindow::setGame(Game & game){
     game_->registerObserver(this);
 }
 
-
 void MainWindow::getCurrentPlayer(){
     QString name = name.fromStdString("Current Player is : "+ game_->getCurrentPlayer().getName());
     ui->currentPlayer->setText(name);
 }
-
 
 void MainWindow::update() {
     updateTable();
@@ -84,7 +97,6 @@ void MainWindow::updateTable(){
 
 void MainWindow::getIndice(const QModelIndex & index){
 
-    ui->erreur->setVisible(false);
     QString row = row.fromStdString(to_string(index.row()));
     QString col= col.fromStdString(to_string(index.column()));
     ui->label_selected->setText("Selected: "+row +"-"+col);
@@ -106,6 +118,7 @@ void MainWindow::move()
     QString rowDD = rowDD.fromStdString(to_string(rowD));
     QString colDD= colDD.fromStdString(to_string(colD));
     ui->label_move->setText("move from: "+rowOO +"-"+colOO+" to: "+rowDD+"-"+colDD);
+
 
     unsigned row =  static_cast<unsigned>(rowO);
     unsigned col = static_cast<unsigned>(colO);
@@ -139,8 +152,6 @@ void MainWindow::passe()
     colD=-1;
 }
 
-
-
 void MainWindow::on_move_clicked()
 {
     try {
@@ -157,8 +168,10 @@ void MainWindow::on_move_clicked()
         }
     } catch (string const & e) {
         QString err = err.fromStdString(e);
-        ui->erreur->setText(err);
-        ui->erreur->setVisible(true);
+        QMessageBox msgBox;
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setText(err);
+        msgBox.exec();
     }
 }
 
@@ -179,8 +192,9 @@ void MainWindow::on_passe_clicked()
         }
     } catch (string const & e) {
         QString err = err.fromStdString(e);
-        ui->erreur->setText(err);
-        ui->erreur->setVisible(true);
+        QMessageBox msgBox;
+        msgBox.setText(err);
+        msgBox.exec();
     }
 }
 
@@ -196,9 +210,10 @@ void MainWindow::on_cancel_clicked()
 void MainWindow::showWinner(){
     string winner = game_->getWinner();
     QString w = w.fromStdString(winner);
-    ui->winner->setText("Winner is "+ w);
-    ui->winner->setVisible(true);
-    //quit();
+    QMessageBox msgBox;
+    msgBox.setText("The Winner is: "+w);
+    msgBox.exec();
+    quit();
 }
 
 

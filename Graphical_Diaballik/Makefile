@@ -695,6 +695,8 @@ moc_mainwindow.cpp: mainwindow.h \
 		Players.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		moc_predefs.h \
 		../../5.13.1/clang_64/bin/moc
 	/Users/alistairclerebaut/Applications/5.13.1/clang_64/bin/moc $(DEFINES) --include /Users/alistairclerebaut/Applications/QT_/Graphical_Diaballik/moc_predefs.h -I/Users/alistairclerebaut/Applications/5.13.1/clang_64/mkspecs/macx-clang -I/Users/alistairclerebaut/Applications/QT_/Graphical_Diaballik -I/Users/alistairclerebaut/Applications/5.13.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/alistairclerebaut/Applications/5.13.1/clang_64/lib/QtGui.framework/Headers -I/Users/alistairclerebaut/Applications/5.13.1/clang_64/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -F/Users/alistairclerebaut/Applications/5.13.1/clang_64/lib mainwindow.h -o moc_mainwindow.cpp
@@ -727,7 +729,13 @@ Board.o: Board.cpp Board.h \
 		Color.h \
 		Players.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
-		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		../../5.13.1/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		../../5.13.1/clang_64/lib/QtGui.framework/Headers/qpixmap.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Board.o Board.cpp
 
 Game.o: Game.cpp Game.h \
@@ -738,7 +746,9 @@ Game.o: Game.cpp Game.h \
 		Color.h \
 		Players.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
-		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Game.o Game.cpp
 
 Piece.o: Piece.cpp Piece.h \
@@ -758,7 +768,9 @@ View.o: View.cpp View.h \
 		Color.h \
 		Players.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
-		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o View.o View.cpp
 
 main.o: main.cpp mainwindow.h \
@@ -773,6 +785,8 @@ main.o: main.cpp mainwindow.h \
 		Players.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
 		View.h
@@ -790,9 +804,15 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		Players.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QTableWidget \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qtablewidget.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QGridLayout \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qgridlayout.h \
 		ui_mainwindow.h \
 		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
-		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../5.13.1/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../5.13.1/clang_64/lib/QtCore.framework/Headers/QEvent \
+		../../5.13.1/clang_64/lib/QtCore.framework/Headers/qcoreevent.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

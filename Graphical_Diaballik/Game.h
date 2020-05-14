@@ -6,6 +6,7 @@
 #include "Observable.h"
 #include "Board.h"
 #include "Players.h"
+#include <QGridLayout>
 
 using namespace BoardSpace;
 using namespace PlayersSpace;

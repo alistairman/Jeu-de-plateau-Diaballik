@@ -27,14 +27,14 @@ public:
     void updateTable();
     void getCurrentPlayer();
     void showWinner();
-
+    void move ();
+    void passe ();
+    void initBoard();
 
 private slots:
 
     void on_move_clicked();
     void getIndice(const QModelIndex &);
-    void move ();
-    void passe ();
     void on_passe_clicked();
     void on_cancel_clicked();
 
