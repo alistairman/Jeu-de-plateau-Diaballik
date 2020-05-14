@@ -173,37 +173,32 @@ void Board::showTable(QTableWidget *table){
                 if(board_[i][j].getColor()==Color::BLACK){
                     if(board_[i][j].isInside()){
 
-                        //label->setText("B-B");
                         QPixmap pix = QPixmap("pionJBall.png");
                         label->setPixmap(pix);
-                        table->setCellWidget(i,j,label);
+                        table->setCellWidget(static_cast<int>(i),static_cast<int>(j),label);
                     }
                     else{
-                        //label->setText("BLACK");
                         QPixmap pix = QPixmap("pionJaune.png");
                         label->setPixmap(pix);
-                        table->setCellWidget(i,j,label);
+                        table->setCellWidget(static_cast<int>(i),static_cast<int>(j),label);
                     }
                 }
                 else{
                     if(board_[i][j].isInside()){
-                        //label->setText("WHITE-B");
                         QPixmap pix = QPixmap("pionRBall.png");
                         label->setPixmap(pix);
-                        table->setCellWidget(i,j,label);
+                        table->setCellWidget(static_cast<int>(i),static_cast<int>(j),label);
                     }
                     else{
-                        //label->setText("WHITE");
                         QPixmap pix = QPixmap("pionRouge.png");
                         label->setPixmap(pix);
-                        table->setCellWidget(i,j,label);
+                        table->setCellWidget(static_cast<int>(i), static_cast<int>(j),label);
                     }
                 }
             }
             else{
-                table->setCellWidget(i,j,label);
+                table->setCellWidget(static_cast<int>(i),static_cast<int>(j),label);
             }
-
         }
     }
 }
