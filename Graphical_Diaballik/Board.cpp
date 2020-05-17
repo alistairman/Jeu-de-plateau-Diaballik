@@ -18,7 +18,7 @@ Board::Board(unsigned width,unsigned height):
 
 Piece & Board::getPiece(unsigned x, unsigned y){
 
-    if(static_cast<int>(x)>=0 & x<width_ & static_cast<int>(y)>= 0 & y <height_){
+    if(static_cast<int>(x)>=0 && x<width_ && static_cast<int>(y)>= 0 && y <height_){
         return board_[x][y];
     }else{
         throw string(" données non valide ");
@@ -116,16 +116,16 @@ void Board::passe(unsigned ox, unsigned oy, unsigned dx, unsigned dy,Players cur
 
 bool Board::checkPasse(unsigned ox, unsigned oy,unsigned dx, unsigned dy,Players currentPlayer){
 
-    if(getPiece(ox,oy).getColor()==currentPlayer.getColor() & getPiece(dx,dy).getColor()==currentPlayer.getColor()){
-        if(ox < dx & oy < dy) return direction(ox,oy,+1,+1,dx,dy,currentPlayer);
-        if(ox < dx & oy > dy) return direction(ox,oy,+1,static_cast<unsigned>(-1),dx,dy,currentPlayer);
-        if(ox > dx & oy > dy) return direction(ox,oy,static_cast<unsigned>(-1),static_cast<unsigned>(-1),dx,dy,currentPlayer);
-        if(ox > dx & oy < dy) return direction(ox,oy,static_cast<unsigned>(-1),+1,dx,dy,currentPlayer);
+    if(getPiece(ox,oy).getColor()==currentPlayer.getColor() && getPiece(dx,dy).getColor()==currentPlayer.getColor()){
+        if(ox < dx && oy < dy) return direction(ox,oy,+1,+1,dx,dy,currentPlayer);
+        if(ox < dx && oy > dy) return direction(ox,oy,+1,static_cast<unsigned>(-1),dx,dy,currentPlayer);
+        if(ox > dx && oy > dy) return direction(ox,oy,static_cast<unsigned>(-1),static_cast<unsigned>(-1),dx,dy,currentPlayer);
+        if(ox > dx && oy < dy) return direction(ox,oy,static_cast<unsigned>(-1),+1,dx,dy,currentPlayer);
 
-        if(ox == dx & oy < dy) return direction(ox,oy,0,+1,dx,dy,currentPlayer);
-        if(ox == dx & oy > dy) return direction(ox,oy,0,static_cast<unsigned>(-1),dx,dy,currentPlayer);
-        if(ox > dx & oy == dy) return direction(ox,oy,static_cast<unsigned>(-1),0,dx,dy,currentPlayer);
-        if(ox < dx & oy == dy) return direction(ox,oy,+1,0,dx,dy,currentPlayer);
+        if(ox == dx && oy < dy) return direction(ox,oy,0,+1,dx,dy,currentPlayer);
+        if(ox == dx && oy > dy) return direction(ox,oy,0,static_cast<unsigned>(-1),dx,dy,currentPlayer);
+        if(ox > dx && oy == dy) return direction(ox,oy,static_cast<unsigned>(-1),0,dx,dy,currentPlayer);
+        if(ox < dx && oy == dy) return direction(ox,oy,+1,0,dx,dy,currentPlayer);
     }
     else return false;
 }
@@ -135,10 +135,10 @@ bool Board::direction(unsigned ox, unsigned oy, unsigned width, unsigned height,
     unsigned directionHeight = oy+height;
     bool valid = true;
 
-    while(static_cast<int>(directionWidth) >= 0 & directionWidth < width_ & static_cast<int>(directionHeight) >= 0 &
-          directionHeight < height_ & directionWidth!=dx & directionHeight != dy){
+    while(static_cast<int>(directionWidth) >= 0 && directionWidth < width_ && static_cast<int>(directionHeight) >= 0 &&
+          directionHeight < height_ && directionWidth!=dx && directionHeight != dy){
 
-        if(getPiece(directionWidth,directionHeight).getColor()!=Color::NO &
+        if(getPiece(directionWidth,directionHeight).getColor()!=Color::NO &&
            getPiece(directionWidth,directionHeight).getColor()!=currentPlayer.getColor()){
 
             valid = false;

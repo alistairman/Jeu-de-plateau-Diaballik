@@ -37,6 +37,9 @@ private slots:
     void getIndice(const QModelIndex &);
     void on_passe_clicked();
     void on_cancel_clicked();
+    void on_endturn_clicked();
+
+    void on_actionQuitter_triggered();
 
 private:
     bool isPossibleToAdd();

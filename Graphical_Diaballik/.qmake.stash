@@ -39,3 +39,15 @@ QMAKE_CXX.INCDIRS = \
     /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
 QMAKE_CXX.LIBDIRS = /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
 QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
+QMAKE_DEFAULT_INCDIRS = \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++ \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward
+QMAKE_DEFAULT_LIBDIRS = \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0 \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/lib/gcc \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/i686-w64-mingw32/lib \
+    C:/Qt/Qt5.8.0/Tools/mingw530_32/lib
