@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,7 +28,6 @@
    <div id="projectname">Diaballik
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Jeu du Diaballik</div>
   </td>
  </tr>
  </tbody>
@@ -47,6 +50,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_game_space_1_1_game.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +81,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>GameSpace</b></li><li class="navelem"><a class="el" href="class_game_space_1_1_game.html">Game</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -91,9 +106,11 @@ Inheritance diagram for GameSpace::Game:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9ccce5221815da92810e44380ef8284"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#aa9ccce5221815da92810e44380ef8284">Game</a> (int x, int y)</td></tr>
-<tr class="memdesc:aa9ccce5221815da92810e44380ef8284"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_game_space_1_1_game.html" title="The Game class this class is the model of the game and represent the observable class.">Game</a> this is the constructor of the model.  <a href="class_game_space_1_1_game.html#aa9ccce5221815da92810e44380ef8284">More...</a><br /></td></tr>
-<tr class="separator:aa9ccce5221815da92810e44380ef8284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0211559b2690621cddb63a60e3876f8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a0211559b2690621cddb63a60e3876f8b">Game</a> ()</td></tr>
+<tr class="separator:a0211559b2690621cddb63a60e3876f8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5604805788dc66ab072f5af877acb7bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a5604805788dc66ab072f5af877acb7bc">Game</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a5604805788dc66ab072f5af877acb7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_game_space_1_1_game.html" title="The Game class this class is the model of the game and represent the observable class.">Game</a> this is the constructor of the model.  <a href="class_game_space_1_1_game.html#a5604805788dc66ab072f5af877acb7bc">More...</a><br /></td></tr>
+<tr class="separator:a5604805788dc66ab072f5af877acb7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0876d3e46b252789f0ab1c29695d05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#afb0876d3e46b252789f0ab1c29695d05">~Game</a> () override</td></tr>
 <tr class="separator:afb0876d3e46b252789f0ab1c29695d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a135cab9d5fa2a1d03523c185f5d50ae0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a135cab9d5fa2a1d03523c185f5d50ae0">registerObserver</a> (<a class="el" href="class_observer_space_1_1_observer.html">Observer</a> *observer) override</td></tr>
@@ -102,19 +119,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2271203accc2b78f1970f24da52750b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#ae2271203accc2b78f1970f24da52750b">unregisterObserver</a> (<a class="el" href="class_observer_space_1_1_observer.html">Observer</a> *observer) override</td></tr>
 <tr class="memdesc:ae2271203accc2b78f1970f24da52750b"><td class="mdescLeft">&#160;</td><td class="mdescRight">unregisterObserver this method delete an observer from the list of the observer registered  <a href="class_game_space_1_1_game.html#ae2271203accc2b78f1970f24da52750b">More...</a><br /></td></tr>
 <tr class="separator:ae2271203accc2b78f1970f24da52750b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a758849a18bbac9c9ea0264c98e309891"><td class="memItemLeft" align="right" valign="top"><a id="a758849a18bbac9c9ea0264c98e309891"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a758849a18bbac9c9ea0264c98e309891">notifyObservers</a> () override</td></tr>
-<tr class="memdesc:a758849a18bbac9c9ea0264c98e309891"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifyObservers this method notity all the observer of this class <br /></td></tr>
+<tr class="memitem:a758849a18bbac9c9ea0264c98e309891"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a758849a18bbac9c9ea0264c98e309891">notifyObservers</a> () override</td></tr>
+<tr class="memdesc:a758849a18bbac9c9ea0264c98e309891"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifyObservers this method notity all the observer of this class  <a href="class_game_space_1_1_game.html#a758849a18bbac9c9ea0264c98e309891">More...</a><br /></td></tr>
 <tr class="separator:a758849a18bbac9c9ea0264c98e309891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8963f43f0808d5ce7b2c541f8498b7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_players_space_1_1_players.html">Players</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#ac8963f43f0808d5ce7b2c541f8498b7b">getPlayer</a> (unsigned i)</td></tr>
+<tr class="separator:ac8963f43f0808d5ce7b2c541f8498b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04feb4517acba50d4e35964a6f5ddac2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a04feb4517acba50d4e35964a6f5ddac2">isPossibleToAdd</a> ()</td></tr>
 <tr class="memdesc:a04feb4517acba50d4e35964a6f5ddac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">isPossibleToAdd this method check if is possible to add a new player  <a href="class_game_space_1_1_game.html#a04feb4517acba50d4e35964a6f5ddac2">More...</a><br /></td></tr>
 <tr class="separator:a04feb4517acba50d4e35964a6f5ddac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bff44d590bcf62a503258767bf9567d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a6bff44d590bcf62a503258767bf9567d">addPlayer</a> (string player)</td></tr>
-<tr class="memdesc:a6bff44d590bcf62a503258767bf9567d"><td class="mdescLeft">&#160;</td><td class="mdescRight">addPlayer this method create and add a new player to the game  <a href="class_game_space_1_1_game.html#a6bff44d590bcf62a503258767bf9567d">More...</a><br /></td></tr>
-<tr class="separator:a6bff44d590bcf62a503258767bf9567d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f48cf1c68c5b52ef24ff985e1acfc8"><td class="memItemLeft" align="right" valign="top"><a id="a37f48cf1c68c5b52ef24ff985e1acfc8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a37f48cf1c68c5b52ef24ff985e1acfc8">start</a> ()</td></tr>
-<tr class="memdesc:a37f48cf1c68c5b52ef24ff985e1acfc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">start this method check if there is enaugth player and init the board to start the game <br /></td></tr>
+<tr class="memitem:a979a04d4e2ef53505593a2ad5a64cfbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a979a04d4e2ef53505593a2ad5a64cfbc">addPlayers</a> (list&lt; <a class="el" href="class_players_space_1_1_players.html">Players</a> &gt; player)</td></tr>
+<tr class="memdesc:a979a04d4e2ef53505593a2ad5a64cfbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">addPlayer this method create and add a new player to the game  <a href="class_game_space_1_1_game.html#a979a04d4e2ef53505593a2ad5a64cfbc">More...</a><br /></td></tr>
+<tr class="separator:a979a04d4e2ef53505593a2ad5a64cfbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f48cf1c68c5b52ef24ff985e1acfc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a37f48cf1c68c5b52ef24ff985e1acfc8">start</a> ()</td></tr>
+<tr class="memdesc:a37f48cf1c68c5b52ef24ff985e1acfc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">start this method check if there is enaugth player and init the board to start the game  <a href="class_game_space_1_1_game.html#a37f48cf1c68c5b52ef24ff985e1acfc8">More...</a><br /></td></tr>
 <tr class="separator:a37f48cf1c68c5b52ef24ff985e1acfc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6797ba29ad51915f47c64492ad8ba91a"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a6797ba29ad51915f47c64492ad8ba91a">showBoard</a> (ostream &amp;c)</td></tr>
 <tr class="memdesc:a6797ba29ad51915f47c64492ad8ba91a"><td class="mdescLeft">&#160;</td><td class="mdescRight">showBoard this method show the state of the board in consol  <a href="class_game_space_1_1_game.html#a6797ba29ad51915f47c64492ad8ba91a">More...</a><br /></td></tr>
@@ -122,45 +139,57 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:a6a399efe457e8da9129e28c392cfa563"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_players_space_1_1_players.html">Players</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a6a399efe457e8da9129e28c392cfa563">getCurrentPlayer</a> ()</td></tr>
 <tr class="memdesc:a6a399efe457e8da9129e28c392cfa563"><td class="mdescLeft">&#160;</td><td class="mdescRight">getCurrentPlayer this method make the current player accessible  <a href="class_game_space_1_1_game.html#a6a399efe457e8da9129e28c392cfa563">More...</a><br /></td></tr>
 <tr class="separator:a6a399efe457e8da9129e28c392cfa563"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22156f5938d1c4f2a9a9133da841144a"><td class="memItemLeft" align="right" valign="top"><a id="a22156f5938d1c4f2a9a9133da841144a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a22156f5938d1c4f2a9a9133da841144a">swapPlayer</a> ()</td></tr>
-<tr class="memdesc:a22156f5938d1c4f2a9a9133da841144a"><td class="mdescLeft">&#160;</td><td class="mdescRight">swapPlayer this method change the current player after each turn <br /></td></tr>
+<tr class="memitem:a22156f5938d1c4f2a9a9133da841144a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a22156f5938d1c4f2a9a9133da841144a">swapPlayer</a> ()</td></tr>
+<tr class="memdesc:a22156f5938d1c4f2a9a9133da841144a"><td class="mdescLeft">&#160;</td><td class="mdescRight">swapPlayer this method change the current player after each turn  <a href="class_game_space_1_1_game.html#a22156f5938d1c4f2a9a9133da841144a">More...</a><br /></td></tr>
 <tr class="separator:a22156f5938d1c4f2a9a9133da841144a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec653231fcab8fa4d81c517e2fd9e6e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#aec653231fcab8fa4d81c517e2fd9e6e1">isOver</a> ()</td></tr>
 <tr class="memdesc:aec653231fcab8fa4d81c517e2fd9e6e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">isOver this method check if the game is over and check if there was a antigame  <a href="class_game_space_1_1_game.html#aec653231fcab8fa4d81c517e2fd9e6e1">More...</a><br /></td></tr>
 <tr class="separator:aec653231fcab8fa4d81c517e2fd9e6e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7600082e05d833aae6a460597d372aac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_players_space_1_1_players.html">Players</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a7600082e05d833aae6a460597d372aac">getWinner</a> ()</td></tr>
-<tr class="memdesc:a7600082e05d833aae6a460597d372aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">getWinner this method make the attribute winner accessible if the game is finish  <a href="class_game_space_1_1_game.html#a7600082e05d833aae6a460597d372aac">More...</a><br /></td></tr>
-<tr class="separator:a7600082e05d833aae6a460597d372aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa49616d9de5e56fd8fa022937fe012e0"><td class="memItemLeft" align="right" valign="top"><a id="aa49616d9de5e56fd8fa022937fe012e0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0">restart</a> ()</td></tr>
-<tr class="memdesc:aa49616d9de5e56fd8fa022937fe012e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">restart this method restart the game <br /></td></tr>
+<tr class="memitem:ae52d0125533766288657e63331b901bc"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#ae52d0125533766288657e63331b901bc">getWinner</a> ()</td></tr>
+<tr class="memdesc:ae52d0125533766288657e63331b901bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">getWinner this method make the attribute winner accessible if the game is finish  <a href="class_game_space_1_1_game.html#ae52d0125533766288657e63331b901bc">More...</a><br /></td></tr>
+<tr class="separator:ae52d0125533766288657e63331b901bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49616d9de5e56fd8fa022937fe012e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0">restart</a> ()</td></tr>
+<tr class="memdesc:aa49616d9de5e56fd8fa022937fe012e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">restart this method restart the game  <a href="class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0">More...</a><br /></td></tr>
 <tr class="separator:aa49616d9de5e56fd8fa022937fe012e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82546281f558bbcda6280dac02a36d91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a82546281f558bbcda6280dac02a36d91">antiGame</a> (<a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
 <tr class="memdesc:a82546281f558bbcda6280dac02a36d91"><td class="mdescLeft">&#160;</td><td class="mdescRight">antiGame this method check if there is a anti game made by a player  <a href="class_game_space_1_1_game.html#a82546281f558bbcda6280dac02a36d91">More...</a><br /></td></tr>
 <tr class="separator:a82546281f558bbcda6280dac02a36d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bc29b886f7209f0c623225c8d46b2c5"><td class="memItemLeft" align="right" valign="top">Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5">getOppoColor</a> (<a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
+<tr class="memitem:a8bc29b886f7209f0c623225c8d46b2c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_color_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5">getOppoColor</a> (<a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
 <tr class="memdesc:a8bc29b886f7209f0c623225c8d46b2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">getOppoColor this method get the color of the opposite playe of the current player  <a href="class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5">More...</a><br /></td></tr>
 <tr class="separator:a8bc29b886f7209f0c623225c8d46b2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7599f38e7fe3378e637532ac750c4f03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a7599f38e7fe3378e637532ac750c4f03">move</a> (int ox, int oy, int dx, int dy)</td></tr>
-<tr class="memdesc:a7599f38e7fe3378e637532ac750c4f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">move this call the method move of the board to move a piece  <a href="class_game_space_1_1_game.html#a7599f38e7fe3378e637532ac750c4f03">More...</a><br /></td></tr>
-<tr class="separator:a7599f38e7fe3378e637532ac750c4f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a734f6a86fde70a14a234828b9c0c010c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a734f6a86fde70a14a234828b9c0c010c">passe</a> (int dx, int dy)</td></tr>
-<tr class="memdesc:a734f6a86fde70a14a234828b9c0c010c"><td class="mdescLeft">&#160;</td><td class="mdescRight">passe this method call the passe method of the board to move the ball  <a href="class_game_space_1_1_game.html#a734f6a86fde70a14a234828b9c0c010c">More...</a><br /></td></tr>
-<tr class="separator:a734f6a86fde70a14a234828b9c0c010c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba89651f48fd59d92c315fdc3a007583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#aba89651f48fd59d92c315fdc3a007583">move</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy)</td></tr>
+<tr class="memdesc:aba89651f48fd59d92c315fdc3a007583"><td class="mdescLeft">&#160;</td><td class="mdescRight">move this call the method move of the board to move a piece  <a href="class_game_space_1_1_game.html#aba89651f48fd59d92c315fdc3a007583">More...</a><br /></td></tr>
+<tr class="separator:aba89651f48fd59d92c315fdc3a007583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f128a6572bbc8730d7f4e45e6db6b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#ac9f128a6572bbc8730d7f4e45e6db6b6">passe</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy)</td></tr>
+<tr class="memdesc:ac9f128a6572bbc8730d7f4e45e6db6b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">passe this method call the passe method of the board to move the ball  <a href="class_game_space_1_1_game.html#ac9f128a6572bbc8730d7f4e45e6db6b6">More...</a><br /></td></tr>
+<tr class="separator:ac9f128a6572bbc8730d7f4e45e6db6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3a9ab45686667e4bd7439936750643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a9e3a9ab45686667e4bd7439936750643">getPiece</a> (unsigned i, unsigned j)</td></tr>
+<tr class="separator:a9e3a9ab45686667e4bd7439936750643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2021e3d77ee3f8983ff8c0cbeb05ed33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a2021e3d77ee3f8983ff8c0cbeb05ed33">showTable</a> (QTableWidget *table)</td></tr>
+<tr class="separator:a2021e3d77ee3f8983ff8c0cbeb05ed33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ba93fe6d2edbbc6fbfd3171fe9e5574"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a7ba93fe6d2edbbc6fbfd3171fe9e5574">overAntigame</a> (unsigned i, unsigned j)</td></tr>
+<tr class="separator:a7ba93fe6d2edbbc6fbfd3171fe9e5574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e360e3997b2a1eca0d181c58cbb0ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_space_1_1_game.html#a8e360e3997b2a1eca0d181c58cbb0ab6">meetOpposite</a> (unsigned i, unsigned j)</td></tr>
+<tr class="separator:a8e360e3997b2a1eca0d181c58cbb0ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_observable_space_1_1_observable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_observable_space_1_1_observable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td></tr>
+<tr class="memitem:afd14c510cff0125e2d92af0e691f9dfb inherit pub_methods_class_observable_space_1_1_observable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable_space_1_1_observable.html#afd14c510cff0125e2d92af0e691f9dfb">Observable</a> ()=default</td></tr>
+<tr class="separator:afd14c510cff0125e2d92af0e691f9dfb inherit pub_methods_class_observable_space_1_1_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a774d1898918614399cb1402b1633d739 inherit pub_methods_class_observable_space_1_1_observable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable_space_1_1_observable.html#a774d1898918614399cb1402b1633d739">~Observable</a> ()=default</td></tr>
+<tr class="separator:a774d1898918614399cb1402b1633d739 inherit pub_methods_class_observable_space_1_1_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_observable_space_1_1_observable"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_observable_space_1_1_observable')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td></tr>
-<tr class="memitem:a252555f526382830ddb728eec5e85764 inherit pro_attribs_class_observable_space_1_1_observable"><td class="memItemLeft" align="right" valign="top"><a id="a252555f526382830ddb728eec5e85764"></a>
-set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>observers_</b> { }</td></tr>
+<tr class="memitem:a252555f526382830ddb728eec5e85764 inherit pro_attribs_class_observable_space_1_1_observable"><td class="memItemLeft" align="right" valign="top">set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observable_space_1_1_observable.html#a252555f526382830ddb728eec5e85764">observers_</a> { }</td></tr>
 <tr class="separator:a252555f526382830ddb728eec5e85764 inherit pro_attribs_class_observable_space_1_1_observable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_game_space_1_1_game.html" title="The Game class this class is the model of the game and represent the observable class.">Game</a> class this class is the model of the game and represent the observable class. </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8h_source.html#l00023">23</a> of file <a class="el" href="_game_8h_source.html">Game.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa9ccce5221815da92810e44380ef8284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9ccce5221815da92810e44380ef8284">&#9670;&nbsp;</a></span>Game()</h2>
+<a id="a0211559b2690621cddb63a60e3876f8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0211559b2690621cddb63a60e3876f8b">&#9670;&nbsp;</a></span>Game() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -168,13 +197,30 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
         <tr>
           <td class="memname">GameSpace::Game::Game </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5604805788dc66ab072f5af877acb7bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5604805788dc66ab072f5af877acb7bc">&#9670;&nbsp;</a></span>Game() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameSpace::Game::Game </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -193,6 +239,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00017">17</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -220,19 +268,21 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 </div><div class="memdoc">
 <p>this method destroy the model of the game and make free all the allocate memories </p>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00023">23</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6bff44d590bcf62a503258767bf9567d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bff44d590bcf62a503258767bf9567d">&#9670;&nbsp;</a></span>addPlayer()</h2>
+<a id="a979a04d4e2ef53505593a2ad5a64cfbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979a04d4e2ef53505593a2ad5a64cfbc">&#9670;&nbsp;</a></span>addPlayers()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GameSpace::Game::addPlayer </td>
+          <td class="memname">void GameSpace::Game::addPlayers </td>
           <td>(</td>
-          <td class="paramtype">string&#160;</td>
+          <td class="paramtype">list&lt; <a class="el" href="class_players_space_1_1_players.html">Players</a> &gt;&#160;</td>
           <td class="paramname"><em>player</em></td><td>)</td>
           <td></td>
         </tr>
@@ -246,6 +296,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00038">38</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,6 +326,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the opposite player made a anti game </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00137">137</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a6a399efe457e8da9129e28c392cfa563"></a>
@@ -294,6 +348,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 <p>getCurrentPlayer this method make the current player accessible </p>
 <dl class="section return"><dt>Returns</dt><dd>the current player of the game </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00051">51</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a8bc29b886f7209f0c623225c8d46b2c5"></a>
@@ -303,7 +359,7 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Color GameSpace::Game::getOppoColor </td>
+          <td class="memname"><a class="el" href="_color_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> GameSpace::Game::getOppoColor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_players_space_1_1_players.html">Players</a>&#160;</td>
           <td class="paramname"><em>currentPlayer</em></td><td>)</td>
@@ -321,16 +377,68 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the color of the opposite player </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00175">175</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a7600082e05d833aae6a460597d372aac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7600082e05d833aae6a460597d372aac">&#9670;&nbsp;</a></span>getWinner()</h2>
+<a id="a9e3a9ab45686667e4bd7439936750643"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3a9ab45686667e4bd7439936750643">&#9670;&nbsp;</a></span>getPiece()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_players_space_1_1_players.html">Players</a> GameSpace::Game::getWinner </td>
+          <td class="memname"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a> GameSpace::Game::getPiece </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00080">80</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac8963f43f0808d5ce7b2c541f8498b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8963f43f0808d5ce7b2c541f8498b7b">&#9670;&nbsp;</a></span>getPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_players_space_1_1_players.html">Players</a> GameSpace::Game::getPlayer </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00029">29</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae52d0125533766288657e63331b901bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52d0125533766288657e63331b901bc">&#9670;&nbsp;</a></span>getWinner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string GameSpace::Game::getWinner </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -340,6 +448,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 
 <p>getWinner this method make the attribute winner accessible if the game is finish </p>
 <dl class="section return"><dt>Returns</dt><dd>the winner of the game </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00106">106</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -361,6 +471,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 <p>isOver this method check if the game is over and check if there was a antigame </p>
 <dl class="section return"><dt>Returns</dt><dd>true if the game is over by antigame or if a player win the game </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00088">88</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a04feb4517acba50d4e35964a6f5ddac2"></a>
@@ -381,10 +493,42 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
 <p>isPossibleToAdd this method check if is possible to add a new player </p>
 <dl class="section return"><dt>Returns</dt><dd>true if there is possible to add a new player </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00034">34</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a7599f38e7fe3378e637532ac750c4f03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7599f38e7fe3378e637532ac750c4f03">&#9670;&nbsp;</a></span>move()</h2>
+<a id="a8e360e3997b2a1eca0d181c58cbb0ab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e360e3997b2a1eca0d181c58cbb0ab6">&#9670;&nbsp;</a></span>meetOpposite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameSpace::Game::meetOpposite </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00131">131</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aba89651f48fd59d92c315fdc3a007583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba89651f48fd59d92c315fdc3a007583">&#9670;&nbsp;</a></span>move()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,25 +536,25 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
         <tr>
           <td class="memname">void GameSpace::Game::move </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>ox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>oy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dy</em>&#160;</td>
         </tr>
         <tr>
@@ -432,10 +576,73 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00188">188</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a734f6a86fde70a14a234828b9c0c010c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a734f6a86fde70a14a234828b9c0c010c">&#9670;&nbsp;</a></span>passe()</h2>
+<a id="a758849a18bbac9c9ea0264c98e309891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758849a18bbac9c9ea0264c98e309891">&#9670;&nbsp;</a></span>notifyObservers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameSpace::Game::notifyObservers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>notifyObservers this method notity all the observer of this class </p>
+
+<p>Implements <a class="el" href="class_observable_space_1_1_observable.html#ac5421cc12f627afbcac867bbcb49ddac">ObservableSpace::Observable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00209">209</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7ba93fe6d2edbbc6fbfd3171fe9e5574"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ba93fe6d2edbbc6fbfd3171fe9e5574">&#9670;&nbsp;</a></span>overAntigame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameSpace::Game::overAntigame </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00110">110</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac9f128a6572bbc8730d7f4e45e6db6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f128a6572bbc8730d7f4e45e6db6b6">&#9670;&nbsp;</a></span>passe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -443,13 +650,25 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
         <tr>
           <td class="memname">void GameSpace::Game::passe </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>oy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dy</em>&#160;</td>
         </tr>
         <tr>
@@ -468,6 +687,8 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00196">196</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +724,30 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a>.</p>
+<p>Implements <a class="el" href="class_observable_space_1_1_observable.html#a64c90bd254e081b8851e687faaf0c352">ObservableSpace::Observable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00201">201</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa49616d9de5e56fd8fa022937fe012e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49616d9de5e56fd8fa022937fe012e0">&#9670;&nbsp;</a></span>restart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameSpace::Game::restart </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>restart this method restart the game </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00184">184</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -531,6 +775,71 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the ostream with the board to show </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00076">76</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2021e3d77ee3f8983ff8c0cbeb05ed33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2021e3d77ee3f8983ff8c0cbeb05ed33">&#9670;&nbsp;</a></span>showTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameSpace::Game::showTable </td>
+          <td>(</td>
+          <td class="paramtype">QTableWidget *&#160;</td>
+          <td class="paramname"><em>table</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00084">84</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a37f48cf1c68c5b52ef24ff985e1acfc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f48cf1c68c5b52ef24ff985e1acfc8">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameSpace::Game::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>start this method check if there is enaugth player and init the board to start the game </p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00066">66</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a22156f5938d1c4f2a9a9133da841144a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22156f5938d1c4f2a9a9133da841144a">&#9670;&nbsp;</a></span>swapPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameSpace::Game::swapPlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>swapPlayer this method change the current player after each turn </p>
+<p>if(antiGame(currentPlayer_)){ winner_ = currentPlayer_.getName(); }</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00055">55</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
@@ -566,20 +875,26 @@ set&lt; <a class="el" href="class_observer_space_1_1_observer.html">Observer</a>
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a>.</p>
+<p>Implements <a class="el" href="class_observable_space_1_1_observable.html#a6349176001a76abfce8d5b1339ee79ea">ObservableSpace::Observable</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_game_8cpp_source.html#l00205">205</a> of file <a class="el" href="_game_8cpp_source.html">Game.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>DEV4-Diaballik/DiaballikC++/<a class="el" href="_game_8h_source.html">Game.h</a></li>
-<li>DEV4-Diaballik/DiaballikC++/Game.cpp</li>
+<li><a class="el" href="_game_8h_source.html">Game.h</a></li>
+<li><a class="el" href="_game_8cpp_source.html">Game.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_game_space.html">GameSpace</a></li><li class="navelem"><a class="el" href="class_game_space_1_1_game.html">Game</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

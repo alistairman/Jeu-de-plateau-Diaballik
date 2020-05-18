@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['observable_44',['Observable',['../class_observable_space_1_1_observable.html',1,'ObservableSpace']]],
-  ['observer_45',['Observer',['../class_observer_space_1_1_observer.html',1,'ObserverSpace']]]
+  ['mainwindow_590',['MainWindow',['../class_main_window.html',1,'MainWindow'],['../class_ui_1_1_main_window.html',1,'Ui::MainWindow']]]
 ];

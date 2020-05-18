@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['unregisterobserver_85',['unregisterObserver',['../class_game_space_1_1_game.html#ae2271203accc2b78f1970f24da52750b',1,'GameSpace::Game']]],
-  ['update_86',['update',['../class_view_space_1_1_view.html#a9161a09f4dbb4ea8b7bbfae70f0ca80d',1,'ViewSpace::View']]]
+  ['registerobserver_665',['registerObserver',['../class_game_space_1_1_game.html#a135cab9d5fa2a1d03523c185f5d50ae0',1,'GameSpace::Game::registerObserver()'],['../class_observable_space_1_1_observable.html#a64c90bd254e081b8851e687faaf0c352',1,'ObservableSpace::Observable::registerObserver()']]],
+  ['restart_666',['restart',['../class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0',1,'GameSpace::Game']]],
+  ['retranslateui_667',['retranslateUi',['../class_ui___main_window.html#a097dd160c3534a204904cb374412c618',1,'Ui_MainWindow']]]
 ];

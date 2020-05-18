@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['piece_46',['Piece',['../class_piece_space_1_1_piece.html',1,'PieceSpace']]],
-  ['players_47',['Players',['../class_players_space_1_1_players.html',1,'PlayersSpace']]]
+  ['observable_591',['Observable',['../class_observable_space_1_1_observable.html',1,'ObservableSpace']]],
+  ['observer_592',['Observer',['../class_observer_space_1_1_observer.html',1,'ObserverSpace']]]
 ];

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,7 +28,6 @@
    <div id="projectname">Diaballik
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Jeu du Diaballik</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -63,14 +82,19 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>addPlayer()
-: <a class="el" href="class_game_space_1_1_game.html#a6bff44d590bcf62a503258767bf9567d">GameSpace::Game</a>
+<li>actionPlaying_rules
+: <a class="el" href="class_ui___main_window.html#a1ee558fe8e5a48f63fc6c187fd2468bf">Ui_MainWindow</a>
+</li>
+<li>actionQuitter
+: <a class="el" href="class_ui___main_window.html#a3d416f0c4ac4511347e24a06d4f58e85">Ui_MainWindow</a>
 </li>
 <li>addPlayers()
-: <a class="el" href="class_view_space_1_1_view.html#a64b3d7a15dd6505d07531ef4c84a2cba">ViewSpace::View</a>
+: <a class="el" href="class_game_space_1_1_game.html#a979a04d4e2ef53505593a2ad5a64cfbc">GameSpace::Game</a>
+, <a class="el" href="class_main_window.html#aec5540f5fb35dbbaff3f2d3d201861bc">MainWindow</a>
+, <a class="el" href="class_view_space_1_1_view.html#a64b3d7a15dd6505d07531ef4c84a2cba">ViewSpace::View</a>
 </li>
 <li>afficheName()
 : <a class="el" href="class_players_space_1_1_players.html#a112a1ba5c663c0a1b5d4b4a6dd2ed765">PlayersSpace::Players</a>
@@ -83,37 +107,57 @@ $(function() {
 
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>Board()
-: <a class="el" href="class_board_space_1_1_board.html#a91b641e2147aca667e6e0ab5dc8df9b7">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#a8631b2314fedc0768945e6a4981f53c2">BoardSpace::Board</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>cancel
+: <a class="el" href="class_ui___main_window.html#aeee9912b0ebaa4565a50dca1911ce861">Ui_MainWindow</a>
+</li>
+<li>centralwidget
+: <a class="el" href="class_ui___main_window.html#a356f1cf3ebda15f1fac59467ee081b74">Ui_MainWindow</a>
+</li>
+<li>checkDistance()
+: <a class="el" href="class_board_space_1_1_board.html#adedc60c27bc2970564e26d982d2e6472">BoardSpace::Board</a>
+</li>
 <li>checkMove()
-: <a class="el" href="class_board_space_1_1_board.html#aafc3e77a9dccb7d00198b90df3476183">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#adf54d8ff1762a9255df84eafe0ece259">BoardSpace::Board</a>
 </li>
 <li>checkPasse()
-: <a class="el" href="class_board_space_1_1_board.html#a91d4938c3b3f83c1b2be61def152cf5a">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#acc1684d714878f94db246d077faac55b">BoardSpace::Board</a>
+</li>
+<li>currentPlayer
+: <a class="el" href="class_ui___main_window.html#a95cac333c5a3223a90a7cde10c75a65d">Ui_MainWindow</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>data
+: <a class="el" href="structqt__meta__stringdata___label__t.html#a25143e5572cfabf3dc0830fc2bf25859">qt_meta_stringdata_Label_t</a>
+, <a class="el" href="structqt__meta__stringdata___main_window__t.html#abc06bd6a2c264deb4058e01e6050b902">qt_meta_stringdata_MainWindow_t</a>
+</li>
 <li>direction()
-: <a class="el" href="class_board_space_1_1_board.html#a589e7dc16d8873d12b96be5da60eba2b">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#a4d39f7c295aa707e4c9e6da021cc2dfd">BoardSpace::Board</a>
+</li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>endturn
+: <a class="el" href="class_ui___main_window.html#aefe380736ccebc728019d4f59947a474">Ui_MainWindow</a>
 </li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>Game()
-: <a class="el" href="class_game_space_1_1_game.html#aa9ccce5221815da92810e44380ef8284">GameSpace::Game</a>
+: <a class="el" href="class_game_space_1_1_game.html#a0211559b2690621cddb63a60e3876f8b">GameSpace::Game</a>
 </li>
 <li>getAction()
 : <a class="el" href="class_view_space_1_1_view.html#a28308bab3ea82d5b080daf81213baf7a">ViewSpace::View</a>
-</li>
-<li>getBool()
-: <a class="el" href="class_piece_space_1_1_piece.html#a928acfafbca4bc6b70ab01605e9a40d9">PieceSpace::Piece</a>
 </li>
 <li>getColor()
 : <a class="el" href="class_piece_space_1_1_piece.html#a67d478a407ad15126cf3f8534ba8c8b1">PieceSpace::Piece</a>
@@ -121,9 +165,10 @@ $(function() {
 </li>
 <li>getCurrentPlayer()
 : <a class="el" href="class_game_space_1_1_game.html#a6a399efe457e8da9129e28c392cfa563">GameSpace::Game</a>
+, <a class="el" href="class_main_window.html#a528a11f31e683ff03a15fd12ed34df8e">MainWindow</a>
 </li>
 <li>getHeight()
-: <a class="el" href="class_board_space_1_1_board.html#acf73c3c92168853d35ab4ca378282745">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#a382cb4bdbf11bf658c0a49d69afc4b9b">BoardSpace::Board</a>
 </li>
 <li>getName()
 : <a class="el" href="class_players_space_1_1_players.html#a35148f90d5caececa832575a8059a89a">PlayersSpace::Players</a>
@@ -132,14 +177,37 @@ $(function() {
 : <a class="el" href="class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5">GameSpace::Game</a>
 </li>
 <li>getPiece()
-: <a class="el" href="class_board_space_1_1_board.html#aeda4c273dda3993133366ae8899d72fb">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#a7373c814b0af65c7e877b5fc493c98c3">BoardSpace::Board</a>
+, <a class="el" href="class_game_space_1_1_game.html#a9e3a9ab45686667e4bd7439936750643">GameSpace::Game</a>
+</li>
+<li>getPlayer()
+: <a class="el" href="class_game_space_1_1_game.html#ac8963f43f0808d5ce7b2c541f8498b7b">GameSpace::Game</a>
 </li>
 <li>getWidth()
-: <a class="el" href="class_board_space_1_1_board.html#abeaeb82b833d95a9771f97650e1d734b">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#a5d49daa4584aa0940a592bd9c9d6b1ce">BoardSpace::Board</a>
 </li>
 <li>getWinner()
-: <a class="el" href="class_game_space_1_1_game.html#a7600082e05d833aae6a460597d372aac">GameSpace::Game</a>
+: <a class="el" href="class_game_space_1_1_game.html#ae52d0125533766288657e63331b901bc">GameSpace::Game</a>
 , <a class="el" href="class_view_space_1_1_view.html#a3930c3cb55cb447b7bd73a4a488b3206">ViewSpace::View</a>
+</li>
+<li>gridLayout
+: <a class="el" href="class_ui___main_window.html#a525ed3c5fe0784ac502ee222fba4e205">Ui_MainWindow</a>
+</li>
+<li>gridLayout_2
+: <a class="el" href="class_ui___main_window.html#a6b2a0c5f7e8ff2a87134908dd770d2d2">Ui_MainWindow</a>
+</li>
+</ul>
+
+
+<h3><a id="index_h"></a>- h -</h3><ul>
+<li>horizontalLayout
+: <a class="el" href="class_ui___main_window.html#acd6fdc9ebacc4b25b834162380d75ce8">Ui_MainWindow</a>
+</li>
+<li>horizontalLayout_2
+: <a class="el" href="class_ui___main_window.html#a80867018070156432923d0266cc9fe25">Ui_MainWindow</a>
+</li>
+<li>horizontalLayout_3
+: <a class="el" href="class_ui___main_window.html#a03ce63974cc69b067c91bbf285cceca8">Ui_MainWindow</a>
 </li>
 </ul>
 
@@ -147,12 +215,14 @@ $(function() {
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>initBoard()
 : <a class="el" href="class_board_space_1_1_board.html#a615158c9e90d565346e557efa41db139">BoardSpace::Board</a>
+, <a class="el" href="class_main_window.html#a0ddeac202b58fd4f299fdf63bb6224d4">MainWindow</a>
 </li>
 <li>isInside()
-: <a class="el" href="class_piece_space_1_1_piece.html#a2fbfdfe219da7f8c52d004b3d183387d">PieceSpace::Piece</a>
+: <a class="el" href="class_board_space_1_1_board.html#af4231859c9283ac20c0690eb271f40fe">BoardSpace::Board</a>
+, <a class="el" href="class_piece_space_1_1_piece.html#a2fbfdfe219da7f8c52d004b3d183387d">PieceSpace::Piece</a>
 </li>
 <li>isInsideBall()
-: <a class="el" href="class_board_space_1_1_board.html#ab344eb7243aa1fc8166b9729ef7dc55e">BoardSpace::Board</a>
+: <a class="el" href="class_board_space_1_1_board.html#a4961faae7aa153e175564bebf828664f">BoardSpace::Board</a>
 </li>
 <li>isOver()
 : <a class="el" href="class_game_space_1_1_game.html#aec653231fcab8fa4d81c517e2fd9e6e1">GameSpace::Game</a>
@@ -163,10 +233,43 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>label
+: <a class="el" href="class_ui___main_window.html#ad9c89133780f28e6efa2ec17ceb9cff5">Ui_MainWindow</a>
+</li>
+<li>label_2
+: <a class="el" href="class_ui___main_window.html#a2e2516d755e4dd53fc905dabddf2738a">Ui_MainWindow</a>
+</li>
+<li>label_move
+: <a class="el" href="class_ui___main_window.html#a76ac233fbf4cc5990947811b573d7cbe">Ui_MainWindow</a>
+</li>
+<li>label_passe
+: <a class="el" href="class_ui___main_window.html#a96018f4153453664d1486124b04fc501">Ui_MainWindow</a>
+</li>
+<li>label_selected
+: <a class="el" href="class_ui___main_window.html#a6e9f99f0b9815aac75130eea4b7df109">Ui_MainWindow</a>
+</li>
+</ul>
+
+
 <h3><a id="index_m"></a>- m -</h3><ul>
+<li>MainWindow()
+: <a class="el" href="class_main_window.html#a996c5a2b6f77944776856f08ec30858d">MainWindow</a>
+</li>
+<li>meetOpposite()
+: <a class="el" href="class_game_space_1_1_game.html#a8e360e3997b2a1eca0d181c58cbb0ab6">GameSpace::Game</a>
+</li>
+<li>menuBar
+: <a class="el" href="class_ui___main_window.html#a2be1c24ec9adfca18e1dcc951931457f">Ui_MainWindow</a>
+</li>
+<li>menuMenu
+: <a class="el" href="class_ui___main_window.html#a6d7bbbef44e207ee15e5a623171033a2">Ui_MainWindow</a>
+</li>
 <li>move()
-: <a class="el" href="class_board_space_1_1_board.html#aaa0755e7584506d96ebac6e8ba8a0bec">BoardSpace::Board</a>
-, <a class="el" href="class_game_space_1_1_game.html#a7599f38e7fe3378e637532ac750c4f03">GameSpace::Game</a>
+: <a class="el" href="class_board_space_1_1_board.html#a5682db4fd8ed6b0ad72b28a50a1ba554">BoardSpace::Board</a>
+, <a class="el" href="class_game_space_1_1_game.html#aba89651f48fd59d92c315fdc3a007583">GameSpace::Game</a>
+, <a class="el" href="class_main_window.html#a6cb7628a408287a7181ae366327eb4d6">MainWindow</a>
+, <a class="el" href="class_ui___main_window.html#a19557e76fc46f223f8873414fe4ceed5">Ui_MainWindow</a>
 </li>
 </ul>
 
@@ -174,15 +277,34 @@ $(function() {
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>notifyObservers()
 : <a class="el" href="class_game_space_1_1_game.html#a758849a18bbac9c9ea0264c98e309891">GameSpace::Game</a>
+, <a class="el" href="class_observable_space_1_1_observable.html#ac5421cc12f627afbcac867bbcb49ddac">ObservableSpace::Observable</a>
+</li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>Observable()
+: <a class="el" href="class_observable_space_1_1_observable.html#afd14c510cff0125e2d92af0e691f9dfb">ObservableSpace::Observable</a>
+</li>
+<li>Observer()
+: <a class="el" href="class_observer_space_1_1_observer.html#ad859c3f8d2b874ccc309195cec496a7d">ObserverSpace::Observer</a>
+</li>
+<li>observers_
+: <a class="el" href="class_observable_space_1_1_observable.html#a252555f526382830ddb728eec5e85764">ObservableSpace::Observable</a>
+</li>
+<li>overAntigame()
+: <a class="el" href="class_game_space_1_1_game.html#a7ba93fe6d2edbbc6fbfd3171fe9e5574">GameSpace::Game</a>
 </li>
 </ul>
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>passe()
-: <a class="el" href="class_board_space_1_1_board.html#a966e7d9f433feec593f0acc9b7255272">BoardSpace::Board</a>
-, <a class="el" href="class_game_space_1_1_game.html#a734f6a86fde70a14a234828b9c0c010c">GameSpace::Game</a>
+: <a class="el" href="class_board_space_1_1_board.html#a936d5f1b82874ec9eb6c18c2df13d875">BoardSpace::Board</a>
+, <a class="el" href="class_game_space_1_1_game.html#ac9f128a6572bbc8730d7f4e45e6db6b6">GameSpace::Game</a>
+, <a class="el" href="class_main_window.html#a9c91d0c7b349fe846faf0c57976e850f">MainWindow</a>
 , <a class="el" href="class_piece_space_1_1_piece.html#a38f6e6326fffd9f78b288b20eba4adb0">PieceSpace::Piece</a>
+, <a class="el" href="class_ui___main_window.html#ac11adf77072e1549256b1788b2d8de78">Ui_MainWindow</a>
 </li>
 <li>Piece()
 : <a class="el" href="class_piece_space_1_1_piece.html#abdbeefbf4cb5127f242b1ddd82b288ff">PieceSpace::Piece</a>
@@ -190,8 +312,21 @@ $(function() {
 <li>play()
 : <a class="el" href="class_players_space_1_1_players.html#ace2ffad7f9b9ae913024600dd2764cd4">PlayersSpace::Players</a>
 </li>
+<li>Player1
+: <a class="el" href="class_ui___main_window.html#a63c3d767c80cd1784f6784a0c4efe8c5">Ui_MainWindow</a>
+</li>
+<li>Player2
+: <a class="el" href="class_ui___main_window.html#a02f2eea536cc9aeecbce89952f52b2ee">Ui_MainWindow</a>
+</li>
 <li>Players()
 : <a class="el" href="class_players_space_1_1_players.html#a0b7328d716b29a5e3037bcac3a09fb45">PlayersSpace::Players</a>
+</li>
+</ul>
+
+
+<h3><a id="index_q"></a>- q -</h3><ul>
+<li>quit()
+: <a class="el" href="class_main_window.html#a542a7527ced73b2c9bc14f8dc9661a66">MainWindow</a>
 </li>
 </ul>
 
@@ -199,9 +334,13 @@ $(function() {
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>registerObserver()
 : <a class="el" href="class_game_space_1_1_game.html#a135cab9d5fa2a1d03523c185f5d50ae0">GameSpace::Game</a>
+, <a class="el" href="class_observable_space_1_1_observable.html#a64c90bd254e081b8851e687faaf0c352">ObservableSpace::Observable</a>
 </li>
 <li>restart()
 : <a class="el" href="class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0">GameSpace::Game</a>
+</li>
+<li>retranslateUi()
+: <a class="el" href="class_ui___main_window.html#a097dd160c3534a204904cb374412c618">Ui_MainWindow</a>
 </li>
 </ul>
 
@@ -210,12 +349,35 @@ $(function() {
 <li>setBool()
 : <a class="el" href="class_piece_space_1_1_piece.html#a34dd716102fd42e263eb56f11cf052c5">PieceSpace::Piece</a>
 </li>
+<li>setColor()
+: <a class="el" href="class_piece_space_1_1_piece.html#a4f7fc309ba16765f595d30d4191378fc">PieceSpace::Piece</a>
+</li>
+<li>setGame()
+: <a class="el" href="class_main_window.html#a23939ffce41e3ec9bbb176a77115d03e">MainWindow</a>
+</li>
+<li>setupUi()
+: <a class="el" href="class_ui___main_window.html#acf4a0872c4c77d8f43a2ec66ed849b58">Ui_MainWindow</a>
+</li>
 <li>showBoard()
 : <a class="el" href="class_board_space_1_1_board.html#abe13e9ad92dd8199a63ca83e7c44048e">BoardSpace::Board</a>
 , <a class="el" href="class_game_space_1_1_game.html#a6797ba29ad51915f47c64492ad8ba91a">GameSpace::Game</a>
 </li>
+<li>showTable()
+: <a class="el" href="class_board_space_1_1_board.html#ac113febd67c85f95d59c55140f63d3a2">BoardSpace::Board</a>
+, <a class="el" href="class_game_space_1_1_game.html#a2021e3d77ee3f8983ff8c0cbeb05ed33">GameSpace::Game</a>
+</li>
+<li>showWinner()
+: <a class="el" href="class_main_window.html#a8f468fd8af22cd60cf4ff35e51633525">MainWindow</a>
+</li>
 <li>start()
 : <a class="el" href="class_game_space_1_1_game.html#a37f48cf1c68c5b52ef24ff985e1acfc8">GameSpace::Game</a>
+</li>
+<li>statusbar
+: <a class="el" href="class_ui___main_window.html#a1687cceb1e2787aa1f83e50433943a91">Ui_MainWindow</a>
+</li>
+<li>stringdata0
+: <a class="el" href="structqt__meta__stringdata___label__t.html#aec6c969215f3de4eca8c10b8515de3eb">qt_meta_stringdata_Label_t</a>
+, <a class="el" href="structqt__meta__stringdata___main_window__t.html#a0efe2bd4c5fd6f913c654dc043934066">qt_meta_stringdata_MainWindow_t</a>
 </li>
 <li>swapPlayer()
 : <a class="el" href="class_game_space_1_1_game.html#a22156f5938d1c4f2a9a9133da841144a">GameSpace::Game</a>
@@ -223,17 +385,36 @@ $(function() {
 </ul>
 
 
+<h3><a id="index_t"></a>- t -</h3><ul>
+<li>tableWidget
+: <a class="el" href="class_ui___main_window.html#a337a21c052f1a3f0f0071d282e818744">Ui_MainWindow</a>
+</li>
+<li>textBrowser
+: <a class="el" href="class_ui___main_window.html#a2c789c07fa5fc1cee05aae8df52bb02d">Ui_MainWindow</a>
+</li>
+</ul>
+
+
 <h3><a id="index_u"></a>- u -</h3><ul>
 <li>unregisterObserver()
 : <a class="el" href="class_game_space_1_1_game.html#ae2271203accc2b78f1970f24da52750b">GameSpace::Game</a>
+, <a class="el" href="class_observable_space_1_1_observable.html#a6349176001a76abfce8d5b1339ee79ea">ObservableSpace::Observable</a>
 </li>
 <li>update()
-: <a class="el" href="class_view_space_1_1_view.html#a9161a09f4dbb4ea8b7bbfae70f0ca80d">ViewSpace::View</a>
+: <a class="el" href="class_main_window.html#a54a97562db16e018f89425572f60d06e">MainWindow</a>
+, <a class="el" href="class_observer_space_1_1_observer.html#aa951b2201c8699d6c12221daed86595b">ObserverSpace::Observer</a>
+, <a class="el" href="class_view_space_1_1_view.html#a43a343e66135ae5816dbe694fd371e1f">ViewSpace::View</a>
+</li>
+<li>updateTable()
+: <a class="el" href="class_main_window.html#a8d51268dd2428aa57394d8f429facf9b">MainWindow</a>
 </li>
 </ul>
 
 
 <h3><a id="index_v"></a>- v -</h3><ul>
+<li>verticalLayout
+: <a class="el" href="class_ui___main_window.html#aecd96a04789fcfec3f98d80390ad8184">Ui_MainWindow</a>
+</li>
 <li>View()
 : <a class="el" href="class_view_space_1_1_view.html#a713d696088baade65a06ea898a2bec4c">ViewSpace::View</a>
 </li>
@@ -244,13 +425,28 @@ $(function() {
 <li>~Game()
 : <a class="el" href="class_game_space_1_1_game.html#afb0876d3e46b252789f0ab1c29695d05">GameSpace::Game</a>
 </li>
+<li>~MainWindow()
+: <a class="el" href="class_main_window.html#a1f7d2c56410fc1bfa135bb907d43313f">MainWindow</a>
+</li>
+<li>~Observable()
+: <a class="el" href="class_observable_space_1_1_observable.html#a774d1898918614399cb1402b1633d739">ObservableSpace::Observable</a>
+</li>
+<li>~Observer()
+: <a class="el" href="class_observer_space_1_1_observer.html#aa55889ecb28587d56e67ce7845229005">ObserverSpace::Observer</a>
+</li>
+<li>~View()
+: <a class="el" href="class_view_space_1_1_view.html#ac50aa66c64182a188aab23742107f3a7">ViewSpace::View</a>
+</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

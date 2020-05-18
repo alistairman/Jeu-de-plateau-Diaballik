@@ -1,14 +1,5 @@
 var searchData=
 [
-  ['game_8',['Game',['../class_game_space_1_1_game.html',1,'GameSpace::Game'],['../class_game_space_1_1_game.html#aa9ccce5221815da92810e44380ef8284',1,'GameSpace::Game::Game()']]],
-  ['getaction_9',['getAction',['../class_view_space_1_1_view.html#a28308bab3ea82d5b080daf81213baf7a',1,'ViewSpace::View']]],
-  ['getbool_10',['getBool',['../class_piece_space_1_1_piece.html#a928acfafbca4bc6b70ab01605e9a40d9',1,'PieceSpace::Piece']]],
-  ['getcolor_11',['getColor',['../class_piece_space_1_1_piece.html#a67d478a407ad15126cf3f8534ba8c8b1',1,'PieceSpace::Piece::getColor()'],['../class_players_space_1_1_players.html#a84f9caddaac6158668fb3a681a59cc9a',1,'PlayersSpace::Players::getColor()']]],
-  ['getcurrentplayer_12',['getCurrentPlayer',['../class_game_space_1_1_game.html#a6a399efe457e8da9129e28c392cfa563',1,'GameSpace::Game']]],
-  ['getheight_13',['getHeight',['../class_board_space_1_1_board.html#acf73c3c92168853d35ab4ca378282745',1,'BoardSpace::Board']]],
-  ['getname_14',['getName',['../class_players_space_1_1_players.html#a35148f90d5caececa832575a8059a89a',1,'PlayersSpace::Players']]],
-  ['getoppocolor_15',['getOppoColor',['../class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5',1,'GameSpace::Game']]],
-  ['getpiece_16',['getPiece',['../class_board_space_1_1_board.html#aeda4c273dda3993133366ae8899d72fb',1,'BoardSpace::Board']]],
-  ['getwidth_17',['getWidth',['../class_board_space_1_1_board.html#abeaeb82b833d95a9771f97650e1d734b',1,'BoardSpace::Board']]],
-  ['getwinner_18',['getWinner',['../class_game_space_1_1_game.html#a7600082e05d833aae6a460597d372aac',1,'GameSpace::Game::getWinner()'],['../class_view_space_1_1_view.html#a3930c3cb55cb447b7bd73a4a488b3206',1,'ViewSpace::View::getWinner()']]]
+  ['data_480',['data',['../structqt__meta__stringdata___main_window__t.html#abc06bd6a2c264deb4058e01e6050b902',1,'qt_meta_stringdata_MainWindow_t::data()'],['../structqt__meta__stringdata___label__t.html#a25143e5572cfabf3dc0830fc2bf25859',1,'qt_meta_stringdata_Label_t::data()']]],
+  ['direction_481',['direction',['../class_board_space_1_1_board.html#a4d39f7c295aa707e4c9e6da021cc2dfd',1,'BoardSpace::Board']]]
 ];

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,7 +28,6 @@
    <div id="projectname">Diaballik
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Jeu du Diaballik</div>
   </td>
  </tr>
  </tbody>
@@ -47,6 +50,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_board_space_1_1_board.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +81,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>BoardSpace</b></li><li class="navelem"><a class="el" href="class_board_space_1_1_board.html">Board</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -82,51 +97,56 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a91b641e2147aca667e6e0ab5dc8df9b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a91b641e2147aca667e6e0ab5dc8df9b7">Board</a> (int width, int height)</td></tr>
-<tr class="memdesc:a91b641e2147aca667e6e0ab5dc8df9b7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_board_space_1_1_board.html" title="The Board class this class represent the board of the game with 7 row and 7 column.">Board</a> the constructor of board with specific width and height size.  <a href="class_board_space_1_1_board.html#a91b641e2147aca667e6e0ab5dc8df9b7">More...</a><br /></td></tr>
-<tr class="separator:a91b641e2147aca667e6e0ab5dc8df9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeda4c273dda3993133366ae8899d72fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#aeda4c273dda3993133366ae8899d72fb">getPiece</a> (int x, int y)</td></tr>
-<tr class="memdesc:aeda4c273dda3993133366ae8899d72fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">getPiece this method avoid to get a piece in the specific position  <a href="class_board_space_1_1_board.html#aeda4c273dda3993133366ae8899d72fb">More...</a><br /></td></tr>
-<tr class="separator:aeda4c273dda3993133366ae8899d72fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab344eb7243aa1fc8166b9729ef7dc55e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#ab344eb7243aa1fc8166b9729ef7dc55e">isInsideBall</a> (int x, int y)</td></tr>
-<tr class="memdesc:ab344eb7243aa1fc8166b9729ef7dc55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">isInsideBall this method check if a piece in the specific position conteint a ball  <a href="class_board_space_1_1_board.html#ab344eb7243aa1fc8166b9729ef7dc55e">More...</a><br /></td></tr>
-<tr class="separator:ab344eb7243aa1fc8166b9729ef7dc55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a615158c9e90d565346e557efa41db139"><td class="memItemLeft" align="right" valign="top"><a id="a615158c9e90d565346e557efa41db139"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a615158c9e90d565346e557efa41db139">initBoard</a> ()</td></tr>
-<tr class="memdesc:a615158c9e90d565346e557efa41db139"><td class="mdescLeft">&#160;</td><td class="mdescRight">initBoard this method fil the board <br /></td></tr>
+<tr class="memitem:a8631b2314fedc0768945e6a4981f53c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a8631b2314fedc0768945e6a4981f53c2">Board</a> (unsigned width, unsigned height)</td></tr>
+<tr class="memdesc:a8631b2314fedc0768945e6a4981f53c2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_board_space_1_1_board.html" title="The Board class this class represent the board of the game with 7 row and 7 column.">Board</a> the constructor of board with specific width and height size.  <a href="class_board_space_1_1_board.html#a8631b2314fedc0768945e6a4981f53c2">More...</a><br /></td></tr>
+<tr class="separator:a8631b2314fedc0768945e6a4981f53c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7373c814b0af65c7e877b5fc493c98c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a7373c814b0af65c7e877b5fc493c98c3">getPiece</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a7373c814b0af65c7e877b5fc493c98c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">getPiece this method avoid to get a piece in the specific position  <a href="class_board_space_1_1_board.html#a7373c814b0af65c7e877b5fc493c98c3">More...</a><br /></td></tr>
+<tr class="separator:a7373c814b0af65c7e877b5fc493c98c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4961faae7aa153e175564bebf828664f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a4961faae7aa153e175564bebf828664f">isInsideBall</a> (unsigned x, unsigned y)</td></tr>
+<tr class="memdesc:a4961faae7aa153e175564bebf828664f"><td class="mdescLeft">&#160;</td><td class="mdescRight">isInsideBall this method check if a piece in the specific position conteint a ball  <a href="class_board_space_1_1_board.html#a4961faae7aa153e175564bebf828664f">More...</a><br /></td></tr>
+<tr class="separator:a4961faae7aa153e175564bebf828664f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4231859c9283ac20c0690eb271f40fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#af4231859c9283ac20c0690eb271f40fe">isInside</a> (unsigned x, unsigned y)</td></tr>
+<tr class="separator:af4231859c9283ac20c0690eb271f40fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a615158c9e90d565346e557efa41db139"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a615158c9e90d565346e557efa41db139">initBoard</a> ()</td></tr>
+<tr class="memdesc:a615158c9e90d565346e557efa41db139"><td class="mdescLeft">&#160;</td><td class="mdescRight">initBoard this method fil the board  <a href="class_board_space_1_1_board.html#a615158c9e90d565346e557efa41db139">More...</a><br /></td></tr>
 <tr class="separator:a615158c9e90d565346e557efa41db139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe13e9ad92dd8199a63ca83e7c44048e"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#abe13e9ad92dd8199a63ca83e7c44048e">showBoard</a> (ostream &amp;c)</td></tr>
 <tr class="memdesc:abe13e9ad92dd8199a63ca83e7c44048e"><td class="mdescLeft">&#160;</td><td class="mdescRight">showBoard this method inject to the ostream the board to show  <a href="class_board_space_1_1_board.html#abe13e9ad92dd8199a63ca83e7c44048e">More...</a><br /></td></tr>
 <tr class="separator:abe13e9ad92dd8199a63ca83e7c44048e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abeaeb82b833d95a9771f97650e1d734b"><td class="memItemLeft" align="right" valign="top"><a id="abeaeb82b833d95a9771f97650e1d734b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#abeaeb82b833d95a9771f97650e1d734b">getWidth</a> ()</td></tr>
-<tr class="memdesc:abeaeb82b833d95a9771f97650e1d734b"><td class="mdescLeft">&#160;</td><td class="mdescRight">getWidth this method make the attribute width accessible <br /></td></tr>
-<tr class="separator:abeaeb82b833d95a9771f97650e1d734b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf73c3c92168853d35ab4ca378282745"><td class="memItemLeft" align="right" valign="top"><a id="acf73c3c92168853d35ab4ca378282745"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#acf73c3c92168853d35ab4ca378282745">getHeight</a> ()</td></tr>
-<tr class="memdesc:acf73c3c92168853d35ab4ca378282745"><td class="mdescLeft">&#160;</td><td class="mdescRight">getHeight this method make the attribute height accessible <br /></td></tr>
-<tr class="separator:acf73c3c92168853d35ab4ca378282745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafc3e77a9dccb7d00198b90df3476183"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#aafc3e77a9dccb7d00198b90df3476183">checkMove</a> (int ox, int oy, int dx, int dy)</td></tr>
-<tr class="memdesc:aafc3e77a9dccb7d00198b90df3476183"><td class="mdescLeft">&#160;</td><td class="mdescRight">checkMove this method check the move made by the player whith specific position from and to of the piece  <a href="class_board_space_1_1_board.html#aafc3e77a9dccb7d00198b90df3476183">More...</a><br /></td></tr>
-<tr class="separator:aafc3e77a9dccb7d00198b90df3476183"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa0755e7584506d96ebac6e8ba8a0bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#aaa0755e7584506d96ebac6e8ba8a0bec">move</a> (int ox, int oy, int dx, int dy, Color color)</td></tr>
-<tr class="memdesc:aaa0755e7584506d96ebac6e8ba8a0bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">move this method make a piece move from specific position to anothor position  <a href="class_board_space_1_1_board.html#aaa0755e7584506d96ebac6e8ba8a0bec">More...</a><br /></td></tr>
-<tr class="separator:aaa0755e7584506d96ebac6e8ba8a0bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d4938c3b3f83c1b2be61def152cf5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a91d4938c3b3f83c1b2be61def152cf5a">checkPasse</a> (int ox, int oy, int dx, int dy, Color color)</td></tr>
-<tr class="memdesc:a91d4938c3b3f83c1b2be61def152cf5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">checkPasse this method check if the a pass can be make  <a href="class_board_space_1_1_board.html#a91d4938c3b3f83c1b2be61def152cf5a">More...</a><br /></td></tr>
-<tr class="separator:a91d4938c3b3f83c1b2be61def152cf5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a966e7d9f433feec593f0acc9b7255272"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a966e7d9f433feec593f0acc9b7255272">passe</a> (int dx, int dy, <a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
-<tr class="memdesc:a966e7d9f433feec593f0acc9b7255272"><td class="mdescLeft">&#160;</td><td class="mdescRight">passe this method move the ball of the player from to specific piece in specific position  <a href="class_board_space_1_1_board.html#a966e7d9f433feec593f0acc9b7255272">More...</a><br /></td></tr>
-<tr class="separator:a966e7d9f433feec593f0acc9b7255272"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a589e7dc16d8873d12b96be5da60eba2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a589e7dc16d8873d12b96be5da60eba2b">direction</a> (int ox, int oy, int width, int height, Color color)</td></tr>
-<tr class="memdesc:a589e7dc16d8873d12b96be5da60eba2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">direction this method make the both check method move from a position to the next position to check  <a href="class_board_space_1_1_board.html#a589e7dc16d8873d12b96be5da60eba2b">More...</a><br /></td></tr>
-<tr class="separator:a589e7dc16d8873d12b96be5da60eba2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d49daa4584aa0940a592bd9c9d6b1ce"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a5d49daa4584aa0940a592bd9c9d6b1ce">getWidth</a> ()</td></tr>
+<tr class="memdesc:a5d49daa4584aa0940a592bd9c9d6b1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">getWidth this method make the attribute width accessible  <a href="class_board_space_1_1_board.html#a5d49daa4584aa0940a592bd9c9d6b1ce">More...</a><br /></td></tr>
+<tr class="separator:a5d49daa4584aa0940a592bd9c9d6b1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a382cb4bdbf11bf658c0a49d69afc4b9b"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a382cb4bdbf11bf658c0a49d69afc4b9b">getHeight</a> ()</td></tr>
+<tr class="memdesc:a382cb4bdbf11bf658c0a49d69afc4b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">getHeight this method make the attribute height accessible  <a href="class_board_space_1_1_board.html#a382cb4bdbf11bf658c0a49d69afc4b9b">More...</a><br /></td></tr>
+<tr class="separator:a382cb4bdbf11bf658c0a49d69afc4b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf54d8ff1762a9255df84eafe0ece259"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#adf54d8ff1762a9255df84eafe0ece259">checkMove</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy)</td></tr>
+<tr class="memdesc:adf54d8ff1762a9255df84eafe0ece259"><td class="mdescLeft">&#160;</td><td class="mdescRight">checkMove this method check the move made by the player whith specific position from and to of the piece  <a href="class_board_space_1_1_board.html#adf54d8ff1762a9255df84eafe0ece259">More...</a><br /></td></tr>
+<tr class="separator:adf54d8ff1762a9255df84eafe0ece259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5682db4fd8ed6b0ad72b28a50a1ba554"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a5682db4fd8ed6b0ad72b28a50a1ba554">move</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy, <a class="el" href="_color_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> color)</td></tr>
+<tr class="memdesc:a5682db4fd8ed6b0ad72b28a50a1ba554"><td class="mdescLeft">&#160;</td><td class="mdescRight">move this method make a piece move from specific position to anothor position  <a href="class_board_space_1_1_board.html#a5682db4fd8ed6b0ad72b28a50a1ba554">More...</a><br /></td></tr>
+<tr class="separator:a5682db4fd8ed6b0ad72b28a50a1ba554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc1684d714878f94db246d077faac55b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#acc1684d714878f94db246d077faac55b">checkPasse</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy, <a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
+<tr class="memdesc:acc1684d714878f94db246d077faac55b"><td class="mdescLeft">&#160;</td><td class="mdescRight">checkPasse this method check if the a pass can be make  <a href="class_board_space_1_1_board.html#acc1684d714878f94db246d077faac55b">More...</a><br /></td></tr>
+<tr class="separator:acc1684d714878f94db246d077faac55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936d5f1b82874ec9eb6c18c2df13d875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a936d5f1b82874ec9eb6c18c2df13d875">passe</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy, <a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
+<tr class="memdesc:a936d5f1b82874ec9eb6c18c2df13d875"><td class="mdescLeft">&#160;</td><td class="mdescRight">passe this method move the ball of the player from to specific piece in specific position  <a href="class_board_space_1_1_board.html#a936d5f1b82874ec9eb6c18c2df13d875">More...</a><br /></td></tr>
+<tr class="separator:a936d5f1b82874ec9eb6c18c2df13d875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d39f7c295aa707e4c9e6da021cc2dfd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#a4d39f7c295aa707e4c9e6da021cc2dfd">direction</a> (unsigned ox, unsigned oy, unsigned width, unsigned height, unsigned dx, unsigned dy, <a class="el" href="class_players_space_1_1_players.html">Players</a> currentPlayer)</td></tr>
+<tr class="memdesc:a4d39f7c295aa707e4c9e6da021cc2dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">direction this method make the both check method move from a position to the next position to check  <a href="class_board_space_1_1_board.html#a4d39f7c295aa707e4c9e6da021cc2dfd">More...</a><br /></td></tr>
+<tr class="separator:a4d39f7c295aa707e4c9e6da021cc2dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac113febd67c85f95d59c55140f63d3a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#ac113febd67c85f95d59c55140f63d3a2">showTable</a> (QTableWidget *table)</td></tr>
+<tr class="separator:ac113febd67c85f95d59c55140f63d3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedc60c27bc2970564e26d982d2e6472"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board_space_1_1_board.html#adedc60c27bc2970564e26d982d2e6472">checkDistance</a> (unsigned ox, unsigned oy, unsigned dx, unsigned dy)</td></tr>
+<tr class="separator:adedc60c27bc2970564e26d982d2e6472"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="class_board_space_1_1_board.html" title="The Board class this class represent the board of the game with 7 row and 7 column.">Board</a> class this class represent the board of the game with 7 row and 7 column. </p>
+
+<p class="definition">Definition at line <a class="el" href="_board_8h_source.html#l00022">22</a> of file <a class="el" href="_board_8h_source.html">Board.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a91b641e2147aca667e6e0ab5dc8df9b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91b641e2147aca667e6e0ab5dc8df9b7">&#9670;&nbsp;</a></span>Board()</h2>
+<a id="a8631b2314fedc0768945e6a4981f53c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8631b2314fedc0768945e6a4981f53c2">&#9670;&nbsp;</a></span>Board()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,13 +154,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="memname">BoardSpace::Board::Board </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>width</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>height</em>&#160;</td>
         </tr>
         <tr>
@@ -160,11 +180,55 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00013">13</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aafc3e77a9dccb7d00198b90df3476183"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafc3e77a9dccb7d00198b90df3476183">&#9670;&nbsp;</a></span>checkMove()</h2>
+<a id="adedc60c27bc2970564e26d982d2e6472"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adedc60c27bc2970564e26d982d2e6472">&#9670;&nbsp;</a></span>checkDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BoardSpace::Board::checkDistance </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>oy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>dy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00079">79</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adf54d8ff1762a9255df84eafe0ece259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf54d8ff1762a9255df84eafe0ece259">&#9670;&nbsp;</a></span>checkMove()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,25 +236,25 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="memname">bool BoardSpace::Board::checkMove </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>ox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>oy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dy</em>&#160;</td>
         </tr>
         <tr>
@@ -213,10 +277,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the move is correct width rules of the game </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00096">96</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a91d4938c3b3f83c1b2be61def152cf5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91d4938c3b3f83c1b2be61def152cf5a">&#9670;&nbsp;</a></span>checkPasse()</h2>
+<a id="acc1684d714878f94db246d077faac55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc1684d714878f94db246d077faac55b">&#9670;&nbsp;</a></span>checkPasse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,32 +290,32 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="memname">bool BoardSpace::Board::checkPasse </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>ox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>oy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_players_space_1_1_players.html">Players</a>&#160;</td>
+          <td class="paramname"><em>currentPlayer</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -272,43 +338,57 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the passe can be done according to the rules of the game </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00117">117</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a589e7dc16d8873d12b96be5da60eba2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a589e7dc16d8873d12b96be5da60eba2b">&#9670;&nbsp;</a></span>direction()</h2>
+<a id="a4d39f7c295aa707e4c9e6da021cc2dfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d39f7c295aa707e4c9e6da021cc2dfd">&#9670;&nbsp;</a></span>direction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a> BoardSpace::Board::direction </td>
+          <td class="memname">bool BoardSpace::Board::direction </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>ox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>oy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>width</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>height</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>dy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_players_space_1_1_players.html">Players</a>&#160;</td>
+          <td class="paramname"><em>currentPlayer</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -331,24 +411,47 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the last piece found in that direction </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00134">134</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
-<a id="aeda4c273dda3993133366ae8899d72fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeda4c273dda3993133366ae8899d72fb">&#9670;&nbsp;</a></span>getPiece()</h2>
+<a id="a382cb4bdbf11bf658c0a49d69afc4b9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382cb4bdbf11bf658c0a49d69afc4b9b">&#9670;&nbsp;</a></span>getHeight()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a> BoardSpace::Board::getPiece </td>
+          <td class="memname">unsigned BoardSpace::Board::getHeight </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getHeight this method make the attribute height accessible </p>
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00067">67</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7373c814b0af65c7e877b5fc493c98c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7373c814b0af65c7e877b5fc493c98c3">&#9670;&nbsp;</a></span>getPiece()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_piece_space_1_1_piece.html">Piece</a> &amp; BoardSpace::Board::getPiece </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -369,10 +472,84 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>piece in the x column et y row of the board </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00019">19</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
-<a id="ab344eb7243aa1fc8166b9729ef7dc55e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab344eb7243aa1fc8166b9729ef7dc55e">&#9670;&nbsp;</a></span>isInsideBall()</h2>
+<a id="a5d49daa4584aa0940a592bd9c9d6b1ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d49daa4584aa0940a592bd9c9d6b1ce">&#9670;&nbsp;</a></span>getWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned BoardSpace::Board::getWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getWidth this method make the attribute width accessible </p>
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00063">63</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a615158c9e90d565346e557efa41db139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615158c9e90d565346e557efa41db139">&#9670;&nbsp;</a></span>initBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoardSpace::Board::initBoard </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initBoard this method fil the board </p>
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00029">29</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af4231859c9283ac20c0690eb271f40fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4231859c9283ac20c0690eb271f40fe">&#9670;&nbsp;</a></span>isInside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BoardSpace::Board::isInside </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00071">71</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4961faae7aa153e175564bebf828664f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4961faae7aa153e175564bebf828664f">&#9670;&nbsp;</a></span>isInsideBall()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,13 +557,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="memname">bool BoardSpace::Board::isInsideBall </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -407,10 +584,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if this piece conteint a ball </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00075">75</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
-<a id="aaa0755e7584506d96ebac6e8ba8a0bec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa0755e7584506d96ebac6e8ba8a0bec">&#9670;&nbsp;</a></span>move()</h2>
+<a id="a5682db4fd8ed6b0ad72b28a50a1ba554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5682db4fd8ed6b0ad72b28a50a1ba554">&#9670;&nbsp;</a></span>move()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,31 +597,31 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="memname">void BoardSpace::Board::move </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>ox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>oy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Color&#160;</td>
+          <td class="paramtype"><a class="el" href="_color_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a>&#160;</td>
           <td class="paramname"><em>color</em>&#160;</td>
         </tr>
         <tr>
@@ -466,10 +645,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00083">83</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
-<a id="a966e7d9f433feec593f0acc9b7255272"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a966e7d9f433feec593f0acc9b7255272">&#9670;&nbsp;</a></span>passe()</h2>
+<a id="a936d5f1b82874ec9eb6c18c2df13d875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a936d5f1b82874ec9eb6c18c2df13d875">&#9670;&nbsp;</a></span>passe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,13 +658,25 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
         <tr>
           <td class="memname">void BoardSpace::Board::passe </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>oy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>dy</em>, </td>
         </tr>
         <tr>
@@ -509,6 +702,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00107">107</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
 
 </div>
 </div>
@@ -537,18 +732,44 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the ostream who that will show the board </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00045">45</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac113febd67c85f95d59c55140f63d3a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac113febd67c85f95d59c55140f63d3a2">&#9670;&nbsp;</a></span>showTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoardSpace::Board::showTable </td>
+          <td>(</td>
+          <td class="paramtype">QTableWidget *&#160;</td>
+          <td class="paramname"><em>table</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_board_8cpp_source.html#l00157">157</a> of file <a class="el" href="_board_8cpp_source.html">Board.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>DEV4-Diaballik/DiaballikC++/<a class="el" href="_board_8h_source.html">Board.h</a></li>
-<li>DEV4-Diaballik/DiaballikC++/Board.cpp</li>
+<li><a class="el" href="_board_8h_source.html">Board.h</a></li>
+<li><a class="el" href="_board_8cpp_source.html">Board.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_board_space.html">BoardSpace</a></li><li class="navelem"><a class="el" href="class_board_space_1_1_board.html">Board</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

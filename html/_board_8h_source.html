@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Diaballik: DEV4-Diaballik/DiaballikC++/Board.h Source File</title>
+<title>Diaballik: Board.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,7 +28,6 @@
    <div id="projectname">Diaballik
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Jeu du Diaballik</div>
   </td>
  </tr>
  </tbody>
@@ -47,6 +50,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_board_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,78 +81,92 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_76733fa28ddee700e65cb0f0ac0bf99e.html">DEV4-Diaballik</a></li><li class="navelem"><a class="el" href="dir_1a636a0384f51b41be07fa6eed413c62.html">DiaballikC++</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Board.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BOARD_H</span></div>
+<a href="_board_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BOARD_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BOARD_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Piece.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Players.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using namespace </span>PieceSpace;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>PlayersSpace;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>BoardSpace {</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_piece_8h.html">Piece.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_players_8h.html">Players.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;QTableWidget&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QGridLayout&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_piece_space.html">PieceSpace</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespace_players_space.html">PlayersSpace</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_board_space_1_1_board.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_board_space_1_1_board.html">Board</a>{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> width_;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> height_;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    vector &lt; vector &lt;Piece&gt; &gt;  board_;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_board_space.html">BoardSpace</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_board_space_1_1_board.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_board_space_1_1_board.html">Board</a>{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">unsigned</span> width_;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">unsigned</span> height_;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    vector &lt; vector &lt;Piece&gt; &gt;  board_;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_board_space_1_1_board.html">Board</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_piece_space_1_1_piece.html">Piece</a> getPiece(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> isInsideBall(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> initBoard();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    ostream &amp; showBoard (ostream &amp; c);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">int</span> getWidth();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">int</span> getHeight();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> checkMove(<span class="keywordtype">int</span> ox,<span class="keywordtype">int</span> oy, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> move(<span class="keywordtype">int</span> ox, <span class="keywordtype">int</span> oy, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy, Color color);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">bool</span> checkPasse(<span class="keywordtype">int</span> ox, <span class="keywordtype">int</span> oy, <span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy,Color color);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">void</span> passe(<span class="keywordtype">int</span> dx, <span class="keywordtype">int</span> dy,<a class="code" href="class_players_space_1_1_players.html">Players</a> currentPlayer);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="class_piece_space_1_1_piece.html">Piece</a> direction(<span class="keywordtype">int</span> ox,<span class="keywordtype">int</span> oy, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height,Color color);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;};</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_board_space_1_1_board.html">Board</a>(<span class="keywordtype">unsigned</span> width, <span class="keywordtype">unsigned</span> height);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_piece_space_1_1_piece.html">Piece</a>  &amp; getPiece(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> isInsideBall(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> isInside(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> initBoard();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    ostream &amp; showBoard (ostream &amp; c);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">unsigned</span> getWidth();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">unsigned</span> getHeight();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">bool</span> checkMove(<span class="keywordtype">unsigned</span> ox,<span class="keywordtype">unsigned</span> oy, <span class="keywordtype">unsigned</span> dx, <span class="keywordtype">unsigned</span> dy);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> move(<span class="keywordtype">unsigned</span> ox, <span class="keywordtype">unsigned</span> oy, <span class="keywordtype">unsigned</span> dx, <span class="keywordtype">unsigned</span> dy,<a class="code" href="_color_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> color);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">bool</span> checkPasse(<span class="keywordtype">unsigned</span> ox, <span class="keywordtype">unsigned</span> oy, <span class="keywordtype">unsigned</span> dx, <span class="keywordtype">unsigned</span> dy,<a class="code" href="class_players_space_1_1_players.html">Players</a> currentPlayer);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> passe(<span class="keywordtype">unsigned</span> ox,<span class="keywordtype">unsigned</span> oy, <span class="keywordtype">unsigned</span> dx, <span class="keywordtype">unsigned</span> dy,<a class="code" href="class_players_space_1_1_players.html">Players</a> currentPlayer);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">bool</span> direction(<span class="keywordtype">unsigned</span> ox,<span class="keywordtype">unsigned</span> oy, <span class="keywordtype">unsigned</span> width, <span class="keywordtype">unsigned</span> height,<span class="keywordtype">unsigned</span> dx, <span class="keywordtype">unsigned</span> dy, <a class="code" href="class_players_space_1_1_players.html">Players</a> currentPlayer);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif // BOARD_H</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span> showTable(QTableWidget *table);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">bool</span> checkDistance(<span class="keywordtype">unsigned</span> ox,<span class="keywordtype">unsigned</span> oy, <span class="keywordtype">unsigned</span> dx, <span class="keywordtype">unsigned</span> dy);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;};</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif // BOARD_H</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_board_space_1_1_board_html"><div class="ttname"><a href="class_board_space_1_1_board.html">BoardSpace::Board</a></div><div class="ttdoc">The Board class this class represent the board of the game with 7 row and 7 column.</div><div class="ttdef"><b>Definition:</b> Board.h:20</div></div>
-<div class="ttc" id="aclass_piece_space_1_1_piece_html"><div class="ttname"><a href="class_piece_space_1_1_piece.html">PieceSpace::Piece</a></div><div class="ttdoc">The Piece class this class represent a piece of the board.</div><div class="ttdef"><b>Definition:</b> Piece.h:15</div></div>
-<div class="ttc" id="aclass_players_space_1_1_players_html"><div class="ttname"><a href="class_players_space_1_1_players.html">PlayersSpace::Players</a></div><div class="ttdoc">The Players class this class represent the player of the game.</div><div class="ttdef"><b>Definition:</b> Players.h:15</div></div>
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_board_space_1_1_board_html"><div class="ttname"><a href="class_board_space_1_1_board.html">BoardSpace::Board</a></div><div class="ttdoc">The Board class this class represent the board of the game with 7 row and 7 column.</div><div class="ttdef"><b>Definition:</b> <a href="_board_8h_source.html#l00022">Board.h:22</a></div></div>
+<div class="ttc" id="anamespace_players_space_html"><div class="ttname"><a href="namespace_players_space.html">PlayersSpace</a></div><div class="ttdef"><b>Definition:</b> <a href="_players_8cpp_source.html#l00015">Players.cpp:15</a></div></div>
+<div class="ttc" id="anamespace_piece_space_html"><div class="ttname"><a href="namespace_piece_space.html">PieceSpace</a></div><div class="ttdef"><b>Definition:</b> <a href="_piece_8cpp_source.html#l00007">Piece.cpp:7</a></div></div>
+<div class="ttc" id="aclass_piece_space_1_1_piece_html"><div class="ttname"><a href="class_piece_space_1_1_piece.html">PieceSpace::Piece</a></div><div class="ttdoc">The Piece class this class represent a piece of the board.</div><div class="ttdef"><b>Definition:</b> <a href="_piece_8h_source.html#l00016">Piece.h:16</a></div></div>
+<div class="ttc" id="aclass_players_space_1_1_players_html"><div class="ttname"><a href="class_players_space_1_1_players.html">PlayersSpace::Players</a></div><div class="ttdoc">The Players class this class represent the player of the game.</div><div class="ttdef"><b>Definition:</b> <a href="_players_8h_source.html#l00016">Players.h:16</a></div></div>
+<div class="ttc" id="anamespace_board_space_html"><div class="ttname"><a href="namespace_board_space.html">BoardSpace</a></div><div class="ttdef"><b>Definition:</b> <a href="_board_8cpp_source.html#l00010">Board.cpp:10</a></div></div>
+<div class="ttc" id="a_piece_8h_html"><div class="ttname"><a href="_piece_8h.html">Piece.h</a></div></div>
+<div class="ttc" id="a_players_8h_html"><div class="ttname"><a href="_players_8h.html">Players.h</a></div></div>
+<div class="ttc" id="a_color_8h_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="_color_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">The Color enum this class represent different color of the game we can use.</div><div class="ttdef"><b>Definition:</b> <a href="_color_8h_source.html#l00008">Color.h:8</a></div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_board_8h.html">Board.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

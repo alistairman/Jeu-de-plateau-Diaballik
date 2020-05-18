@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,7 +28,6 @@
    <div id="projectname">Diaballik
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Jeu du Diaballik</div>
   </td>
  </tr>
  </tbody>
@@ -47,6 +50,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_game_space_1_1_game.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +81,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>GameSpace</b></li><li class="navelem"><a class="el" href="class_game_space_1_1_game.html">Game</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">GameSpace::Game Member List</div>  </div>
@@ -74,33 +89,42 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a6bff44d590bcf62a503258767bf9567d">addPlayer</a>(string player)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a979a04d4e2ef53505593a2ad5a64cfbc">addPlayers</a>(list&lt; Players &gt; player)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a82546281f558bbcda6280dac02a36d91">antiGame</a>(Players currentPlayer)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#aa9ccce5221815da92810e44380ef8284">Game</a>(int x, int y)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a6a399efe457e8da9129e28c392cfa563">getCurrentPlayer</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5">getOppoColor</a>(Players currentPlayer)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a7600082e05d833aae6a460597d372aac">getWinner</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#aec653231fcab8fa4d81c517e2fd9e6e1">isOver</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a04feb4517acba50d4e35964a6f5ddac2">isPossibleToAdd</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a7599f38e7fe3378e637532ac750c4f03">move</a>(int ox, int oy, int dx, int dy)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a0211559b2690621cddb63a60e3876f8b">Game</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a5604805788dc66ab072f5af877acb7bc">Game</a>(unsigned x, unsigned y)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a6a399efe457e8da9129e28c392cfa563">getCurrentPlayer</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a8bc29b886f7209f0c623225c8d46b2c5">getOppoColor</a>(Players currentPlayer)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a9e3a9ab45686667e4bd7439936750643">getPiece</a>(unsigned i, unsigned j)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#ac8963f43f0808d5ce7b2c541f8498b7b">getPlayer</a>(unsigned i)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#ae52d0125533766288657e63331b901bc">getWinner</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#aec653231fcab8fa4d81c517e2fd9e6e1">isOver</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a04feb4517acba50d4e35964a6f5ddac2">isPossibleToAdd</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a8e360e3997b2a1eca0d181c58cbb0ab6">meetOpposite</a>(unsigned i, unsigned j)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#aba89651f48fd59d92c315fdc3a007583">move</a>(unsigned ox, unsigned oy, unsigned dx, unsigned dy)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a758849a18bbac9c9ea0264c98e309891">notifyObservers</a>() override</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Observable</b>()=default (defined in <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a>)</td><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>observers_</b> (defined in <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a>)</td><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a734f6a86fde70a14a234828b9c0c010c">passe</a>(int dx, int dy)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a135cab9d5fa2a1d03523c185f5d50ae0">registerObserver</a>(Observer *observer) override</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0">restart</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a6797ba29ad51915f47c64492ad8ba91a">showBoard</a>(ostream &amp;c)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html#afd14c510cff0125e2d92af0e691f9dfb">Observable</a>()=default</td><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html#a252555f526382830ddb728eec5e85764">observers_</a></td><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a7ba93fe6d2edbbc6fbfd3171fe9e5574">overAntigame</a>(unsigned i, unsigned j)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#ac9f128a6572bbc8730d7f4e45e6db6b6">passe</a>(unsigned ox, unsigned oy, unsigned dx, unsigned dy)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a135cab9d5fa2a1d03523c185f5d50ae0">registerObserver</a>(Observer *observer) override</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#aa49616d9de5e56fd8fa022937fe012e0">restart</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a6797ba29ad51915f47c64492ad8ba91a">showBoard</a>(ostream &amp;c)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a2021e3d77ee3f8983ff8c0cbeb05ed33">showTable</a>(QTableWidget *table)</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a37f48cf1c68c5b52ef24ff985e1acfc8">start</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#a22156f5938d1c4f2a9a9133da841144a">swapPlayer</a>()</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game_space_1_1_game.html#ae2271203accc2b78f1970f24da52750b">unregisterObserver</a>(Observer *observer) override</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_game_space_1_1_game.html#afb0876d3e46b252789f0ab1c29695d05">~Game</a>() override</td><td class="entry"><a class="el" href="class_game_space_1_1_game.html">GameSpace::Game</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Observable</b>()=default (defined in <a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a>)</td><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html#a774d1898918614399cb1402b1633d739">~Observable</a>()=default</td><td class="entry"><a class="el" href="class_observable_space_1_1_observable.html">ObservableSpace::Observable</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

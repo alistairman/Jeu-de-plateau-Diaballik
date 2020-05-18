@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['passe_75',['passe',['../class_board_space_1_1_board.html#a966e7d9f433feec593f0acc9b7255272',1,'BoardSpace::Board::passe()'],['../class_game_space_1_1_game.html#a734f6a86fde70a14a234828b9c0c010c',1,'GameSpace::Game::passe()'],['../class_piece_space_1_1_piece.html#a38f6e6326fffd9f78b288b20eba4adb0',1,'PieceSpace::Piece::passe()']]],
-  ['piece_76',['Piece',['../class_piece_space_1_1_piece.html#abdbeefbf4cb5127f242b1ddd82b288ff',1,'PieceSpace::Piece']]],
-  ['play_77',['play',['../class_players_space_1_1_players.html#ace2ffad7f9b9ae913024600dd2764cd4',1,'PlayersSpace::Players']]],
-  ['players_78',['Players',['../class_players_space_1_1_players.html#a0b7328d716b29a5e3037bcac3a09fb45',1,'PlayersSpace::Players']]]
+  ['observable_657',['Observable',['../class_observable_space_1_1_observable.html#afd14c510cff0125e2d92af0e691f9dfb',1,'ObservableSpace::Observable']]],
+  ['observer_658',['Observer',['../class_observer_space_1_1_observer.html#ad859c3f8d2b874ccc309195cec496a7d',1,'ObserverSpace::Observer']]],
+  ['overantigame_659',['overAntigame',['../class_game_space_1_1_game.html#a7ba93fe6d2edbbc6fbfd3171fe9e5574',1,'GameSpace::Game']]]
 ];

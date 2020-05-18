@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,7 +28,6 @@
    <div id="projectname">Diaballik
    &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Jeu du Diaballik</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('files.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,26 +86,42 @@ $(function() {
 <div class="title">File List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all documented files with brief descriptions:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span><span onclick="javascript:toggleLevel(3);">3</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span id="img_0_" class="iconfopen" onclick="toggleFolder('0_')">&#160;</span><a class="el" href="dir_76733fa28ddee700e65cb0f0ac0bf99e.html" target="_self">DEV4-Diaballik</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span id="arr_0_0_" class="arrow" onclick="toggleFolder('0_0_')">&#9660;</span><span id="img_0_0_" class="iconfopen" onclick="toggleFolder('0_0_')">&#160;</span><a class="el" href="dir_1a636a0384f51b41be07fa6eed413c62.html" target="_self">DiaballikC++</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_0_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_board_8h_source.html"><span class="icondoc"></span></a><b>Board.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_1_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_color_8h_source.html"><span class="icondoc"></span></a><b>Color.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_2_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_game_8h_source.html"><span class="icondoc"></span></a><b>Game.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_3_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_observable_8h_source.html"><span class="icondoc"></span></a><b>Observable.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_4_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_observer_8h_source.html"><span class="icondoc"></span></a><b>Observer.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_5_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_piece_8h_source.html"><span class="icondoc"></span></a><b>Piece.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_6_" class="even"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_players_8h_source.html"><span class="icondoc"></span></a><b>Players.h</b></td><td class="desc"></td></tr>
-<tr id="row_0_0_7_"><td class="entry"><span style="width:48px;display:inline-block;">&#160;</span><a href="_view_8h_source.html"><span class="icondoc"></span></a><b>View.h</b></td><td class="desc"></td></tr>
+<div class="textblock">Here is a list of all files with brief descriptions:</div><div class="directory">
+<div class="levels">[detail level <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
+<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span id="img_0_" class="iconfopen" onclick="toggleFolder('0_')">&#160;</span><a class="el" href="dir_84d4ec99856759213102e4209c09c524.html" target="_self">debug</a></td><td class="desc"></td></tr>
+<tr id="row_0_0_"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="debug_2moc__mainwindow_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="debug_2moc__mainwindow_8cpp.html" target="_self">moc_mainwindow.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="debug_2moc__predefs_8h_source.html"><span class="icondoc"></span></a><a class="el" href="debug_2moc__predefs_8h.html" target="_self">moc_predefs.h</a></td><td class="desc"></td></tr>
+<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_board_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="_board_8cpp.html" target="_self">Board.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_board_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_board_8h.html" target="_self">Board.h</a></td><td class="desc"></td></tr>
+<tr id="row_3_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_color_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_color_8h.html" target="_self">Color.h</a></td><td class="desc"></td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="moc__mainwindow_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="moc__mainwindow_8cpp.html" target="_self">moc_mainwindow.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_5_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="moc__predefs_8h_source.html"><span class="icondoc"></span></a><a class="el" href="moc__predefs_8h.html" target="_self">moc_predefs.h</a></td><td class="desc"></td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_game_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="_game_8cpp.html" target="_self">Game.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_7_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_game_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_game_8h.html" target="_self">Game.h</a></td><td class="desc"></td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="main_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="main_8cpp.html" target="_self">main.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_9_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="mainwindow_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="mainwindow_8cpp.html" target="_self">mainwindow.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="mainwindow_8h_source.html"><span class="icondoc"></span></a><a class="el" href="mainwindow_8h.html" target="_self">mainwindow.h</a></td><td class="desc"></td></tr>
+<tr id="row_11_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="moc___label_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="moc___label_8cpp.html" target="_self">moc_Label.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_observable_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_observable_8h.html" target="_self">Observable.h</a></td><td class="desc"></td></tr>
+<tr id="row_13_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_observer_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_observer_8h.html" target="_self">Observer.h</a></td><td class="desc"></td></tr>
+<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_piece_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="_piece_8cpp.html" target="_self">Piece.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_15_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_piece_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_piece_8h.html" target="_self">Piece.h</a></td><td class="desc"></td></tr>
+<tr id="row_16_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_players_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="_players_8cpp.html" target="_self">Players.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_17_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_players_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_players_8h.html" target="_self">Players.h</a></td><td class="desc"></td></tr>
+<tr id="row_18_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="ui__mainwindow_8h_source.html"><span class="icondoc"></span></a><a class="el" href="ui__mainwindow_8h.html" target="_self">ui_mainwindow.h</a></td><td class="desc"></td></tr>
+<tr id="row_19_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_view_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="_view_8cpp.html" target="_self">View.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_20_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a href="_view_8h_source.html"><span class="icondoc"></span></a><a class="el" href="_view_8h.html" target="_self">View.h</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>
