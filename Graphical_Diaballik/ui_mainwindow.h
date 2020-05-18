@@ -30,6 +30,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionQuitter;
+    QAction *actionPlaying_rules;
     QWidget *centralwidget;
     QLabel *Player1;
     QLabel *Player2;
@@ -56,6 +57,8 @@ public:
         MainWindow->resize(1679, 700);
         actionQuitter = new QAction(MainWindow);
         actionQuitter->setObjectName(QStringLiteral("actionQuitter"));
+        actionPlaying_rules = new QAction(MainWindow);
+        actionPlaying_rules->setObjectName(QStringLiteral("actionPlaying_rules"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         Player1 = new QLabel(centralwidget);
@@ -119,6 +122,7 @@ public:
 
         menuBar->addAction(menuMenu->menuAction());
         menuMenu->addSeparator();
+        menuMenu->addAction(actionPlaying_rules);
         menuMenu->addAction(actionQuitter);
 
         retranslateUi(MainWindow);
@@ -131,6 +135,8 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Diaballik", Q_NULLPTR));
         actionQuitter->setText(QApplication::translate("MainWindow", "Quitter", Q_NULLPTR));
         actionQuitter->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", Q_NULLPTR));
+        actionPlaying_rules->setText(QApplication::translate("MainWindow", "Playing rules", Q_NULLPTR));
+        actionPlaying_rules->setShortcut(QApplication::translate("MainWindow", "Ctrl+R", Q_NULLPTR));
         Player1->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         Player2->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "VS", Q_NULLPTR));

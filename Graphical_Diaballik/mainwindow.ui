@@ -237,6 +237,7 @@ p, li { white-space: pre-wrap; }
      <string>Menu</string>
     </property>
     <addaction name="separator"/>
+    <addaction name="actionPlaying_rules"/>
     <addaction name="actionQuitter"/>
    </widget>
    <addaction name="menuMenu"/>
@@ -247,6 +248,14 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionPlaying_rules">
+   <property name="text">
+    <string>Playing rules</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

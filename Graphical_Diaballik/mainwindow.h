@@ -41,6 +41,8 @@ private slots:
 
     void on_actionQuitter_triggered();
 
+    void on_actionPlaying_rules_triggered();
+
 private:
     bool isPossibleToAdd();
     Ui::MainWindow *ui;

@@ -246,3 +246,14 @@ void MainWindow::on_actionQuitter_triggered()
 {
     quit();
 }
+
+
+
+void MainWindow::on_actionPlaying_rules_triggered()
+{
+    QString rules = "The two opponents take turns. In turn, the player can perform up to 3 actions in any order: 2 orthogonal moves of a square and a pass. He is not obliged to perform all these actions. In order to move a player, the player must not have the ball and the adjacent square horizontally or vertically must be free (without a pawn of his team or of the opposing team). Since the player has two moves at his disposal, if he wants to move a pawn to an adjacent square diagonally, he must use two orthogonal moves, one vertically and one horizontally, with the passage square having to be free. It is also possible to move two different pieces to the same square. The pawn that has the ball can make a pass by throwing as far as it wants to another pawn of the same side on the same line, column or diagonal as itself, provided that no opposing pawn is placed between the two allied pawns. As in handball, the pawn with the ball may not move during the same turn (but the pawn receiving the ball may move before receiving the ball).";
+    QMessageBox playingRules;
+    playingRules.setIcon(QMessageBox::Information);
+    playingRules.setText(rules);
+    playingRules.exec();
+}
