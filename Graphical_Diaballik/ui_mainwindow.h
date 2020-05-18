@@ -13,6 +13,8 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -22,6 +24,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -32,20 +35,26 @@ public:
     QAction *actionQuitter;
     QAction *actionPlaying_rules;
     QWidget *centralwidget;
+    QGridLayout *gridLayout_2;
+    QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout;
     QLabel *Player1;
+    QLabel *label;
     QLabel *Player2;
     QTableWidget *tableWidget;
-    QLabel *label;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *currentPlayer;
-    QPushButton *move;
+    QLabel *label_selected;
     QLabel *label_move;
     QLabel *label_passe;
-    QLabel *label_selected;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *move;
     QPushButton *passe;
     QPushButton *cancel;
     QPushButton *endturn;
-    QTextBrowser *textBrowser;
+    QVBoxLayout *verticalLayout;
     QLabel *label_2;
+    QTextBrowser *textBrowser;
     QStatusBar *statusbar;
     QMenuBar *menuBar;
     QMenu *menuMenu;
@@ -61,54 +70,116 @@ public:
         actionPlaying_rules->setObjectName(QStringLiteral("actionPlaying_rules"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        gridLayout_2 = new QGridLayout(centralwidget);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        horizontalLayout->setContentsMargins(0, -1, -1, -1);
         Player1 = new QLabel(centralwidget);
         Player1->setObjectName(QStringLiteral("Player1"));
-        Player1->setGeometry(QRect(370, 10, 58, 16));
+
+        horizontalLayout->addWidget(Player1, 0, Qt::AlignHCenter);
+
+        label = new QLabel(centralwidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        horizontalLayout->addWidget(label, 0, Qt::AlignHCenter);
+
         Player2 = new QLabel(centralwidget);
         Player2->setObjectName(QStringLiteral("Player2"));
-        Player2->setGeometry(QRect(700, 10, 58, 16));
+
+        horizontalLayout->addWidget(Player2, 0, Qt::AlignHCenter);
+
+        horizontalLayout->setStretch(0, 2);
+        horizontalLayout->setStretch(1, 1);
+        horizontalLayout->setStretch(2, 2);
+
+        gridLayout->addLayout(horizontalLayout, 0, 0, 1, 1);
+
         tableWidget = new QTableWidget(centralwidget);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
         tableWidget->setEnabled(true);
-        tableWidget->setGeometry(QRect(30, 50, 1052, 424));
         tableWidget->setMouseTracking(false);
         tableWidget->setAutoFillBackground(false);
         tableWidget->setAutoScroll(false);
         tableWidget->setRowCount(0);
         tableWidget->setColumnCount(0);
-        label = new QLabel(centralwidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(550, 10, 21, 16));
+
+        gridLayout->addWidget(tableWidget, 1, 0, 1, 1);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         currentPlayer = new QLabel(centralwidget);
         currentPlayer->setObjectName(QStringLiteral("currentPlayer"));
-        currentPlayer->setGeometry(QRect(30, 490, 251, 16));
-        move = new QPushButton(centralwidget);
-        move->setObjectName(QStringLiteral("move"));
-        move->setGeometry(QRect(40, 540, 112, 32));
-        label_move = new QLabel(centralwidget);
-        label_move->setObjectName(QStringLiteral("label_move"));
-        label_move->setGeometry(QRect(480, 490, 271, 16));
-        label_passe = new QLabel(centralwidget);
-        label_passe->setObjectName(QStringLiteral("label_passe"));
-        label_passe->setGeometry(QRect(760, 490, 281, 20));
+
+        horizontalLayout_2->addWidget(currentPlayer);
+
         label_selected = new QLabel(centralwidget);
         label_selected->setObjectName(QStringLiteral("label_selected"));
-        label_selected->setGeometry(QRect(310, 490, 161, 16));
+
+        horizontalLayout_2->addWidget(label_selected);
+
+        label_move = new QLabel(centralwidget);
+        label_move->setObjectName(QStringLiteral("label_move"));
+
+        horizontalLayout_2->addWidget(label_move);
+
+        label_passe = new QLabel(centralwidget);
+        label_passe->setObjectName(QStringLiteral("label_passe"));
+
+        horizontalLayout_2->addWidget(label_passe);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 2, 0, 1, 1);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        move = new QPushButton(centralwidget);
+        move->setObjectName(QStringLiteral("move"));
+
+        horizontalLayout_3->addWidget(move);
+
         passe = new QPushButton(centralwidget);
         passe->setObjectName(QStringLiteral("passe"));
-        passe->setGeometry(QRect(40, 600, 112, 32));
+
+        horizontalLayout_3->addWidget(passe);
+
         cancel = new QPushButton(centralwidget);
         cancel->setObjectName(QStringLiteral("cancel"));
-        cancel->setGeometry(QRect(230, 560, 131, 32));
+
+        horizontalLayout_3->addWidget(cancel);
+
         endturn = new QPushButton(centralwidget);
         endturn->setObjectName(QStringLiteral("endturn"));
-        endturn->setGeometry(QRect(450, 560, 131, 32));
-        textBrowser = new QTextBrowser(centralwidget);
-        textBrowser->setObjectName(QStringLiteral("textBrowser"));
-        textBrowser->setGeometry(QRect(1130, 160, 461, 311));
+
+        horizontalLayout_3->addWidget(endturn);
+
+
+        gridLayout->addLayout(horizontalLayout_3, 3, 0, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(1240, 100, 271, 61));
+
+        verticalLayout->addWidget(label_2, 0, Qt::AlignHCenter);
+
+        textBrowser = new QTextBrowser(centralwidget);
+        textBrowser->setObjectName(QStringLiteral("textBrowser"));
+
+        verticalLayout->addWidget(textBrowser);
+
+
+        gridLayout->addLayout(verticalLayout, 1, 1, 1, 1);
+
+        gridLayout->setColumnStretch(0, 2);
+        gridLayout->setColumnStretch(1, 1);
+
+        gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
+
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -138,16 +209,17 @@ public:
         actionPlaying_rules->setText(QApplication::translate("MainWindow", "Playing rules", Q_NULLPTR));
         actionPlaying_rules->setShortcut(QApplication::translate("MainWindow", "Ctrl+R", Q_NULLPTR));
         Player1->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
-        Player2->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         label->setText(QApplication::translate("MainWindow", "VS", Q_NULLPTR));
+        Player2->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         currentPlayer->setText(QApplication::translate("MainWindow", "CurrentPlayer:", Q_NULLPTR));
-        move->setText(QApplication::translate("MainWindow", "Move", Q_NULLPTR));
+        label_selected->setText(QApplication::translate("MainWindow", "Selected:", Q_NULLPTR));
         label_move->setText(QApplication::translate("MainWindow", "move:", Q_NULLPTR));
         label_passe->setText(QApplication::translate("MainWindow", "passe:", Q_NULLPTR));
-        label_selected->setText(QApplication::translate("MainWindow", "Selected:", Q_NULLPTR));
+        move->setText(QApplication::translate("MainWindow", "Move", Q_NULLPTR));
         passe->setText(QApplication::translate("MainWindow", "Throw", Q_NULLPTR));
         cancel->setText(QApplication::translate("MainWindow", "Cancel selection", Q_NULLPTR));
         endturn->setText(QApplication::translate("MainWindow", "End Turn", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; text-decoration: underline;\">How the game works</span></p></body></html>", Q_NULLPTR));
         textBrowser->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -160,7 +232,6 @@ public:
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">To make a throw, select the player carrying the ball and hit the throw button. Then select the player to throw to and hit the throw button again.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt;\">When you have a selection problem or your data is invalid click on the cancel selection button to reset your selection.</span></p></body></html>", Q_NULLPTR));
-        label_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; text-decoration: underline;\">How the game works</span></p></body></html>", Q_NULLPTR));
         menuMenu->setTitle(QApplication::translate("MainWindow", "Menu", Q_NULLPTR));
     } // retranslateUi
 
