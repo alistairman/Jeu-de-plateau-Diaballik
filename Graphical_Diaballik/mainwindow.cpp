@@ -28,7 +28,6 @@ MainWindow::~MainWindow()
 void MainWindow::initBoard(){
 
     ui->tableWidget->setRowCount(7);
-
     ui->tableWidget->setColumnCount(7);
     ui->tableWidget->horizontalHeader()->setVisible(false);
     ui->tableWidget->verticalHeader()->setVisible(false);
@@ -57,9 +56,11 @@ void MainWindow::addPlayers(){
 
     QString player1 = QString::fromStdString(game_->getPlayer(1).getName());
     ui->Player1->setText(player1);
+    ui->Player1->setStyleSheet("QLabel{color : #e2e200;}");
 
     QString player2 = QString::fromStdString(game_->getPlayer(2).getName());
     ui->Player2->setText(player2);
+    ui->Player2->setStyleSheet("QLabel{color : red;}");
     getCurrentPlayer();
 }
 
@@ -138,7 +139,7 @@ void MainWindow::passe()
     QString colOO= colOO.fromStdString(to_string(colO));
     QString rowDD = rowDD.fromStdString(to_string(rowD));
     QString colDD= colDD.fromStdString(to_string(colD));
-    ui->label_passe->setText("passe from: "+rowOO +"-"+colOO+" to: "+rowDD+"-"+colDD);
+    ui->label_passe->setText("Throw from: "+rowOO +"-"+colOO+" to: "+rowDD+"-"+colDD);
 
     unsigned row =  static_cast<unsigned>(rowO);
     unsigned col = static_cast<unsigned>(colO);
@@ -159,9 +160,12 @@ void MainWindow::on_move_clicked()
             move();
             countMove++;
         }
-        if (countMove==2 & countPasse==1){
-            countMove=0; countPasse=0; game_->swapPlayer();
-            getCurrentPlayer();
+        if (countMove==2){
+            QString noMove = "You have no more movement available";
+            QMessageBox msgNoMove;
+            msgNoMove.setIcon(QMessageBox::Information);
+            msgNoMove.setText(noMove);
+            msgNoMove.exec();
         }
         if(game_->isOver()){
             showWinner();
@@ -183,9 +187,12 @@ void MainWindow::on_passe_clicked()
             passe();
             countPasse++;
         }
-        if(countMove==2 & countPasse==1){
-            countMove=0; countPasse=0; game_->swapPlayer();
-            getCurrentPlayer();
+        if(countPasse==1){
+          QString noThrow = "You no longer have a throw available";
+          QMessageBox msgNoThrow;
+          msgNoThrow.setIcon(QMessageBox::Information);
+          msgNoThrow.setText(noThrow);
+          msgNoThrow.exec();
         }
         if(game_->isOver()){
             showWinner();
@@ -204,6 +211,28 @@ void MainWindow::on_cancel_clicked()
     colO = -1;
     rowD = -1;
     colD=-1;
+    QString rowOO = rowOO.fromStdString(to_string(rowO));
+    QString colOO= colOO.fromStdString(to_string(colO));
+    QString rowDD = rowDD.fromStdString(to_string(rowD));
+    QString colDD= colDD.fromStdString(to_string(colD));
+    ui->label_passe->setText("Throw from: "+ rowOO +"-"+colOO +" to: "+ rowDD +"-"+colDD);
+    ui->label_move->setText("move from: "+ rowOO +"-"+colOO +" to: "+ rowDD+"-"+colDD);
+}
+
+void MainWindow::on_endturn_clicked()
+{
+    countMove=0; countPasse=0; game_->swapPlayer();
+    getCurrentPlayer();
+    rowO=-1;
+    colO = -1;
+    rowD = -1;
+    colD=-1;
+    QString rowOO = rowOO.fromStdString(to_string(rowO));
+    QString colOO= colOO.fromStdString(to_string(colO));
+    QString rowDD = rowDD.fromStdString(to_string(rowD));
+    QString colDD= colDD.fromStdString(to_string(colD));
+    ui->label_passe->setText("Throw from: "+ rowOO +"-"+colOO +" to: "+ rowDD +"-"+colDD);
+    ui->label_move->setText("move from: "+ rowOO +"-"+colOO +" to: "+ rowDD+"-"+colDD);
 }
 
 
@@ -213,9 +242,9 @@ void MainWindow::showWinner(){
     QMessageBox msgBox;
     msgBox.setText("The Winner is: "+w);
     msgBox.exec();
-    quit();
 }
 
-
-
-
+void MainWindow::on_actionQuitter_triggered()
+{
+    quit();
+}

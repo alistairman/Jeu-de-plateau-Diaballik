@@ -38,7 +38,7 @@ bool Game::isPossibleToAdd(){
 void Game::addPlayers(list<Players> player){
 
     if(player.size()==0){
-       cout << "pas assez de jouer" << endl;
+       cout << "pas assez de joueur" << endl;
     }
     else{
 

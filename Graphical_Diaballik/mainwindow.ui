@@ -6,18 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1679</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Diaballik</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="Player1">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>370</x>
       <y>10</y>
       <width>58</width>
       <height>16</height>
@@ -30,7 +30,7 @@
    <widget class="QLabel" name="Player2">
     <property name="geometry">
      <rect>
-      <x>540</x>
+      <x>700</x>
       <y>10</y>
       <width>58</width>
       <height>16</height>
@@ -46,10 +46,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>40</y>
-      <width>701</width>
-      <height>421</height>
+      <x>30</x>
+      <y>50</y>
+      <width>1052</width>
+      <height>424</height>
      </rect>
     </property>
     <property name="mouseTracking">
@@ -71,7 +71,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>550</x>
       <y>10</y>
       <width>21</width>
       <height>16</height>
@@ -84,8 +84,8 @@
    <widget class="QLabel" name="currentPlayer">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>520</y>
+      <x>30</x>
+      <y>490</y>
       <width>251</width>
       <height>16</height>
      </rect>
@@ -97,8 +97,8 @@
    <widget class="QPushButton" name="move">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>480</y>
+      <x>40</x>
+      <y>540</y>
       <width>112</width>
       <height>32</height>
      </rect>
@@ -110,9 +110,9 @@
    <widget class="QLabel" name="label_move">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>520</y>
-      <width>151</width>
+      <x>480</x>
+      <y>490</y>
+      <width>271</width>
       <height>16</height>
      </rect>
     </property>
@@ -123,10 +123,10 @@
    <widget class="QLabel" name="label_passe">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>520</y>
-      <width>161</width>
-      <height>16</height>
+      <x>760</x>
+      <y>490</y>
+      <width>281</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -136,9 +136,9 @@
    <widget class="QLabel" name="label_selected">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>520</y>
-      <width>121</width>
+      <x>310</x>
+      <y>490</y>
+      <width>161</width>
       <height>16</height>
      </rect>
     </property>
@@ -149,21 +149,21 @@
    <widget class="QPushButton" name="passe">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>480</y>
+      <x>40</x>
+      <y>600</y>
       <width>112</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Passe</string>
+     <string>Throw</string>
     </property>
    </widget>
    <widget class="QPushButton" name="cancel">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>480</y>
+      <x>230</x>
+      <y>560</y>
       <width>131</width>
       <height>32</height>
      </rect>
@@ -172,28 +172,81 @@
      <string>Cancel selection</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="endturn">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>560</y>
+      <width>131</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>End Turn</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>160</y>
+      <width>461</width>
+      <height>311</height>
+     </rect>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;The first player is yellow.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;To make a move, select the player you want to move, and click move. Then press the square where you want to move it and hit the move button again. (Make one move at a time)&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;To make a throw, select the player carrying the ball and hit the throw button. Then select the player to throw to and hit the throw button again.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;When you have a selection problem or your data is invalid click on the cancel selection button to reset your selection.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>100</y>
+      <width>271</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; text-decoration: underline;&quot;&gt;How the game works&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <width>1679</width>
+     <height>17</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuml">
+   <widget class="QMenu" name="menuMenu">
     <property name="title">
      <string>Menu</string>
     </property>
-    <addaction name="actionQuit"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuitter"/>
    </widget>
-   <addaction name="menuml"/>
+   <addaction name="menuMenu"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionQuit">
+  <action name="actionQuitter">
    <property name="text">
-    <string>Quit</string>
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
    </property>
   </action>
  </widget>
