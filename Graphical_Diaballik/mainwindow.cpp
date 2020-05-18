@@ -32,8 +32,6 @@ void MainWindow::initBoard(){
     ui->tableWidget->horizontalHeader()->setVisible(false);
     ui->tableWidget->verticalHeader()->setVisible(false);
     connect(ui->tableWidget, SIGNAL(clicked(const QModelIndex &)), this, SLOT(getIndice(const QModelIndex &)));
-    //this->setStyleSheet("QWidget { background-color: #b7927c}");
-
     QHeaderView *verticalHeader = ui->tableWidget->verticalHeader();
     verticalHeader->setSectionResizeMode(QHeaderView::Fixed);
     verticalHeader->setDefaultSectionSize(60);
