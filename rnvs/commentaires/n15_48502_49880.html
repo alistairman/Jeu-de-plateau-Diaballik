@@ -1,0 +1,526 @@
+<!--
+pdf produit avec la commande :
++ pandoc -V papersize=a4 -V geometry=landscape --pdf-engine=pdflatex -o n15_48502_49880.pdf n15_48502_49880.md
++ pandoc -V papersize=a4 --pdf-engine=xelatex -o xxx.pdf xxx.md
++ pandoc -V papersize=a4 --pdf-engine=xelatex -o n15_48502_49880.html n15_48502_49880.md
+-->
+
+<!-- # commentaires nvs : diaballik : n15_48502_49880 -->
+<h1 id="diaballik-n15_48502_49880">Diaballik : n15_48502_49880</h1>
+<h2 id="console">console</h2>
+<h3 id="remise">remise</h3>
+<h4 id="retard">retard</h4>
+<p>(void)</p>
+<h4 id="autre">autre</h4>
+<p>(void)</p>
+<h3 id="documentation">documentation</h3>
+<ul>
+<li>fichiers pas documentés avec <code>\file</code></li>
+<li>pas de documentation pour les méthodes des classes <code>Observable</code>, <code>Observer</code></li>
+</ul>
+<h3 id="rapport">rapport</h3>
+<h4 id="format-pdf">format pdf</h4>
+<p>(void)</p>
+<h4 id="bogue-non-signalé">bogue non signalé</h4>
+<ul>
+<li>dans <code>Board::initBoard()</code> si plateau pas carré : plantage</li>
+<li>balles pas bien placées si pas 7 x 7 : voir <code>Board::initBoard()</code></li>
+<li>supports pas bien placés si pas 7 x 7 : voir <code>Board::initBoard()</code></li>
+<li>pour tester les bogues ci-dessus non signalés : changer la taille du plateau dans l’appel du constructeur de <code>Game</code> dans <code>main.cpp</code></li>
+<li>les seules passes possibles sont en diagonales… et elles passent par dessus un support adverse : ko</li>
+<li>plantage en fin de partie quand balle sur ligne adverse :</li>
+</ul>
+<pre><code>the winner is : z
+
+pure virtual method called
+terminate called without an active exception</code></pre>
+<h4 id="écart-ajout-non-signalé">écart / ajout non signalé</h4>
+<ul>
+<li>possibilité d’avoir plateau non carré !</li>
+</ul>
+<h4 id="autre-1">autre</h4>
+<p>(void)</p>
+<h3 id="rapport-code">rapport / code</h3>
+<h4 id="avertissement-restant">avertissement restant</h4>
+<h5 id="gcc">gcc</h5>
+<h6 id="signalé">signalé</h6>
+<p>(void)</p>
+<h6 id="non-signalé">non signalé</h6>
+<pre><code>Board.cpp: Dans la fonction membre « bool BoardSpace::Board::checkMove(int, int, int, int) »:
+Board.cpp:81:10: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |        ~~^~~
+Board.cpp:81:31: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |                            ~~~^~~~
+Board.cpp:81:41: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |                                      ~~~^~~~~~~~
+Board.cpp:81:54: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |                                                    ~~^~~
+Board.cpp:81:63: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |                                                            ~~~^~~~~~~
+Board.cpp:81:76: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |                                                                         ~~~^~~
+Board.cpp:81:85: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   81 |     if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+      |                                                                                  ~~~^~~~~~~~~
+Board.cpp:82:15: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   82 |         if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+      |             ~~^~~~~~
+Board.cpp:82:39: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   82 |         if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+      |                                     ~~^~~~
+Board.cpp:82:62: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   82 |         if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+      |                                                            ~~^~~~~~
+Board.cpp:82:85: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+   82 |         if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+      |                                                                                   ~~^~~~
+Board.cpp: Dans la fonction membre « bool BoardSpace::Board::checkPasse(int, int, int, int, Color) »:
+Board.cpp:125:10: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  125 |     if(ox&lt;dx &amp; oy &lt; dy){
+      |        ~~^~~
+Board.cpp:129:10: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  129 |     if(ox&lt;dx &amp; oy&gt;dy){
+      |        ~~^~~
+Board.cpp:133:10: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  133 |     if(ox&gt;dx &amp; oy&gt;dy){
+      |        ~~^~~
+Board.cpp:137:10: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  137 |     if(ox&gt;dx &amp; oy&lt;dy){
+      |        ~~^~~
+Board.cpp: Dans la fonction membre « PieceSpace::Piece BoardSpace::Board::direction(int, int, int, int, Color) »:
+Board.cpp:151:26: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  151 |     while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+      |           ~~~~~~~~~~~~~~~^~~~
+Board.cpp:151:75: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  151 |     while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+      |                                                           ~~~~~~~~~~~~~~~~^~~~
+Board.cpp:151:98: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  151 |     while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+      |                                                                                  ~~~~~~~~~~~~~~~~^~~~~~~~~
+Board.cpp:152:65: attention: parenthèses suggérées autour de la comparaison dans l&#39;opérande de « &amp; » [-Wparentheses]
+  152 |             &amp; board_[directionWidth][directionHeight].getColor()!=color){
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~</code></pre>
+
+<h5 id="gcc-clang-analyzer">gcc + clang-analyzer</h5>
+<p>idem gcc</p>
+<h5 id="clang">clang++</h5>
+<p>(void)</p>
+<h5 id="clang-clang-analyzer">clang++ + clang-analyzer</h5>
+<p>idem gcc</p>
+<h5 id="cppcheck">cppcheck</h5>
+<h6 id="signalé-1">signalé</h6>
+<p>(void)</p>
+<h6 id="non-signalé-1">non signalé</h6>
+<pre><code>Piece.h:35:5: style: Class &#39;Piece&#39; has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Piece (Color color);
+    ^</code></pre>
+
+<pre><code>Game.cpp:15:16: style:inconclusive: Function &#39;Game&#39; argument 1 names different: declaration &#39;x&#39; definition &#39;width&#39;. [funcArgNamesDifferent]
+Game::Game(int width, int height):
+               ^</code></pre>
+
+<pre><code>Game.cpp:15:27: style:inconclusive: Function &#39;Game&#39; argument 2 names different: declaration &#39;y&#39; definition &#39;height&#39;. [funcArgNamesDifferent]
+Game::Game(int width, int height):
+                          ^</code></pre>
+
+<pre><code>Board.cpp:81:14: style:inconclusive: Boolean expression &#39;ox&gt;=0&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+             ^</code></pre>
+
+<pre><code>Board.cpp:81:26: style:inconclusive: Boolean expression &#39;oy&gt;=0&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+                         ^</code></pre>
+
+<pre><code>Board.cpp:81:36: style:inconclusive: Boolean expression &#39;oy&lt;height_&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+                                   ^</code></pre>
+
+<pre><code>Board.cpp:81:50: style:inconclusive: Boolean expression &#39;dx&gt;=0&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+                                                 ^</code></pre>
+
+<pre><code>Board.cpp:81:58: style:inconclusive: Boolean expression &#39;dx&lt;width_&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+                                                         ^</code></pre>
+
+<pre><code>Board.cpp:81:71: style:inconclusive: Boolean expression &#39;dy&gt;=0&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+                                                                      ^</code></pre>
+
+<pre><code>Board.cpp:81:80: style:inconclusive: Boolean expression &#39;dy&lt;height_&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+                                                                               ^</code></pre>
+
+<pre><code>Board.cpp:82:22: style:inconclusive: Boolean expression &#39;dx==ox-1&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+        if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+                     ^</code></pre>
+
+<pre><code>Board.cpp:82:44: style:inconclusive: Boolean expression &#39;dx==ox&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+        if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+                                           ^</code></pre>
+
+<pre><code>Board.cpp:82:69: style:inconclusive: Boolean expression &#39;dx==ox+1&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+        if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+                                                                    ^</code></pre>
+
+<pre><code>Board.cpp:125:14: style:inconclusive: Boolean expression &#39;ox&lt;dx&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&lt;dx &amp; oy &lt; dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:129:14: style:inconclusive: Boolean expression &#39;ox&lt;dx&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&lt;dx &amp; oy&gt;dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:133:14: style:inconclusive: Boolean expression &#39;ox&gt;dx&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;dx &amp; oy&gt;dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:137:14: style:inconclusive: Boolean expression &#39;ox&gt;dx&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    if(ox&gt;dx &amp; oy&lt;dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:151:31: style:inconclusive: Boolean expression &#39;directionWidth&gt;=0&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+                              ^</code></pre>
+
+<pre><code>Board.cpp:151:57: style:inconclusive: Boolean expression &#39;directionHeight&gt;=0&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+                                                        ^</code></pre>
+
+<pre><code>Board.cpp:151:80: style:inconclusive: Boolean expression &#39;directionHeight&lt;height_&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+    while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+                                                                               ^</code></pre>
+
+<pre><code>Board.cpp:152:13: style:inconclusive: Boolean expression &#39;board_[directionWidth][directionHeight].getColor()!=color&#39; is used in bitwise operation. Did you mean &#39;&amp;&amp;&#39;? [bitwiseOnBoolean]
+            &amp; board_[directionWidth][directionHeight].getColor()!=color){
+            ^</code></pre>
+
+<pre><code>Board.h:58:11: style:inconclusive: Technically the member function &#39;BoardSpace::Board::getPiece&#39; can be const. [functionConst]
+    Piece getPiece(int x, int y);
+          ^</code></pre>
+
+<pre><code>Board.h:87:9: style:inconclusive: Technically the member function &#39;BoardSpace::Board::getWidth&#39; can be const. [functionConst]
+    int getWidth();
+        ^</code></pre>
+
+<pre><code>Board.h:93:9: style:inconclusive: Technically the member function &#39;BoardSpace::Board::getHeight&#39; can be const. [functionConst]
+    int getHeight();
+        ^</code></pre>
+
+<pre><code>Board.h:105:10: style:inconclusive: Technically the member function &#39;BoardSpace::Board::checkMove&#39; can be const. [functionConst]
+    bool checkMove(int ox,int oy, int dx, int dy);
+         ^</code></pre>
+
+<pre><code>Board.cpp:81:14: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+    if(ox&gt;=0 &amp; ox&lt;width_ &amp; oy &gt;= 0 &amp; oy &lt;height_ &amp; dx&gt;=0 &amp; dx &lt;width_ &amp; dy &gt;=0 &amp; dy &lt; height_){
+             ^</code></pre>
+
+<pre><code>Board.cpp:82:22: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+        if((dx==ox-1 &amp; dy ==oy) || (dx==ox &amp; dy==oy+1) || (dx==ox+1 &amp; dy==oy) || (dx==ox &amp; dy==oy-1)){
+                     ^</code></pre>
+
+<pre><code>Board.cpp:125:14: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+    if(ox&lt;dx &amp; oy &lt; dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:129:14: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+    if(ox&lt;dx &amp; oy&gt;dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:133:14: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+    if(ox&gt;dx &amp; oy&gt;dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:137:14: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+    if(ox&gt;dx &amp; oy&lt;dy){
+             ^</code></pre>
+
+<pre><code>Board.cpp:151:31: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+    while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+                              ^</code></pre>
+
+<pre><code>Board.cpp:152:13: style: Boolean result is used in bitwise operation. Clarify expression with parentheses. [clarifyCondition]
+            &amp; board_[directionWidth][directionHeight].getColor()!=color){
+            ^</code></pre>
+
+<pre><code>Board.cpp:67:56: style:inconclusive: Function &#39;move&#39; argument 5 names different: declaration &#39;color&#39; definition &#39;currentColor&#39;. [funcArgNamesDifferent]
+void Board::move(int ox, int oy, int dx, int dy, Color currentColor){
+                                                       ^</code></pre>
+
+<pre><code>Board.cpp:156:12: warning: Either the condition &#39;directionWidth&gt;=0&#39; is redundant, otherwise there is negative array index -1. [negativeContainerIndex]
+    return board_[directionWidth][directionHeight];
+           ^
+Board.cpp:151:26: note: Assuming that condition &#39;directionWidth&gt;=0&#39; is not redundant
+    while(directionWidth &gt;= 0 &amp; directionWidth &lt; width_ &amp; directionHeight &gt;= 0 &amp; directionHeight &lt; height_
+                         ^
+Board.cpp:156:12: note: Negative array index
+    return board_[directionWidth][directionHeight];
+           ^</code></pre>
+
+<pre><code>Piece.h:42:10: style:inconclusive: Technically the member function &#39;PieceSpace::Piece::isInside&#39; can be const. [functionConst]
+    bool isInside();
+         ^</code></pre>
+
+<pre><code>Piece.h:56:11: style:inconclusive: Technically the member function &#39;PieceSpace::Piece::getColor&#39; can be const. [functionConst]
+    Color getColor();
+          ^</code></pre>
+
+<pre><code>Piece.h:63:10: style:inconclusive: Technically the member function &#39;PieceSpace::Piece::getBool&#39; can be const. [functionConst]
+    bool getBool();
+         ^</code></pre>
+
+<pre><code>Players.h:44:12: style:inconclusive: Technically the member function &#39;PlayersSpace::Players::getName&#39; can be const. [functionConst]
+    string getName();
+           ^</code></pre>
+
+<pre><code>Players.h:57:9: performance:inconclusive: Technically the member function &#39;PlayersSpace::Players::play&#39; can be static (but you may consider moving to unnamed namespace). [functionStatic]
+    int play(istream &amp; c);
+        ^</code></pre>
+
+<pre><code>Players.h:64:11: style:inconclusive: Technically the member function &#39;PlayersSpace::Players::getColor&#39; can be const. [functionConst]
+    Color getColor();
+          ^</code></pre>
+
+<pre><code>Players.cpp:11:25: performance: Function parameter &#39;name&#39; should be passed by const reference. [passedByValue]
+Players::Players(string name,Color color):
+                        ^</code></pre>
+
+<pre><code>View.h:67:10: performance:inconclusive: Technically the member function &#39;ViewSpace::View::showCommand&#39; can be static (but you may consider moving to unnamed namespace). [functionStatic]
+    void showCommand();
+         ^</code></pre>
+
+<pre><code>View.h:75:10: performance:inconclusive: Technically the member function &#39;ViewSpace::View::checkAction&#39; can be static (but you may consider moving to unnamed namespace). [functionStatic]
+    bool checkAction(string action);
+         ^</code></pre>
+
+<pre><code>View.h:39:5: style: Class &#39;View&#39; has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    View(Game &amp; game);
+    ^</code></pre>
+
+<pre><code>View.cpp:89:30: performance: Function parameter &#39;action&#39; should be passed by const reference. [passedByValue]
+void View::playAction(string action,int &amp; countMove,int &amp; countPasse){
+                             ^</code></pre>
+
+<h3 id="code-source">code source</h3>
+<h4 id="portabilité">portabilité</h4>
+<h5 id="casse-noms-fichiers">casse noms fichiers</h5>
+<p>(void)</p>
+<h5 id="séparateur">séparateur /</h5>
+<p>(void)</p>
+<h5 id="c-standard">c++ standard</h5>
+<p>(void)</p>
+<h5 id="si-pas-std-portabilité">si pas std : portabilité</h5>
+<p>(void)</p>
+<h4 id="bonnes-pratiques">bonnes pratiques</h4>
+<h5 id="déclarations-anticipées-si-possible">déclarations anticipées si possible</h5>
+<ul>
+<li><code>#include "Players.h"</code> inutile dans <code>Board.h</code> : déclaration anticipée est suffisante</li>
+<li><code>#include "Observers.h"</code> inutile dans <code>Observable.h</code> : déclaration anticipée est suffisante</li>
+<li><code>#include "Game.h"</code> inutile dans <code>View.h</code> : déclaration anticipée est suffisante</li>
+</ul>
+<h5 id="using-namespace-dans-.h">using namespace dans .h</h5>
+<p><code>using namespace std;</code> dans :</p>
+<ul>
+<li><code>Board.h</code></li>
+<li><code>Observable.h</code></li>
+<li><code>Piece.h</code></li>
+<li><code>Players.h</code></li>
+</ul>
+<p><code>using namespace PlayersSpace;</code> dans :</p>
+<ul>
+<li><code>Board.h</code></li>
+<li><code>Game.h</code></li>
+</ul>
+<p><code>using namespace BoardSpace;</code> dans :</p>
+<ul>
+<li><code>Game.h</code></li>
+</ul>
+<p><code>using namespace ObservableSpace;</code> dans :</p>
+<ul>
+<li><code>Game.h</code></li>
+<li><code>Observable.h</code></li>
+</ul>
+<p><code>using namespace PieceSpace;</code> dans :</p>
+<ul>
+<li><code>Board.h</code></li>
+</ul>
+<h5 id="autre-2">autre</h5>
+<ul>
+<li><code>#include &lt;iostream&gt;</code> inutile dans <code>Piece.h</code></li>
+<li><code>#include &lt;iostream&gt;</code> inutile dans <code>Piece.cpp</code></li>
+<li><code>#include &lt;string&gt;</code> manquant dans <code>Piece.cpp</code></li>
+<li><code>#include &lt;vector&gt;</code> inutile dans <code>Game.h</code></li>
+<li><code>#include &lt;ostream&gt;</code> manquant dans <code>Game.h</code></li>
+<li><code>#include &lt;string&gt;</code> manquant dans <code>View.h</code></li>
+<li><code>#include &lt;ostream&gt;</code> manquant dans <code>Board.cpp</code></li>
+</ul>
+<h4 id="gestion-de-la-mémoire">gestion de la mémoire</h4>
+<p>ok</p>
+<h4 id="classes-métier">classes métier</h4>
+<h5 id="initialisation">initialisation</h5>
+<h6 id="plateau">plateau</h6>
+<ul>
+<li>pas de vérification que le plateau est 5 x 5 ou 7 x 7 ou 9 x 9</li>
+<li>possibilité d’avoir plateau rectangulaire !</li>
+<li>plantage dans <code>Board::initBoard()</code> si plateau pas carré : ko !</li>
+</ul>
+<p class="heading" id="supports">supports</p>
+<ul>
+<li>ko : supports pas bien placée si pas 7 x 7 : voir <code>Board::initBoard()</code></li>
+</ul>
+<p class="heading" id="balles">balles</p>
+<ul>
+<li>ko : balle pas bien placée si pas 7 x 7 : voir <code>Board::initBoard()</code></li>
+</ul>
+<p class="heading" id="possibilité-de-variante">possibilité de variante</p>
+<ul>
+<li>ko : pas implémenté</li>
+</ul>
+<h6 id="joueurs-éventuellement">joueurs (éventuellement)</h6>
+<p>(void)</p>
+<h5 id="déplacement-support">déplacement support</h5>
+<h6 id="latéral-uniquement">latéral uniquement</h6>
+<p>ok</p>
+<h6 id="dune-seule-position">d’une seule position</h6>
+<p>ok</p>
+<h6 id="impossible-de-déplacer-support-avec-balle">impossible de déplacer support avec balle</h6>
+<p>ok</p>
+<h6 id="un-seul-support-par-emplacement">un seul support par emplacement</h6>
+<p>ok</p>
+<h6 id="maximum-2-déplacements-par-tour-de-jeu">maximum 2 déplacements par tour de jeu</h6>
+<ul>
+<li>ko : la méthode <code>Game::move(int ox, int oy, int dx, int dy)</code> ne tient pas à jour un compteur de déplacement : c’est géré dans le contrôleur</li>
+</ul>
+<h5 id="lancer-balle">lancer balle</h5>
+<h6 id="latéral-ou-diagonal">latéral ou diagonal</h6>
+<ul>
+<li>ko : les seules passes que j’arrive à faire sont en diagonale</li>
+</ul>
+<h6 id="pas-au-dessus-dun-support-adverse">pas au dessus d’un support adverse</h6>
+<ul>
+<li>ko : j’ai pu passer en diagonale par dessus un support adverse</li>
+</ul>
+<h6 id="maximum-1-lancer-par-tour-de-jeu">maximum 1 lancer par tour de jeu</h6>
+<ul>
+<li>ko : la méthode <code>Game::passe(int dx, int dy)</code> ne tient pas à jour un compteur de passe : c’est géré dans le contrôleur</li>
+</ul>
+<h5 id="terminer-tour-de-jeu">terminer tour de jeu</h5>
+<h6 id="au-moins-une-action-obligatoire">au moins une action obligatoire</h6>
+<ul>
+<li>ko : la méthode <code>Game::swapPlayer()</code> est publique et ne vérifie <em>rien</em></li>
+</ul>
+<h6 id="possibilité-de-ne-pas-réaliser-3-actions">possibilité de ne pas réaliser 3 actions</h6>
+<ul>
+<li>ok dans classe métier mais ko dans contrôleur</li>
+</ul>
+<h5 id="fin-de-partie">fin de partie</h5>
+<h6 id="balle-sur-ligne-adverse">balle sur ligne adverse</h6>
+<p>ok, mais plantage (du contrôleur ?) : voir bogues non signalés</p>
+<h6 id="anti-jeu">anti-jeu</h6>
+<ul>
+<li>une méthode <code>Game::antiJeu()</code> est implémentée mais jamais invoquée, même pas dans contrôleur : les étudiant signalent dans le rapport qu’elle ne fonctionne pas bien</li>
+</ul>
+<h5 id="méthodes">méthodes</h5>
+<h6 id="complètes-1-méthode-1-action-de-jeu">complètes : 1 méthode / 1 action de jeu</h6>
+<ul>
+<li>la méthode <code>Game::isOver()</code> n’est utilisée par aucune méthode des classes métier</li>
+</ul>
+<h6 id="impossibilité-de-tricher-bibliothèque">impossibilité de tricher (bibliothèque)</h6>
+<ul>
+<li>la méthode <code>Game::swapPlayer()</code> est publique et ne vérifie <em>rien</em></li>
+<li>la méthode <code>Game::move(int ox, int oy, int dx, int dy)</code> ne tient pas à jour un compteur de déplacement : ko, de plus il est possible de jouer alors que la partie est terminée</li>
+<li>la méthode <code>Game::passe(int dx, int dy)</code> ne tient pas à jour un compteur de passe : ko, de plus il est possible de jouer alors que la partie est terminée…</li>
+</ul>
+<h4 id="contrôleur">contrôleur</h4>
+<h5 id="fiabilisation-lectures-clavier">fiabilisation lectures clavier</h5>
+<ul>
+<li>boucle (signalée) si pas entier fourni quand entier attendu</li>
+</ul>
+<h5 id="convivialité">convivialité</h5>
+<ul>
+<li>pas de choix de taille du plateau : pour masquer bogue (pas signalé dans rapport) du placement de balle si pas 7 x 7 ?</li>
+<li>indication du nom du joueur courant mais pas de sa position ni de sa couleur : il est impossible de savoir qui joue !</li>
+<li>il n’y a pas de légende sur les lignes / colonnes du plateau : je refuse de passer mon temps à compter et décide de ne pas tester l’application en détail mais de me fier à ce que je vois dans les sources pour ce qui concerne les déplacement, lancer et fin de partie. d’autant plus qu’il n’est pas indiqué s’il faut d’avord fournir ligne ou colonne… apparemment c’est ligne puis colonne et ça commence à l’indice 0</li>
+<li>je n’arrive pas à réaliser la moindre passe sur la ligne de départ malgré des coordonnées qui fonctionnent bien pour les déplacements. j’arrive à faire une passe vers la 2e ligne en diagonale</li>
+<li>convivialité très mauvaise</li>
+</ul>
+<h4 id="vue">vue</h4>
+<h5 id="design-pattern-observer">design pattern observer</h5>
+<ul>
+<li>la classe <code>Observable</code> est abstraite : <em>ko</em></li>
+<li>pour le reste presque ok : <code>Game::move(int ox, int oy, int dx, int dy)</code> et <code>Game::passe(int dx, int dy)</code> notifient, ainsi que <code>Game::start()</code>, <em>mais pas</em> <code>Game::swapPlayer()</code></li>
+</ul>
+<h5 id="absence-de-flux-cout-dans-classes-métier">absence de flux (cout) dans classes métier</h5>
+<p>ko ! <code>cout</code> dans :</p>
+<ul>
+<li><code>Game::start()</code></li>
+</ul>
+<h4 id="autre-3">autre</h4>
+<p>(void)</p>
+<h2 id="gui">gui</h2>
+<h3 id="remise-1">remise</h3>
+<h4 id="retard-1">retard</h4>
+<p>(void)</p>
+<h4 id="autre-4">autre</h4>
+<p>(void)</p>
+<h3 id="documentation-1">documentation</h3>
+<p>ok</p>
+<h3 id="rapport-1">rapport</h3>
+<h4 id="format-pdf-1">format pdf</h4>
+<p>ok</p>
+<h4 id="bogue-non-signalé-1">bogue non signalé</h4>
+<ul>
+<li>constat : je désire lancer la balle : au final 3 pions jaune ont une balle ! ensuite impossible de déplacer des pions qui pourraient le faire dans le respect des règles…</li>
+</ul>
+<h4 id="écart-ajout-non-signalé-1">écart / ajout non signalé</h4>
+<p>(void)</p>
+<h4 id="autre-5">autre</h4>
+<p>(void)</p>
+<h3 id="code-source-1">code source</h3>
+<h4 id="portabilité-1">portabilité</h4>
+<h5 id="casse-noms-fichiers-1">casse noms fichiers</h5>
+<p>(void)</p>
+<h5 id="séparateur-1">séparateur /</h5>
+<p>(void)</p>
+<h5 id="c-standard-qt">c++ standard + qt</h5>
+<p>(void)</p>
+<h5 id="si-pas-std-qt-portabilité">si pas std + qt : portabilité</h5>
+<p>(void)</p>
+<h4 id="gestion-de-la-mémoire-1">gestion de la mémoire</h4>
+<ul>
+<li>fuite mémoire dans <code>MainWindow::addPlayers()</code> : <code>Players * p = new Players(name,color)</code></li>
+</ul>
+<h4 id="contrôleur-1">contrôleur</h4>
+<h5 id="respect-des-règles">respect des règles</h5>
+<ul>
+<li>pas de configuration du plateau : taille</li>
+<li>pas de configuration du plateau : variante</li>
+<li>possible de terminer son tour alors qu’aucune action réalisée</li>
+<li>possible de continuer à jouer alors que partie terminée</li>
+</ul>
+<h5 id="convivialité-1">convivialité</h5>
+<ul>
+<li>les indications pour déplacer / lancer sont erronnées : il faut faire 2 clics sur plateau puis cliquer sur le bouton d’action</li>
+<li>pas 100 % clics sur plateau : il faut indiquer l’action désirée via un bouton y compris pour bouger ou lancer la balle</li>
+<li>obligation d’explicitement terminer son tour même si plus d’action disponible</li>
+<li>système de désélection avec un bouton dédié : ok</li>
+</ul>
+<h4 id="vue-1">vue</h4>
+<h5 id="design-pattern-observer-1">design pattern observer</h5>
+<p>ok</p>
+<h5 id="convivialité-2">convivialité</h5>
+<ul>
+<li>affichage pas très joli, mais ça fait le boulot</li>
+<li>affichage des destinations possibles : ni déplacement, ni lancer</li>
+<li>notification par messagebox qu’on n’a plus de déplacement ou de lancer : assez irritant</li>
+</ul>
+<h4 id="autre-6">autre</h4>
+<p>(void)</p>
+<h2 id="examen">examen</h2>
+<p>(void)</p>

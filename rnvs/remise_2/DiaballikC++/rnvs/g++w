@@ -1,0 +1,60 @@
+Board.cpp: Dans la fonction membre « bool BoardSpace::Board::checkMove(int, int, int, int) »:
+Board.cpp:81:10: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |        ~~^~~
+Board.cpp:81:31: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |                            ~~~^~~~
+Board.cpp:81:41: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |                                      ~~~^~~~~~~~
+Board.cpp:81:54: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |                                                    ~~^~~
+Board.cpp:81:63: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |                                                            ~~~^~~~~~~
+Board.cpp:81:76: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |                                                                         ~~~^~~
+Board.cpp:81:85: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   81 |     if(ox>=0 & ox<width_ & oy >= 0 & oy <height_ & dx>=0 & dx <width_ & dy >=0 & dy < height_){
+      |                                                                                  ~~~^~~~~~~~~
+Board.cpp:82:15: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   82 |         if((dx==ox-1 & dy ==oy) || (dx==ox & dy==oy+1) || (dx==ox+1 & dy==oy) || (dx==ox & dy==oy-1)){
+      |             ~~^~~~~~
+Board.cpp:82:39: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   82 |         if((dx==ox-1 & dy ==oy) || (dx==ox & dy==oy+1) || (dx==ox+1 & dy==oy) || (dx==ox & dy==oy-1)){
+      |                                     ~~^~~~
+Board.cpp:82:62: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   82 |         if((dx==ox-1 & dy ==oy) || (dx==ox & dy==oy+1) || (dx==ox+1 & dy==oy) || (dx==ox & dy==oy-1)){
+      |                                                            ~~^~~~~~
+Board.cpp:82:85: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+   82 |         if((dx==ox-1 & dy ==oy) || (dx==ox & dy==oy+1) || (dx==ox+1 & dy==oy) || (dx==ox & dy==oy-1)){
+      |                                                                                   ~~^~~~
+Board.cpp: Dans la fonction membre « bool BoardSpace::Board::checkPasse(int, int, int, int, Color) »:
+Board.cpp:125:10: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  125 |     if(ox<dx & oy < dy){
+      |        ~~^~~
+Board.cpp:129:10: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  129 |     if(ox<dx & oy>dy){
+      |        ~~^~~
+Board.cpp:133:10: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  133 |     if(ox>dx & oy>dy){
+      |        ~~^~~
+Board.cpp:137:10: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  137 |     if(ox>dx & oy<dy){
+      |        ~~^~~
+Board.cpp: Dans la fonction membre « PieceSpace::Piece BoardSpace::Board::direction(int, int, int, int, Color) »:
+Board.cpp:151:26: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  151 |     while(directionWidth >= 0 & directionWidth < width_ & directionHeight >= 0 & directionHeight < height_
+      |           ~~~~~~~~~~~~~~~^~~~
+Board.cpp:151:75: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  151 |     while(directionWidth >= 0 & directionWidth < width_ & directionHeight >= 0 & directionHeight < height_
+      |                                                           ~~~~~~~~~~~~~~~~^~~~
+Board.cpp:151:98: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  151 |     while(directionWidth >= 0 & directionWidth < width_ & directionHeight >= 0 & directionHeight < height_
+      |                                                                                  ~~~~~~~~~~~~~~~~^~~~~~~~~
+Board.cpp:152:65: attention: parenthèses suggérées autour de la comparaison dans l'opérande de « & » [-Wparentheses]
+  152 |             & board_[directionWidth][directionHeight].getColor()!=color){
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
